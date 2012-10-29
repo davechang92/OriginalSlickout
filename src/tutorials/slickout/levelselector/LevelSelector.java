@@ -1,5 +1,6 @@
 package tutorials.slickout.levelselector;
  
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -50,6 +51,15 @@ public class LevelSelector extends BasicGameState implements MouseListener {
 			throws SlickException {
  
 		background.draw();
+		
+		//draw level text
+		for(int i = 0; i < 6; i++){
+				int x = 50 + (250 * ((i < 3) ? i : i-3));
+				int y = 150+(225* ((i < 3 ) ? 0 : 1));
+				g.setColor(Color.blue);
+				g.drawString("Level "+ (i+1), x, y);
+				g.setColor(Color.white);
+		}
  
 		for(int i = 0; i < 6; i++){
 			if ( GameInfo.getCurrentGameInfo().isLevelCompleted(i+1)){
