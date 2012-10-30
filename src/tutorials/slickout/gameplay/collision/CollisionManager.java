@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.newdawn.slick.SlickException;
  
 import tutorials.slickout.gameplay.level.ICollidableObject;
  
@@ -115,7 +117,7 @@ public class CollisionManager {
 		return (type1 < type2) ? type1+"-"+type2 : type2+"-"+type1; 
 	}
  
-	public void processCollisions(){
+	public void processCollisions() throws SlickException{
  
 		// prepare a set of all keys to collide
 		Set<String> allCollisionKeys = new HashSet<String>();

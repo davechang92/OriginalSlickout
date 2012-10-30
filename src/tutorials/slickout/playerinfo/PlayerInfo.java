@@ -22,7 +22,7 @@ public class PlayerInfo {
  
 	public PlayerInfo(){
 		name ="AAA";
-		lives = 10;
+		lives = 999;
 		score = 0;
 	}
  
