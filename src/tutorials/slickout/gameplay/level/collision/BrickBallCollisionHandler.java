@@ -90,7 +90,7 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 		// set the new ball direction
 		ball.setDirection(direction);
  
-		// since the brick was hit, decrease the number of hits to be detroyed
+		// since the brick was hit, decrease the number of hits to be destroyed
 		brick.decreaseHit();
  
 		GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(100);
