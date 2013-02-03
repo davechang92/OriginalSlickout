@@ -1,0 +1,71 @@
+<class-diagram version="1.0.10" icons="false" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="false" dependencies="false" nesting-relationships="false">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" 
+    name="tutorials.slickout.gameplay.level.collision.BrickBallCollisionHandler" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/gameplay/level/collision/BrickBallCollisionHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="91" y="322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.gameplay.collision.ICollisionHandler" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/gameplay/collision/ICollisionHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="215" y="120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.gameplay.collision.CollisionManager" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/gameplay/collision/CollisionManager.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="626" y="138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" 
+    name="tutorials.slickout.gameplay.level.collision.PadAndPowerUpCollisionHandler" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/gameplay/level/collision/PadAndPowerUpCollisionHandler.java" 
+    binary="false">    
+    <position height="135" width="237" x="207" y="267"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="false" 
+      visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" 
+    name="tutorials.slickout.gameplay.level.collision.BumperAndPadBallCollisionHandler" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/gameplay/level/collision/BumperAndPadBallCollisionHandler.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="603" y="343"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="false" 
+      visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <realization id="6">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="7">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="false" 
+    visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="false"/>
+</class-diagram>

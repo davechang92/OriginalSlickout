@@ -1,0 +1,101 @@
+<class-diagram version="1.0.10" icons="false" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="false">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.GameInfo" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/GameInfo.java" binary="false">    
+    <position height="180" width="168" x="153" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.levelselector.LevelSelector" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/levelselector/LevelSelector.java" 
+    binary="false">    
+    <position height="255" width="141" x="-28" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.gameplay.GameplayState" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/gameplay/GameplayState.java" 
+    binary="false">    
+    <position height="210" width="205" x="516" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.SlickOutGame" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/SlickOutGame.java" binary="false">    
+    <position height="90" width="105" x="371" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="5" corner="BOTTOM_RIGHT" language="java" 
+    name="tutorials.slickout.gameplay.GameplayState.LEVEL_STATES" project="OriginalSlickout" 
+    file="/OriginalSlickout/src/tutorials/slickout/gameplay/GameplayState.java" binary="false">    
+    <position height="135" width="199" x="516" y="725"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.playerinfo.PlayerInfo" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/playerinfo/PlayerInfo.java" binary="false">    
+    <position height="-1" width="-1" x="333" y="844"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.mainmenu.MainMenuGameState" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/mainmenu/MainMenuGameState.java" 
+    binary="false">    
+    <position height="240" width="153" x="761" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="false" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association id="8">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="9" name="currentState"/>      
+      <multiplicity id="10" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="11">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="12" name="playerInfo"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="14">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="15" name="playerInfo"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="17">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="18" name="_instance"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="false" 
+    visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="false"/>
+</class-diagram>

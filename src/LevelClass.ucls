@@ -1,0 +1,32 @@
+<class-diagram version="1.0.10" icons="false" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="false">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.gameplay.level.LevelImpl" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/gameplay/level/LevelImpl.java" 
+    binary="false">    
+    <position height="528" width="206" x="103" y="149"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
+      visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" corner="BOTTOM_RIGHT" language="java" name="tutorials.slickout.gameplay.level.ILevel" 
+    project="OriginalSlickout" file="/OriginalSlickout/src/tutorials/slickout/gameplay/level/ILevel.java" binary="false">    
+    <position height="153" width="105" x="103" y="717"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="false" 
+      visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <realization id="3">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+    visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="false"/>
+</class-diagram>
