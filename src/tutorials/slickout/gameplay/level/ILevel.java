@@ -21,6 +21,11 @@ public interface ILevel {
 	public List<Brick> getBricks();
  
 	public Ball addNewBall();
+	
+	public double getPowerUpP();
+	
+	public void addPowerUp(PowerUp p);
+	
 	/*
 	public void addBall(Ball newBall);
  

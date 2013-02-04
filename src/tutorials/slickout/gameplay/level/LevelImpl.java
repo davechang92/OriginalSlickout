@@ -26,6 +26,8 @@ public class LevelImpl implements ILevel {
  
 	protected List<Brick> bricks;
 	protected List<Ball> balls;
+	protected List<PowerUp> powerups;
+	public double powerUpP = 0.5;
  
 	protected Paddle paddle;
  
@@ -216,7 +218,6 @@ public class LevelImpl implements ILevel {
 						 brickAnimation.getCollisionType());
 	}
  
- 
 	private LevelImpl(){
 		balls = new ArrayList<Ball>();
 	}
@@ -284,4 +285,19 @@ public class LevelImpl implements ILevel {
 	public final void setPaddle(Paddle paddle) {
 		this.paddle = paddle;
 	}
+	
+	//adds a power-up to the list - called when brick is hit, if rand<= powerUpP
+	public void addPowerUp(PowerUp powerUp){
+			powerups.add(powerUp);
+	}
+	
+	public double getPowerUpP(){
+		return powerUpP;
+	}
+
+
+	
 }
+
+	
+	

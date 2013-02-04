@@ -12,6 +12,7 @@ import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.Brick;
 import tutorials.slickout.gameplay.level.ICollidableObject;
 import tutorials.slickout.gameplay.level.ILevel;
+import tutorials.slickout.gameplay.level.PowerUp;
 import tutorials.slickout.playerinfo.PlayerInfo;
  
 public class BrickBallCollisionHandler implements ICollisionHandler {
@@ -103,6 +104,12 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			manager.removeCollidable(brick);
  
 			GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(250);
+		}
+		
+		//according to probability of power up being created, a power-up may be created
+		if(Math.random() <= levelData.getPowerUpP()){
+			powerUp = new PowerUp(null, null, direction, 0, direction, objectShape, 0, 0);
+			levelData.addPowerUp(powerUp);
 		}
  
 	}
