@@ -26,7 +26,7 @@ public class LevelImpl implements ILevel {
  
 	protected List<Brick> bricks;
 	protected List<Ball> balls;
-	protected List<PowerUp> powerups;
+	protected static List<PowerUp> powerUps;
 	public double powerUpP = 0.5;
  
 	protected Paddle paddle;
@@ -38,6 +38,9 @@ public class LevelImpl implements ILevel {
 		LevelImpl level = new LevelImpl();
  
 		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		
+		//powerUps
+		powerUps = new ArrayList<PowerUp>();
  
 		// background
 		level.setBackground( createImage( readNextValidLine( br ) ) );
@@ -256,6 +259,10 @@ public class LevelImpl implements ILevel {
 	public final CollidableImageObject getTopBumper() {
 		return topBumper;
 	}
+	
+	public final List<PowerUp> getPowerUps() {
+		return powerUps;
+	}
  
  
 	public final void setBackground(ImageObject background) {
@@ -285,17 +292,34 @@ public class LevelImpl implements ILevel {
 	public final void setPaddle(Paddle paddle) {
 		this.paddle = paddle;
 	}
-	
-	//adds a power-up to the list - called when brick is hit, if rand<= powerUpP
-	public void addPowerUp(PowerUp powerUp){
-			powerups.add(powerUp);
+
+	public PowerUp addPowerUp(Vector2f pos){
+		 
+		PowerUp pu = null;
+		
+		try {
+			
+			String name = "pu"+powerUps.size();
+			Image image = new Image("data/powerUp.png");
+			//position is passed in
+			float speed = 0.5f;
+			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
+			Shape collisionShape = new Rectangle(pos.x, pos.y, 50, 20);
+			int collisionType = 4;
+			int powerType = 1;
+			
+			pu = new PowerUp( name, image, pos, speed, initialDirection, collisionShape,  collisionType, powerType);
+			powerUps.add( pu );
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+ 
+		return pu;
 	}
 	
 	public double getPowerUpP(){
 		return powerUpP;
 	}
-
-
 	
 }
 

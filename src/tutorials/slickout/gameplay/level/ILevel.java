@@ -3,6 +3,7 @@ package tutorials.slickout.gameplay.level;
 import java.util.List;
  
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
  
 public interface ILevel {
  
@@ -22,10 +23,12 @@ public interface ILevel {
  
 	public Ball addNewBall();
 	
+	public PowerUp addPowerUp(Vector2f pos);
+	
+	public List<PowerUp> getPowerUps();
+	
 	public double getPowerUpP();
-	
-	public void addPowerUp(PowerUp p);
-	
+			
 	/*
 	public void addBall(Ball newBall);
  

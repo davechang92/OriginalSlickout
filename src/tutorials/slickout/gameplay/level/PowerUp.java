@@ -38,7 +38,7 @@ public class PowerUp extends CollidableImageObject {
 	}
  
 	public void setSpeed(float speed){
-		speed = speed;
+		this.speed = speed;
 	}
  
 	public float getSpeed(){

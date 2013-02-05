@@ -2,6 +2,11 @@ package tutorials.slickout.gameplay.level.collision;
  
 import java.util.Random;
  
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Vector2f;
  
@@ -10,6 +15,8 @@ import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.collision.ICollisionHandler;
 import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.Brick;
+import tutorials.slickout.gameplay.level.CollidableAnimationObject;
+import tutorials.slickout.gameplay.level.CollidableImageObject;
 import tutorials.slickout.gameplay.level.ICollidableObject;
 import tutorials.slickout.gameplay.level.ILevel;
 import tutorials.slickout.gameplay.level.PowerUp;
@@ -108,8 +115,7 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 		
 		//according to probability of power up being created, a power-up may be created
 		if(Math.random() <= levelData.getPowerUpP()){
-			powerUp = new PowerUp(null, null, direction, 0, direction, objectShape, 0, 0);
-			levelData.addPowerUp(powerUp);
+			levelData.addPowerUp(brick.getPosition());
 		}
  
 	}

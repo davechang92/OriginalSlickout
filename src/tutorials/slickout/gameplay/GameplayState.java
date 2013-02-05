@@ -22,6 +22,7 @@ import tutorials.slickout.gameplay.level.ILevel;
 import tutorials.slickout.gameplay.level.LevelImpl;
 import tutorials.slickout.gameplay.level.Paddle;
 import tutorials.slickout.gameplay.level.Paddle.PAD_STATE;
+import tutorials.slickout.gameplay.level.PowerUp;
 import tutorials.slickout.gameplay.level.collision.BrickBallCollisionHandler;
 import tutorials.slickout.gameplay.level.collision.BumperAndPadBallCollisionHandler;
 import tutorials.slickout.playerinfo.PlayerInfo;
@@ -114,6 +115,11 @@ public class GameplayState extends BasicGameState {
 		for ( Ball ball : level.getBalls()){
 			ball.render(gr);
 		}
+		
+		//powerups
+		for ( PowerUp powerUp : level.getPowerUps()){
+			powerUp.render(gr);
+		}
  
 		gr.drawString("Lives: " + playerInfo.getLives(), 700, 10);
 		gr.drawString("Score: " + playerInfo.getScore(), 500, 10);
@@ -187,6 +193,28 @@ public class GameplayState extends BasicGameState {
 					level.getBalls().remove(ball);
  
 					collisionManager.removeCollidable(ball);
+				}
+			}
+			
+			//update all powerups
+			List<PowerUp> puRemovals = null;
+ 
+			for(PowerUp powerUp : level.getPowerUps()){
+				powerUp.update(gc, sbg, delta);
+ 
+				if(powerUp.getPosition().y > gc.getHeight()){
+					if(puRemovals == null){
+						puRemovals = new ArrayList<PowerUp>();
+					}
+					puRemovals.add(powerUp);
+				}
+			}
+			
+			if(puRemovals != null){
+				for(PowerUp pu : puRemovals){
+					level.getPowerUps().remove(pu);
+ 
+					//collisionManager.removeCollidable(ball);
 				}
 			}
  
