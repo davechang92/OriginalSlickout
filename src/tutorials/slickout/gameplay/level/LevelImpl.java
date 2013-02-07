@@ -293,7 +293,7 @@ public class LevelImpl implements ILevel {
 		this.paddle = paddle;
 	}
 
-	public PowerUp addPowerUp(Vector2f pos){
+	public void addPowerUp(Vector2f pos){
 		 
 		PowerUp pu = null;
 		
@@ -313,8 +313,11 @@ public class LevelImpl implements ILevel {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
- 
-		return pu;
+		
+		for(PowerUp powerUp : powerUps){
+			System.out.println(powerUp.name);
+		}
+		
 	}
 	
 	public double getPowerUpP(){
