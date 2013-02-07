@@ -300,7 +300,7 @@ public class LevelImpl implements ILevel {
 		try {
 			
 			String name = "pu"+powerUps.size();
-			Image image = new Image("data/powerUp.png");
+			Image image = new Image("data/paddlePU.png");
 			//position is passed in
 			float speed = 0.5f;
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
@@ -312,10 +312,6 @@ public class LevelImpl implements ILevel {
 			powerUps.add( pu );
 		} catch (SlickException e) {
 			e.printStackTrace();
-		}
-		
-		for(PowerUp powerUp : powerUps){
-			System.out.println(powerUp.name);
 		}
 		
 	}
