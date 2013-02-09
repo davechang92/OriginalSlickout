@@ -214,7 +214,7 @@ public class GameplayState extends BasicGameState {
 				for(PowerUp pu : puRemovals){
 					level.getPowerUps().remove(pu);
  
-					//collisionManager.removeCollidable(ball);
+					collisionManager.removeCollidable(pu);
 				}
 			}
  

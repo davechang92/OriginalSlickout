@@ -293,7 +293,7 @@ public class LevelImpl implements ILevel {
 		this.paddle = paddle;
 	}
 
-	public void addPowerUp(Vector2f pos){
+	public PowerUp addPowerUp(Vector2f pos){
 		 
 		PowerUp pu = null;
 		
@@ -302,7 +302,7 @@ public class LevelImpl implements ILevel {
 			String name = "pu"+powerUps.size();
 			Image image = new Image("data/paddlePU.png");
 			//position is passed in
-			float speed = 0.5f;
+			float speed = 0.28f;
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
 			Shape collisionShape = new Rectangle(pos.x, pos.y, 50, 20);
 			int collisionType = 4;
@@ -313,6 +313,8 @@ public class LevelImpl implements ILevel {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+		
+		return pu;
 		
 	}
 	
