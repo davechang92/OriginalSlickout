@@ -127,9 +127,9 @@ public class CollisionManager {
  
 		Set<Integer> types = collisionsTypes.keySet();
  
-		// obtain every type for collision
+		// for every type that collides
 		for(Integer type : types){
-			// obtain for each type the type it collides with
+			//  for each type it collides with
 			List<Integer> collidesWithTypes = collisionsTypes.get(type);
  
 			for(Integer collidingType : collidesWithTypes){
@@ -139,22 +139,27 @@ public class CollisionManager {
 					List<ICollidableObject> collidableForType = collidables.get(type);
 					// obtain all object of collidingtype
 					List<ICollidableObject> collidableForCollidingType = collidables.get(collidingType);
- 
-					// for each pair from type1 -> type2 verify if the collision happens 
-					for( ICollidableObject collidable : collidableForType ){
-						for( ICollidableObject collidesWith : collidableForCollidingType ){
-							if(collidable.isCollidingWith(collidesWith)){
-								// if collision happens add the collision handler to the array
-								CollisionData cd = new CollisionData();
-								cd.handler = collisionHandlers.get(getKey(type, collidingType));
-								cd.object1 = collidable;
-								cd.object2 = collidesWith;
- 
-								collisions.add(cd);
+					
+					//test to see if there are any collidable objects of the types concerned present - only processes objects if they're present
+					if(!(collidableForType == null ||collidableForCollidingType == null)){
+						
+					
+						// for each pair from type1 -> type2 verify if the collision happens 
+						for( ICollidableObject collidable : collidableForType ){
+							for( ICollidableObject collidesWith : collidableForCollidingType ){
+								if(collidable.isCollidingWith(collidesWith)){
+									// if collision happens add the collision handler to the array
+									CollisionData cd = new CollisionData();
+									cd.handler = collisionHandlers.get(getKey(type, collidingType));
+									cd.object1 = collidable;
+									cd.object2 = collidesWith;
+	 
+									collisions.add(cd);
+								}
 							}
 						}
 					}
- 
+					
 					// set these both types as processed
 					allCollisionKeys.add(getKey(type, collidingType));
 				}				

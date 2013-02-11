@@ -25,6 +25,7 @@ import tutorials.slickout.gameplay.level.Paddle.PAD_STATE;
 import tutorials.slickout.gameplay.level.PowerUp;
 import tutorials.slickout.gameplay.level.collision.BrickBallCollisionHandler;
 import tutorials.slickout.gameplay.level.collision.BumperAndPadBallCollisionHandler;
+import tutorials.slickout.gameplay.level.collision.PadAndPowerUpCollisionHandler;
 import tutorials.slickout.playerinfo.PlayerInfo;
  
 public class GameplayState extends BasicGameState {
@@ -81,6 +82,7 @@ public class GameplayState extends BasicGameState {
  
 		collisionManager.addHandler(new BumperAndPadBallCollisionHandler());
 		collisionManager.addHandler(new BrickBallCollisionHandler(level, collisionManager));
+		collisionManager.addHandler(new PadAndPowerUpCollisionHandler());
  
 		gc.getInput().addMouseListener(level.getPaddle());
  
