@@ -1,9 +1,11 @@
 package tutorials.slickout.gameplay.level.collision;
  
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Vector2f;
 
+import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.collision.ICollisionHandler;
 import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.ICollidableObject;
@@ -12,10 +14,13 @@ import tutorials.slickout.gameplay.level.Paddle;
 import tutorials.slickout.gameplay.level.PowerUp;
 
 public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
-	//private ILevel levelData;
 
-	public PadAndPowerUpCollisionHandler() {
-		//levelData = level;
+	private ILevel level;
+	private CollisionManager manager;
+	
+	public PadAndPowerUpCollisionHandler(ILevel level, CollisionManager manager) {
+		this.level = level;
+		this.manager = manager;
 	}
 
 	//paddle
@@ -39,16 +44,16 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		}
 
 		PowerUp pu = null;
-		ICollidableObject object = null;
+		Paddle paddle = null;
 		
 		// Cast the correct objects		
 
 		if (collidable1 instanceof PowerUp) {
 			pu = (PowerUp) collidable1;
-			object = collidable2;
+			paddle = (Paddle) collidable2;
 		} else {
 			pu = (PowerUp) collidable2;
-			object = collidable1;
+			paddle = (Paddle) collidable1;
 		}
 
 		// obtain a copy of the direction
@@ -61,28 +66,17 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		do {
 			Vector2f pos = pu.getPosition();
 			pu.setPosition(new Vector2f(pos.x + direction.x, pos.y - direction.y));
-		} while (pu.isCollidingWith(object));
+		} while (pu.isCollidingWith(paddle));
+
+		//remove powerup from level and collision manager
+		level.getPowerUps().remove(pu);
+		manager.removeCollidable(pu);
 		
-		// obtain the shapes of the objects
-		Shape puShape = pu.getCollisionShape();
-		Shape objectShape = object.getCollisionShape();
-
-		/* obtain a fresh direction of the ball
-		direction = pu.getDirection().copy();
-
-		// define the new direction
-		if (ballShape.getMinY() > objectShape.getMaxY() || ballShape.getMaxY() < objectShape.getMinY()) {
-			direction.set(direction.x, -direction.y);
-		} else {
-			direction.set(-direction.x, direction.y);
-		}*/
-
-		if (object instanceof Paddle) {
-			System.out.println("BANG");
-			//levelData.playBop();
-		} else {
-			//levelData.playBump();
+		switch (pu.getPowerType()){
+			case 1: System.out.println("1");
+					paddle.setAnimation("data/padanimation150.png", 150, 20, 1000);
 		}
+		
 	}
 
 }

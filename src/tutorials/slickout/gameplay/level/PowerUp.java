@@ -45,6 +45,10 @@ public class PowerUp extends CollidableImageObject {
 		return speed;
 	}
 	
+	public int getPowerType(){
+		return powerType;
+	}
+	
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		position.x += direction.x * delta * speed;

@@ -82,7 +82,7 @@ public class GameplayState extends BasicGameState {
  
 		collisionManager.addHandler(new BumperAndPadBallCollisionHandler());
 		collisionManager.addHandler(new BrickBallCollisionHandler(level, collisionManager));
-		collisionManager.addHandler(new PadAndPowerUpCollisionHandler());
+		collisionManager.addHandler(new PadAndPowerUpCollisionHandler(level, collisionManager));
  
 		gc.getInput().addMouseListener(level.getPaddle());
  
