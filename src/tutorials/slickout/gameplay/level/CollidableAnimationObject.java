@@ -37,6 +37,10 @@ public class CollidableAnimationObject extends AnimationObject implements
 	public Shape getCollisionShape() {
 		return collisionShape.transform( Transform.createTranslateTransform(position.x, position.y));
 	}
+	
+	public void setCollisionShape(Shape collisionShape){
+		this.collisionShape = collisionShape;
+	}
  
 	@Override
 	public int getCollisionType() {

@@ -2,6 +2,7 @@ package tutorials.slickout.gameplay.level.collision;
  
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Vector2f;
 
@@ -75,6 +76,7 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		switch (pu.getPowerType()){
 			case 1: System.out.println("1");
 					paddle.setAnimation("data/padanimation150.png", 150, 20, 1000);
+					paddle.setCollisionShape(new Rectangle(0, 0, 150, 20));
 		}
 		
 	}

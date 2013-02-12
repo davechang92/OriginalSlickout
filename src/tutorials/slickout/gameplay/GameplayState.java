@@ -151,8 +151,9 @@ public class GameplayState extends BasicGameState {
  
 				Vector2f position = level.getPaddle().getPosition().copy();
  
-				position.x += 40;
+				position.x += level.getPaddle().getCollisionShape().getWidth()/2 - 10;
 				position.y -= 20;
+				
  
 				ball.setPosition( position );
 			}else{
