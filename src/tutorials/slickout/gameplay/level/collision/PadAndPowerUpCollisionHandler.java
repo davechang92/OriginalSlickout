@@ -83,7 +83,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 					Timer resetPaddleTimer = new Timer();
 					resetPaddleTimer.schedule(new timerTask(paddle), pu.getDuration());
 					break;
-					
+			case 2: System.out.println("2");
+					break;
 		}
 		
 	}
