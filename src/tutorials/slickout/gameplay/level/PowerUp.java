@@ -9,7 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class PowerUp extends CollidableImageObject {
 
 	private int powerType;
-	
+	private long duration;
 
 	protected float speed;
 	protected Vector2f direction;
@@ -21,12 +21,14 @@ public class PowerUp extends CollidableImageObject {
 				Vector2f initialDirection,
 				Shape collisionShape, 
 				int collisionType,
-				int powerType) {
+				int powerType,
+				long duration) {
 		super(name, image, position, collisionShape, collisionType);
  
 		this.speed = speed;
 		this.direction = initialDirection.copy();
 		this.powerType = powerType;
+		this.duration = duration;
 	}
  
 	public void setDirection(Vector2f direction){
@@ -47,6 +49,10 @@ public class PowerUp extends CollidableImageObject {
 	
 	public int getPowerType(){
 		return powerType;
+	}
+	
+	public long getDuration(){
+		return duration;
 	}
 	
 	@Override

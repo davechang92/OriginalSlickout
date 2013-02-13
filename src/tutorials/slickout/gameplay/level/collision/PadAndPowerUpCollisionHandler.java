@@ -1,5 +1,8 @@
 package tutorials.slickout.gameplay.level.collision;
  
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
@@ -77,6 +80,31 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 			case 1: System.out.println("1");
 					paddle.setAnimation("data/padanimation150.png", 150, 20, 1000);
 					paddle.setCollisionShape(new Rectangle(0, 0, 150, 20));
+					Timer resetPaddleTimer = new Timer();
+					resetPaddleTimer.schedule(new timerTask(paddle), pu.getDuration());
+					break;
+					
+		}
+		
+	}
+	
+	//class used to reset after powerup expires
+	class timerTask extends TimerTask{
+		
+		Paddle pad;
+		public timerTask(Paddle pad){
+			this.pad = pad;
+		}
+		
+		@Override
+		public void run() {
+			try {
+				pad.setAnimation("data/padanimation.png", 100, 20, 1000);
+				pad.setCollisionShape(new Rectangle(0,0,100,20));
+			} catch (SlickException e) {
+				System.out.println("resetting pad animaton failed");
+				e.printStackTrace();
+			}
 		}
 		
 	}

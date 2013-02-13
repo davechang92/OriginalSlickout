@@ -307,8 +307,9 @@ public class LevelImpl implements ILevel {
 			Shape collisionShape = new Rectangle(0, 0, 18, 7);
 			int collisionType = 4;
 			int powerType = 1;
+			long duration = 4000;
 			
-			pu = new PowerUp( name, image, pos, speed, initialDirection, collisionShape,  collisionType, powerType);
+			pu = new PowerUp( name, image, pos, speed, initialDirection, collisionShape,  collisionType, powerType, duration);
 			powerUps.add( pu );
 		} catch (SlickException e) {
 			e.printStackTrace();
