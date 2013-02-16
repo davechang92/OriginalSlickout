@@ -55,7 +55,7 @@ public class CollidableAnimationObject extends AnimationObject implements
 	public void render(Graphics graphics) {
 		super.render(graphics);
  
-		graphics.draw(getCollisionShape());
+		//graphics.draw(getCollisionShape());
 	}
  
 	@Override

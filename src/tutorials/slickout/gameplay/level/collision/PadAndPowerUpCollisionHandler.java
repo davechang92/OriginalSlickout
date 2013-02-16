@@ -22,6 +22,13 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 	private ILevel level;
 	private CollisionManager manager;
 	
+	Timer enlargenPaddleTimer = new Timer();
+	Timer shrinkPaddleTimer = new Timer();
+	Timer increaseBallSpeedTimer = new Timer();
+	Timer decreaseBallSpeedTimer = new Timer();
+
+
+	
 	public PadAndPowerUpCollisionHandler(ILevel level, CollisionManager manager) {
 		this.level = level;
 		this.manager = manager;
@@ -75,16 +82,42 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		//remove powerup from level and collision manager
 		level.getPowerUps().remove(pu);
 		manager.removeCollidable(pu);
+ 
+		//POWER UP TYPE SPECIFIC HANDLING HAPPENS HERE
 		
 		switch (pu.getPowerType()){
-			case 1: System.out.println("1");
-					paddle.setAnimation("data/padanimation150.png", 150, 20, 1000);
+			case 1: //System.out.println("1");
+					paddle.setAnimation("data/padanimation150.png", 150, 20, 1000);//enlarge paddle
 					paddle.setCollisionShape(new Rectangle(0, 0, 150, 20));
-					Timer resetPaddleTimer = new Timer();
-					resetPaddleTimer.schedule(new timerTask(paddle), pu.getDuration());
+					try {
+						enlargenPaddleTimer.cancel();
+						enlargenPaddleTimer.purge();
+						enlargenPaddleTimer = new Timer();
+					} catch (IllegalStateException e) {
+						//do nothing when exception caught (just means that timer hasn't been scheduled yet)
+					}
+					enlargenPaddleTimer.schedule(new timerTask(1), pu.getDuration());
+					
 					break;
-			case 2: System.out.println("2");
+			case 2: System.out.println("speed up collected");
+					for(Ball ball: level.getBalls()){	//increase ball speed
+						ball.increaseSpeed(0.20f);
+					}
+					decreaseBallSpeedTimer.schedule(new timerTask(2), pu.getDuration());
 					break;
+			case 3: System.out.println("slow down collected");
+					//decrease ball speed ( as long as decrease wouldn't result in stationary ball)
+					boolean decreased = false;
+					for(Ball ball: level.getBalls()){	
+						if(ball.getSpeed() > 0.20f){
+							ball.decreaseSpeed(0.20f);
+							decreased = true;
+						}
+					}
+					if(decreased)
+						increaseBallSpeedTimer.schedule(new timerTask(3), pu.getDuration());
+					break;
+					
 		}
 		
 	}
@@ -92,18 +125,38 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 	//class used to reset after powerup expires
 	class timerTask extends TimerTask{
 		
-		Paddle pad;
-		public timerTask(Paddle pad){
-			this.pad = pad;
+
+		int type;
+		
+		public timerTask(int type){
+			this.type = type;
 		}
 		
 		@Override
 		public void run() {
 			try {
-				pad.setAnimation("data/padanimation.png", 100, 20, 1000);
-				pad.setCollisionShape(new Rectangle(0,0,100,20));
+				switch(type){
+					//resets paddle to normal size after enlargening
+					case 1:	Paddle pad = level.getPaddle();
+							pad.setAnimation("data/padanimation.png", 100, 20, 1000);
+							pad.setCollisionShape(new Rectangle(0,0,100,20));
+							break;
+					//decreases ball speed after a speed-up	
+					case 2: for(Ball ball: level.getBalls()){
+								System.out.println("speed decreased");
+								ball.decreaseSpeed(0.20f);
+							}
+							break;
+					//increases ball speed after a slow down
+					case 3:for(Ball ball: level.getBalls()){
+						System.out.println("speed increased");
+
+								ball.increaseSpeed(0.20f);
+							}
+							break;
+				}
 			} catch (SlickException e) {
-				System.out.println("resetting pad animaton failed");
+				System.out.println("resetting after powerup of type " + type + " failed");
 				e.printStackTrace();
 			}
 		}

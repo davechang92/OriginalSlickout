@@ -43,7 +43,7 @@ public class CollidableImageObject extends ImageObject implements ICollidableObj
 	public void render(Graphics graphics) {
 		image.draw(position.x, position.y);
  
-		graphics.draw(getCollisionShape());
+		//graphics.draw(getCollisionShape());
 	}
  
 	@Override

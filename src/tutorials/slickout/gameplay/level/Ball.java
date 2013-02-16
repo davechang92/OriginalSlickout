@@ -35,6 +35,14 @@ public class Ball extends CollidableImageObject {
 	public void setSpeed(float speed){
 		ballSpeed = speed;
 	}
+	
+	public void increaseSpeed(float num){
+		ballSpeed = ballSpeed + num;
+	}
+	
+	public void decreaseSpeed(float num){
+		ballSpeed = ballSpeed - num;
+	}
  
 	public float getSpeed(){
 		return ballSpeed;

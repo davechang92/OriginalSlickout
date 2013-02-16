@@ -1,5 +1,13 @@
 package tutorials.slickout;
  
+/*
+ * TODO
+ * HAVE VARIABLE POWERUP DURATIONS
+ * HAVE POWERUPS FALLING ALL THE TIME, NO JUST IN NORMAL GAMEPLAYSTATE
+ * HAVE EDGE OF ENLARGED PADDLE COLLIDE NOT GO OVER SCREEN
+ * 
+ */
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
