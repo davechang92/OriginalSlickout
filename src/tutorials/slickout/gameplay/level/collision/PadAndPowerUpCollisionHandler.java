@@ -101,22 +101,33 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 					break;
 			case 2: System.out.println("speed up collected");
 					for(Ball ball: level.getBalls()){	//increase ball speed
-						ball.increaseSpeed(0.20f);
+						ball.increaseSpeed(0.25f);
+						decreaseBallSpeedTimer.schedule(new timerTask(2), pu.getDuration());
 					}
-					decreaseBallSpeedTimer.schedule(new timerTask(2), pu.getDuration());
 					break;
 			case 3: System.out.println("slow down collected");
 					//decrease ball speed ( as long as decrease wouldn't result in stationary ball)
 					boolean decreased = false;
 					for(Ball ball: level.getBalls()){	
-						if(ball.getSpeed() > 0.20f){
-							ball.decreaseSpeed(0.20f);
+						if(ball.getSpeed() > 0.25f){
+							ball.decreaseSpeed(0.25f);
 							decreased = true;
 						}
 					}
 					if(decreased)
 						increaseBallSpeedTimer.schedule(new timerTask(3), pu.getDuration());
 					break;
+			case 4://decrease paddlesize
+				paddle.setAnimation("data/padanimation50.png", 50, 20, 1000);//enlarge paddle
+				paddle.setCollisionShape(new Rectangle(0, 0, 50, 20));
+				try {
+					shrinkPaddleTimer.cancel();
+					shrinkPaddleTimer.purge();
+					shrinkPaddleTimer = new Timer();
+				} catch (IllegalStateException e) {
+					//do nothing when exception caught (just means that timer hasn't been scheduled yet)
+				}
+				shrinkPaddleTimer.schedule(new timerTask(1), pu.getDuration());
 					
 		}
 		
@@ -136,7 +147,7 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		public void run() {
 			try {
 				switch(type){
-					//resets paddle to normal size after enlargening
+					//resets paddle to normal size after enlargening or shrinking
 					case 1:	Paddle pad = level.getPaddle();
 							pad.setAnimation("data/padanimation.png", 100, 20, 1000);
 							pad.setCollisionShape(new Rectangle(0,0,100,20));
@@ -144,14 +155,13 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 					//decreases ball speed after a speed-up	
 					case 2: for(Ball ball: level.getBalls()){
 								System.out.println("speed decreased");
-								ball.decreaseSpeed(0.20f);
+								ball.setSpeed(0.5f);
 							}
 							break;
 					//increases ball speed after a slow down
 					case 3:for(Ball ball: level.getBalls()){
-						System.out.println("speed increased");
-
-								ball.increaseSpeed(0.20f);
+								System.out.println("speed increased");
+								ball.setSpeed(0.5f);
 							}
 							break;
 				}

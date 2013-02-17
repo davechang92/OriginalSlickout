@@ -306,16 +306,16 @@ public class LevelImpl implements ILevel {
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
 			Shape collisionShape = new Rectangle(0, 0, 18, 7);
 			int collisionType = 4;
-			int powerType = (int) (Math.random()*3)+1;
+			int powerType = (int) (Math.random()*4)+1;
 			if(powerType==1){
 				image = new Image("data/paddlePU.png");
 			}else if (powerType==2){
 				image = new Image("data/speedUpPU.png");
 			}else if(powerType==3){
 				image = new Image("data/speedDownPU.png");
-			}//else if(powerType==4){
-				//image = new Image("data/shrinkPU.png");
-			//}
+			}else if(powerType==4){
+				image = new Image("data/shrinkPU.png");
+			}
 			long duration = 4000;
 			
 			pu = new PowerUp( name, image, pos, speed, initialDirection, collisionShape,  collisionType, powerType, duration);
