@@ -15,6 +15,8 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
+import tutorials.slickout.dda.sensor.ISensor;
+import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.Brick;
@@ -42,6 +44,8 @@ public class GameplayState extends BasicGameState {
 	private LEVEL_STATES currentState;
  
 	private CollisionManager collisionManager;
+	
+	private ISensor powerUpSensor;
  
 	@Override
 	public int getID() {
@@ -79,16 +83,21 @@ public class GameplayState extends BasicGameState {
 		for(Brick brick : level.getBricks()){
 			collisionManager.addCollidable(brick);
 		}
- 
+		
+		PadAndPowerUpCollisionHandler padPowerUpHandler = new PadAndPowerUpCollisionHandler(level, collisionManager);
+		
 		collisionManager.addHandler(new BumperAndPadBallCollisionHandler());
 		collisionManager.addHandler(new BrickBallCollisionHandler(level, collisionManager));
-		collisionManager.addHandler(new PadAndPowerUpCollisionHandler(level, collisionManager));
+		collisionManager.addHandler(padPowerUpHandler);
  
 		gc.getInput().addMouseListener(level.getPaddle());
  
 		currentState = LEVEL_STATES.BALL_LAUNCH;
  
 		playerInfo = GameInfo.getCurrentGameInfo().getPlayerInfo();
+		
+		SensorFactory factory = new SensorFactory();
+		powerUpSensor = factory.createSensor("PowerUp", padPowerUpHandler);
 	}
  
 	@Override
@@ -129,6 +138,9 @@ public class GameplayState extends BasicGameState {
 		if(message != null){
 			gr.drawString(message, 300, 300);
 		}
+		
+		//draws sensor values at bottom of screen
+		gr.drawString("Power Ups Collected: "+ powerUpSensor.getValue(), 50, 700);
 	}
  
 	@Override

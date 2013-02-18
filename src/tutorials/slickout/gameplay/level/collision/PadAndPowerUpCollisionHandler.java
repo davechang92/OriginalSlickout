@@ -19,6 +19,7 @@ import tutorials.slickout.gameplay.level.PowerUp;
 
 public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 
+	
 	private ILevel level;
 	private CollisionManager manager;
 	
@@ -26,7 +27,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 	Timer shrinkPaddleTimer = new Timer();
 	Timer increaseBallSpeedTimer = new Timer();
 	Timer decreaseBallSpeedTimer = new Timer();
-
+	
+	int totalPowerUpsCollected = 0;
 
 	
 	public PadAndPowerUpCollisionHandler(ILevel level, CollisionManager manager) {
@@ -45,6 +47,10 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 	public int getCollider2Type() {
 		return 4;
 	}
+	
+	public int getTotalPowerUpsCollected(){
+		return totalPowerUpsCollected;
+	}
 
 	// check to see if collision is still applicable
 	// sometimes the collision may be resolved by other handlers somehow
@@ -53,6 +59,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		if (!collidable1.isCollidingWith(collidable2)) {
 			return;
 		}
+		
+		totalPowerUpsCollected++;
 
 		PowerUp pu = null;
 		Paddle paddle = null;

@@ -1,12 +1,16 @@
 package tutorials.slickout.dda.sensor;
 
-public class SensorFactory {
+import tutorials.slickout.gameplay.level.collision.PadAndPowerUpCollisionHandler;
 
+public class SensorFactory {
 	
-	public void createSensor(String name, Object objectToBeMonitored){
-		if(name.equals("PowerUpCollectionSensor")){
-			PowerUpCollectionSensor puSensor = new PowerUpCollectionSensor();
+	
+	public ISensor createSensor(String name, Object objectToBeMonitored){
+		if(name.equals("PowerUp")){
+			PowerUpCollectionSensor puSensor = new PowerUpCollectionSensor((PadAndPowerUpCollisionHandler) objectToBeMonitored);
+			return puSensor;
 		}
+		return null;
 	}
 	
 }
