@@ -29,7 +29,7 @@ public interface ILevel {
 	
 	public double getPowerUpP();
 
-	public int getGameHeight();
+	public int getHeight();
 			
 	/*
 	public void addBall(Ball newBall);

@@ -15,7 +15,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
-import tutorials.slickout.dda.sensor.ISensor;
+import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.level.Ball;
@@ -45,7 +45,8 @@ public class GameplayState extends BasicGameState {
  
 	private CollisionManager collisionManager;
 	
-	private ISensor powerUpSensor;
+	private AbstractSensor powerUpCollectionSensor;
+	private AbstractSensor powerUpProductionSensor;
  
 	@Override
 	public int getID() {
@@ -88,9 +89,10 @@ public class GameplayState extends BasicGameState {
 		}
 		
 		PadAndPowerUpCollisionHandler padPowerUpHandler = new PadAndPowerUpCollisionHandler(level, collisionManager);
+		BrickBallCollisionHandler brickBallHandler = new BrickBallCollisionHandler(level, collisionManager);
 		
 		collisionManager.addHandler(new BumperAndPadBallCollisionHandler());
-		collisionManager.addHandler(new BrickBallCollisionHandler(level, collisionManager));
+		collisionManager.addHandler(brickBallHandler);
 		collisionManager.addHandler(padPowerUpHandler);
  
 		gc.getInput().addMouseListener(level.getPaddle());
@@ -102,7 +104,8 @@ public class GameplayState extends BasicGameState {
 		
 		if(dda){
 			SensorFactory factory = new SensorFactory();
-			powerUpSensor = factory.createSensor("PowerUp", padPowerUpHandler);
+			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
+			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
 		}
 	}
  
@@ -146,7 +149,7 @@ public class GameplayState extends BasicGameState {
 		}
 		
 		//draws sensor values at bottom of screen
-		gr.drawString("Power Ups Collected: "+ powerUpSensor.getValue(), 50, 700);
+		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 50, 700);
 	}
  
 	@Override
@@ -201,7 +204,7 @@ public class GameplayState extends BasicGameState {
 			for(Ball ball : level.getBalls()){
 				ball.update(gc, sbg, delta);
  
-				if(ball.getPosition().y > level.getGameHeight()){
+				if(ball.getPosition().y > level.getHeight()){
 					if(removals == null){
 						removals = new ArrayList<Ball>();
 					}
@@ -223,7 +226,7 @@ public class GameplayState extends BasicGameState {
 			for(PowerUp powerUp : level.getPowerUps()){
 				powerUp.update(gc, sbg, delta);
  
-				if(powerUp.getPosition().y > level.getGameHeight()){
+				if(powerUp.getPosition().y > level.getHeight()){
 					if(puRemovals == null){
 						puRemovals = new ArrayList<PowerUp>();
 					}

@@ -335,7 +335,7 @@ public class LevelImpl implements ILevel {
 	}
 	
 	//gets height of level
-	public int getGameHeight(){
+	public int getHeight(){
 		return gameHeight;
 	}
 	

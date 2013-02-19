@@ -28,6 +28,9 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
  
 	private ILevel levelData;
 	private CollisionManager manager;
+	
+	//num of pus produced
+	private int totalPowerUps = 0;
  
 	public BrickBallCollisionHandler(ILevel levelData, CollisionManager manager){
 		r = new Random();
@@ -118,8 +121,14 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			PowerUp pu = levelData.addPowerUp(brick.getPosition());
 			
 			manager.addCollidable(pu);
+			
+			totalPowerUps++;
 		}
  
+	}
+	
+	public int getPowerUpsProduced(){
+		return totalPowerUps;
 	}
  
 }

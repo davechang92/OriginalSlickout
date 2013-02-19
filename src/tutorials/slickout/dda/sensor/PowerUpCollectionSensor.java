@@ -1,38 +1,20 @@
 package tutorials.slickout.dda.sensor;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import tutorials.slickout.gameplay.level.collision.PadAndPowerUpCollisionHandler;
 
 
-public class PowerUpCollectionSensor implements ISensor {
+public class PowerUpCollectionSensor extends AbstractSensor {
 	
-	Timer timer;
 	PadAndPowerUpCollisionHandler padPUHandler;
-	int totalPowerUpsCollected;
 	
 	public PowerUpCollectionSensor(PadAndPowerUpCollisionHandler padPUHandler){
-		timer = new Timer();
-		timer.schedule(new Task(), 1000, 500);
+		super();
 		this.padPUHandler = padPUHandler;
 	}
 	
-	public void refreshValue(){
-		totalPowerUpsCollected = padPUHandler.getTotalPowerUpsCollected();
-	}
-	
-	public class Task extends TimerTask{
-
-		@Override
-		public void run() {
-			refreshValue();
-		}
-		
-	}
-
 	@Override
-	public Object getValue() {
-		return totalPowerUpsCollected;
+	public void refreshValue(){
+		value = padPUHandler.getTotalPowerUpsCollected();
 	}
 	
 }
