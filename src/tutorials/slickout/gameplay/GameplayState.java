@@ -60,6 +60,9 @@ public class GameplayState extends BasicGameState {
 	@Override
 	public void enter(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
+		
+		//boolean used to decide whether dda will be in this game or not
+		boolean dda = true;
  
 		// load level
 		if(levelFile == null){
@@ -96,8 +99,11 @@ public class GameplayState extends BasicGameState {
  
 		playerInfo = GameInfo.getCurrentGameInfo().getPlayerInfo();
 		
-		SensorFactory factory = new SensorFactory();
-		powerUpSensor = factory.createSensor("PowerUp", padPowerUpHandler);
+		
+		if(dda){
+			SensorFactory factory = new SensorFactory();
+			powerUpSensor = factory.createSensor("PowerUp", padPowerUpHandler);
+		}
 	}
  
 	@Override
@@ -195,7 +201,7 @@ public class GameplayState extends BasicGameState {
 			for(Ball ball : level.getBalls()){
 				ball.update(gc, sbg, delta);
  
-				if(ball.getPosition().y > gc.getHeight()){
+				if(ball.getPosition().y > level.getGameHeight()){
 					if(removals == null){
 						removals = new ArrayList<Ball>();
 					}
@@ -217,7 +223,7 @@ public class GameplayState extends BasicGameState {
 			for(PowerUp powerUp : level.getPowerUps()){
 				powerUp.update(gc, sbg, delta);
  
-				if(powerUp.getPosition().y > gc.getHeight()){
+				if(powerUp.getPosition().y > level.getGameHeight()){
 					if(puRemovals == null){
 						puRemovals = new ArrayList<PowerUp>();
 					}

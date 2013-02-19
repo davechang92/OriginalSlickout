@@ -13,7 +13,7 @@ public class PowerUpCollectionSensor implements ISensor {
 	
 	public PowerUpCollectionSensor(PadAndPowerUpCollisionHandler padPUHandler){
 		timer = new Timer();
-		timer.schedule(new Task(), 1000, 5000);
+		timer.schedule(new Task(), 1000, 500);
 		this.padPUHandler = padPUHandler;
 	}
 	

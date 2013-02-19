@@ -32,6 +32,8 @@ public class LevelImpl implements ILevel {
 	protected Paddle paddle;
  
 	protected String[] ballArgs;
+	
+	protected int gameHeight = 600;
  
  
 	public static ILevel loadLevel(InputStream is) throws SlickException{
@@ -330,6 +332,11 @@ public class LevelImpl implements ILevel {
 	
 	public double getPowerUpP(){
 		return powerUpP;
+	}
+	
+	//gets height of level
+	public int getGameHeight(){
+		return gameHeight;
 	}
 	
 }
