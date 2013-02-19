@@ -12,6 +12,8 @@ import tutorials.slickout.gameplay.level.Paddle;
 
 public class BumperAndPadBallCollisionHandler implements ICollisionHandler {
 	//private ILevel levelData;
+	
+	private int timesHitPaddle = 0;
 
 	public BumperAndPadBallCollisionHandler() {
 		//levelData = level;
@@ -75,6 +77,8 @@ public class BumperAndPadBallCollisionHandler implements ICollisionHandler {
 		}
 
 		if (object instanceof Paddle) {
+			timesHitPaddle++;
+			
 			//Alter angle a bit depending on where it strikes the paddle. Middle - no change
 			//This allows player to control the ball a bit by moving the paddle appropriately
 			Paddle paddle = (Paddle) object;
@@ -108,5 +112,9 @@ public class BumperAndPadBallCollisionHandler implements ICollisionHandler {
 		}
 		ball.setDirection(direction);
 	}
-
+	
+	public int getTimesHitPaddle(){
+		return timesHitPaddle;
+	}
+	
 }

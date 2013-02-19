@@ -18,6 +18,7 @@ public class PlayerInfo {
 	private String name;
 	private int lives;
 	private int score;
+	private int livesLost = 0;
  
  
 	public PlayerInfo(){
@@ -61,5 +62,13 @@ public class PlayerInfo {
  
 	public final void decreaseScore(int score) {
 		this.score -= score;
+	}
+	
+	public final void lifeLost(){
+		livesLost++;
+	}
+	
+	public final int getLivesLost(){
+		return livesLost;
 	}
 }

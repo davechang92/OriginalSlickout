@@ -31,6 +31,8 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 	
 	//num of pus produced
 	private int totalPowerUps = 0;
+	//num of bricks hit
+	private int bricksHit = 0;
  
 	public BrickBallCollisionHandler(ILevel levelData, CollisionManager manager){
 		r = new Random();
@@ -53,6 +55,8 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 	public void performCollision(ICollidableObject collidable1,
 			ICollidableObject collidable2) {
  
+		bricksHit++;
+		
 		// check to see if collision is still applicable
 		// sometimes the collision may be resolved by other handlers somehow
 		if(!collidable1.isCollidingWith(collidable2)){
@@ -130,5 +134,8 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 	public int getPowerUpsProduced(){
 		return totalPowerUps;
 	}
- 
+	
+	public int getBricksHit(){
+		return bricksHit;
+	}
 }

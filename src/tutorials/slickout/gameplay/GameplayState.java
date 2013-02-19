@@ -47,6 +47,9 @@ public class GameplayState extends BasicGameState {
 	
 	private AbstractSensor powerUpCollectionSensor;
 	private AbstractSensor powerUpProductionSensor;
+	private AbstractSensor livesLostSensor;
+	private AbstractSensor bricksHitSensor;
+	private AbstractSensor paddleHitSensor;
  
 	@Override
 	public int getID() {
@@ -88,10 +91,11 @@ public class GameplayState extends BasicGameState {
 			collisionManager.addCollidable(brick);
 		}
 		
+		BumperAndPadBallCollisionHandler bumperPadBallHandler = new BumperAndPadBallCollisionHandler();
 		PadAndPowerUpCollisionHandler padPowerUpHandler = new PadAndPowerUpCollisionHandler(level, collisionManager);
 		BrickBallCollisionHandler brickBallHandler = new BrickBallCollisionHandler(level, collisionManager);
 		
-		collisionManager.addHandler(new BumperAndPadBallCollisionHandler());
+		collisionManager.addHandler(bumperPadBallHandler);
 		collisionManager.addHandler(brickBallHandler);
 		collisionManager.addHandler(padPowerUpHandler);
  
@@ -106,6 +110,9 @@ public class GameplayState extends BasicGameState {
 			SensorFactory factory = new SensorFactory();
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
+			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
+			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
+			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
 		}
 	}
  
@@ -150,6 +157,10 @@ public class GameplayState extends BasicGameState {
 		
 		//draws sensor values at bottom of screen
 		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 50, 700);
+		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 730);
+		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 760);
+		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 700);
+
 	}
  
 	@Override
@@ -258,7 +269,7 @@ public class GameplayState extends BasicGameState {
  
 			break;}
 		case LIFE_LOST:
-			playerInfo.decrementLives();
+			playerInfo.lifeLost();
  
 			if(playerInfo.getLives() == 0){
 				currentState = LEVEL_STATES.GAME_OVER;
