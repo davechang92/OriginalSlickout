@@ -7,16 +7,22 @@ public abstract class AbstractSensor {
 
 	Timer timer;
 	Object value;
+	String name;
 	
-	public AbstractSensor(){
+	public AbstractSensor(String name){
+		this.name = name;
 		timer = new Timer();
-		timer.schedule(new Task(), 1000, 1000);
+		timer.schedule(new Task(), 500, 1000);
 	}
 	
 	public abstract void refreshValue();
 	
 	public Object getValue(){
 		return value;
+	}
+	
+	public String getName(){
+		return name;
 	}
 	
 		public class Task extends TimerTask{

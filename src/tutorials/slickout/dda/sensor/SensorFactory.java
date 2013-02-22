@@ -21,7 +21,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			PowerUpCollectionSensor puCollectionSensor = new PowerUpCollectionSensor((PadAndPowerUpCollisionHandler) objectToBeMonitored);
+			PowerUpCollectionSensor puCollectionSensor = new PowerUpCollectionSensor(name,(PadAndPowerUpCollisionHandler) objectToBeMonitored);
 			SensorRegistry.add(puCollectionSensor);
 			return puCollectionSensor;
 			
@@ -31,7 +31,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor((BrickBallCollisionHandler) objectToBeMonitored);
+			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor(name,(BrickBallCollisionHandler) objectToBeMonitored);
 			SensorRegistry.add(puProductionSensor);
 			return puProductionSensor;
 			
@@ -41,7 +41,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			LivesLostSensor llSensor = new LivesLostSensor((PlayerInfo) objectToBeMonitored);
+			LivesLostSensor llSensor = new LivesLostSensor(name,(PlayerInfo) objectToBeMonitored);
 			SensorRegistry.add(llSensor);
 			return llSensor;
 			
@@ -51,7 +51,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			BricksHitSensor bhSensor = new BricksHitSensor((BrickBallCollisionHandler) objectToBeMonitored);
+			BricksHitSensor bhSensor = new BricksHitSensor(name,(BrickBallCollisionHandler) objectToBeMonitored);
 			SensorRegistry.add(bhSensor);
 			return bhSensor;
 			
@@ -61,7 +61,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			PaddleHitSensor phSensor = new PaddleHitSensor((BumperAndPadBallCollisionHandler) objectToBeMonitored);
+			PaddleHitSensor phSensor = new PaddleHitSensor(name,(BumperAndPadBallCollisionHandler) objectToBeMonitored);
 			SensorRegistry.add(phSensor);
 			return phSensor;
 		}

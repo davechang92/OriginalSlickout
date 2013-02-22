@@ -2,7 +2,7 @@ package tutorials.slickout.dda;
 
 public class ThresholdAnalyser {
 
-	public void compare(int data, Threshold threshold){
+	public void compare(Object data, Threshold threshold){
 		
 	}
 	

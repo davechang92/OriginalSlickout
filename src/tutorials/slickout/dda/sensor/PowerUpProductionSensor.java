@@ -6,8 +6,8 @@ public class PowerUpProductionSensor extends AbstractSensor {
 
 	BrickBallCollisionHandler brickBallHandler;
 	
-	public PowerUpProductionSensor(BrickBallCollisionHandler brickBallHandler){
-		super();
+	public PowerUpProductionSensor(String name,BrickBallCollisionHandler brickBallHandler){
+		super(name);
 		this.brickBallHandler = brickBallHandler;
 	}
 	

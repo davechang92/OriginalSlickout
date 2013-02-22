@@ -15,6 +15,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
+import tutorials.slickout.dda.AdaptationDetector;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
@@ -50,6 +51,8 @@ public class GameplayState extends BasicGameState {
 	private AbstractSensor livesLostSensor;
 	private AbstractSensor bricksHitSensor;
 	private AbstractSensor paddleHitSensor;
+	
+	private AdaptationDetector adaptationDetector;
  
 	@Override
 	public int getID() {
@@ -106,13 +109,27 @@ public class GameplayState extends BasicGameState {
 		playerInfo = GameInfo.getCurrentGameInfo().getPlayerInfo();
 		
 		
+		//dda stuff
 		if(dda){
+			
+			adaptationDetector = new AdaptationDetector();
+			
 			SensorFactory factory = new SensorFactory();
+			
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
+			adaptationDetector.getSensors().add(powerUpCollectionSensor);
+			
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
+			adaptationDetector.getSensors().add(powerUpProductionSensor);
+			
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
+			adaptationDetector.getSensors().add(livesLostSensor);
+			
 			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
+			adaptationDetector.getSensors().add(bricksHitSensor);
+			
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
+			adaptationDetector.getSensors().add(paddleHitSensor);
 		}
 	}
  

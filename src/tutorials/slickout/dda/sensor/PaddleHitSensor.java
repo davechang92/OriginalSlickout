@@ -6,8 +6,8 @@ public class PaddleHitSensor extends AbstractSensor {
 	
 	BumperAndPadBallCollisionHandler padBallHandler;
 	
-	public PaddleHitSensor(BumperAndPadBallCollisionHandler padBallHandler){
-		super();
+	public PaddleHitSensor(String name,BumperAndPadBallCollisionHandler padBallHandler){
+		super(name);
 		this.padBallHandler = padBallHandler;
 	}
 	
