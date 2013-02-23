@@ -7,8 +7,8 @@ public class LivesLostSensor extends AbstractSensor {
 	
 	PlayerInfo playerInfo;
 	
-	public LivesLostSensor(String name, PlayerInfo playerInfo){
-		super(name);
+	public LivesLostSensor(String name, PlayerInfo playerInfo, long period){
+		super(name, period);
 		this.playerInfo = playerInfo;
 	}
 	

@@ -7,8 +7,8 @@ public class PowerUpCollectionSensor extends AbstractSensor {
 	
 	PadAndPowerUpCollisionHandler padPUHandler;
 	
-	public PowerUpCollectionSensor(String name,PadAndPowerUpCollisionHandler padPUHandler){
-		super(name);
+	public PowerUpCollectionSensor(String name,PadAndPowerUpCollisionHandler padPUHandler, long period){
+		super(name, period);
 		this.padPUHandler = padPUHandler;
 	}
 	
