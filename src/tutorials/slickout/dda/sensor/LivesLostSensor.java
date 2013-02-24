@@ -17,6 +17,7 @@ public class LivesLostSensor extends AbstractSensor {
 	public void refreshValue(){
 		if(playerInfo.getLivesLost() > (Integer) value){
 			value = playerInfo.getLivesLost();
+			setChanged();
 			notifyObservers();
 		}
 		
