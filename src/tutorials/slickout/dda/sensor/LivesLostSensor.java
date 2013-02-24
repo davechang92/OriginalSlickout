@@ -7,14 +7,19 @@ public class LivesLostSensor extends AbstractSensor {
 	
 	PlayerInfo playerInfo;
 	
-	public LivesLostSensor(String name, PlayerInfo playerInfo, long period){
-		super(name, period);
+	public LivesLostSensor(String name, PlayerInfo playerInfo){
+		super(name);
 		this.playerInfo = playerInfo;
+		value = 0;
 	}
 	
 	@Override
 	public void refreshValue(){
-		value = playerInfo.getLivesLost();
+		if(playerInfo.getLivesLost() > (Integer) value){
+			value = playerInfo.getLivesLost();
+			notifyObservers();
+		}
+		
 	}
 	
 }

@@ -1,21 +1,25 @@
 package tutorials.slickout.dda.sensor;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
-import tutorials.slickout.dda.Observer;
+import tutorials.slickout.dda.observer.*;
 
-public abstract class AbstractSensor {	
+public abstract class AbstractSensor extends Observable {	
 
 	Timer timer;
 	Object value;
 	String name;
-	List<Observer> observers;
+	Date timestamp;
 	
-	public AbstractSensor(String name, long period){
+	public AbstractSensor(String name){
 		this.name = name;
 		timer = new Timer();
-		timer.schedule(new Task(), 500, period);
+		timer.schedule(new Task(), 500, 500);
+		
+		timestamp = new Date();
 	}
 	
 	public abstract void refreshValue();
@@ -28,8 +32,8 @@ public abstract class AbstractSensor {
 		return name;
 	}
 	
-	public List<Observer> getObservers(){
-		return observers;
+	public Date getTimestamp(){
+		return timestamp;
 	}
 	
 		public class Task extends TimerTask{

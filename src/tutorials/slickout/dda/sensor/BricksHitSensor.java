@@ -7,8 +7,8 @@ public class BricksHitSensor extends AbstractSensor {
 	
 	BrickBallCollisionHandler brickBallHandler;
 	
-	public BricksHitSensor( String name, BrickBallCollisionHandler brickBallHandler, long period){
-		super(name, period);
+	public BricksHitSensor( String name, BrickBallCollisionHandler brickBallHandler){
+		super(name);
 		this.brickBallHandler = brickBallHandler;
 	}
 	
