@@ -13,12 +13,14 @@ public class LivesLostSensor extends AbstractSensor {
 		value = 0;
 	}
 	
+	//if the num of lives lost has changed, then value is updated and observers are notified
 	@Override
 	public void refreshValue(){
 		if(playerInfo.getLivesLost() > (Integer) value){
 			value = playerInfo.getLivesLost();
+			timestamp = date.getTime();
 			setChanged();
-			notifyObservers();
+			notifyObservers(value);
 		}
 		
 	}

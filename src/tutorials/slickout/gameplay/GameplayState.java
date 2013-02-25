@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
  
@@ -16,7 +17,7 @@ import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
 import tutorials.slickout.dda.AdaptationDetector;
-import tutorials.slickout.dda.observer.LifeObserver;
+import tutorials.slickout.dda.observer.LifeAndPaddleObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
@@ -54,6 +55,8 @@ public class GameplayState extends BasicGameState {
 	private AbstractSensor paddleHitSensor;
 	
 	private AdaptationDetector adaptationDetector;
+	private Date date = new Date();
+	private long startTime;
  
 	@Override
 	public int getID() {
@@ -125,14 +128,16 @@ public class GameplayState extends BasicGameState {
 			
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
 			//adaptationDetector.getSensors().add(livesLostSensor);
-			livesLostSensor.addObserver(new LifeObserver());
+			livesLostSensor.addObserver(new LifeAndPaddleObserver());
 			
 			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
 			//adaptationDetector.getSensors().add(bricksHitSensor);
 			
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
-			//adaptationDetector.getSensors().add(paddleHitSensor);
+			paddleHitSensor.addObserver(new LifeAndPaddleObserver());
+
 		}
+		startTime = date.getTime();
 	}
  
 	@Override
@@ -179,6 +184,8 @@ public class GameplayState extends BasicGameState {
 		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 730);
 		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 760);
 		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 700);
+		//long currentTime = System.currentTimeMillis();
+		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);
 
 	}
  

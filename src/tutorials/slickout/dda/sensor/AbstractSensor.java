@@ -12,14 +12,15 @@ public abstract class AbstractSensor extends Observable {
 	Timer timer;
 	Object value;
 	String name;
-	Date timestamp;
+	Date date;
+	long timestamp;
 	
 	public AbstractSensor(String name){
 		this.name = name;
 		timer = new Timer();
 		timer.schedule(new Task(), 500, 500);
 		
-		timestamp = new Date();
+		date = new Date();
 	}
 	
 	public abstract void refreshValue();
@@ -32,7 +33,7 @@ public abstract class AbstractSensor extends Observable {
 		return name;
 	}
 	
-	public Date getTimestamp(){
+	public long getTimestamp(){
 		return timestamp;
 	}
 	

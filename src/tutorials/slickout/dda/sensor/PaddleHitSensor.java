@@ -9,12 +9,16 @@ public class PaddleHitSensor extends AbstractSensor {
 	public PaddleHitSensor(String name,BumperAndPadBallCollisionHandler padBallHandler){
 		super(name);
 		this.padBallHandler = padBallHandler;
+		value = 0;
 	}
 	
 	@Override
 	public void refreshValue() {
-		value = padBallHandler.getTimesHitPaddle();
-		
+		if(padBallHandler.getTimesHitPaddle() > (Integer) value){
+			value = padBallHandler.getTimesHitPaddle() ;
+			setChanged();
+			notifyObservers(value);
+		}
 	}
 
 }
