@@ -34,6 +34,7 @@ public class LevelImpl implements ILevel {
 	protected String[] ballArgs;
 	
 	protected int gameHeight = 600;
+	protected int gameWidth = 800;
  
  
 	public static ILevel loadLevel(InputStream is) throws SlickException{
@@ -334,9 +335,18 @@ public class LevelImpl implements ILevel {
 		return powerUpP;
 	}
 	
+	public void setPowerUpP(double change){
+		powerUpP += change;
+	}
+	
 	//gets height of level
 	public int getHeight(){
 		return gameHeight;
+	}
+
+	//gets width of level
+	public int getWidth(){
+		return gameWidth;
 	}
 	
 }

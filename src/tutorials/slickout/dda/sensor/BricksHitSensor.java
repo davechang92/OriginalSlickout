@@ -10,11 +10,16 @@ public class BricksHitSensor extends AbstractSensor {
 	public BricksHitSensor( String name, BrickBallCollisionHandler brickBallHandler){
 		super(name);
 		this.brickBallHandler = brickBallHandler;
+		value = 0;
 	}
 	
 	@Override
 	public void refreshValue(){
-		value = brickBallHandler.getBricksHit();
+		if(brickBallHandler.getBricksHit() > (Integer) value){
+			value = brickBallHandler.getBricksHit();
+			setChanged();
+			notifyObservers(value);
+		}
 	}
 	
 }

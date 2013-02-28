@@ -3,14 +3,10 @@ package tutorials.slickout.dda.observer;
 import java.util.Observable;
 import java.util.Observer;
 
-public class LifeAndPaddleObserver implements Observer {
+public class LifeAndPaddleObserver extends AbstractObserver {
 	
 	int livesLost;
 	int padHit;
-	
-	public void getData(){
-		
-	}
 
 	@Override
 	public void update(Observable sensor, Object value) {

@@ -1,9 +1,7 @@
 package tutorials.slickout.dda.observer;
 
-public abstract class AbstractObserver {
-	
-	Object observedData;
-	
-	
+import java.util.Observer;
+
+public abstract class AbstractObserver implements Observer {
 
 }

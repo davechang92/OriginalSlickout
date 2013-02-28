@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
  
@@ -17,7 +16,6 @@ import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
 import tutorials.slickout.dda.AdaptationDetector;
-import tutorials.slickout.dda.observer.LifeAndPaddleObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
@@ -55,8 +53,6 @@ public class GameplayState extends BasicGameState {
 	private AbstractSensor paddleHitSensor;
 	
 	private AdaptationDetector adaptationDetector;
-	private Date date = new Date();
-	private long startTime;
  
 	@Override
 	public int getID() {
@@ -116,28 +112,27 @@ public class GameplayState extends BasicGameState {
 		//dda stuff
 		if(dda){
 			
-			//adaptationDetector = new AdaptationDetector();
+			adaptationDetector = new AdaptationDetector(level);
 			
 			SensorFactory factory = new SensorFactory();
 			
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
-			//adaptationDetector.getSensors().add(powerUpCollectionSensor);
+			adaptationDetector.getSensors().add(powerUpCollectionSensor);
 			
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
-			//adaptationDetector.getSensors().add(powerUpProductionSensor);
-			
+			adaptationDetector.getSensors().add(powerUpProductionSensor);
+
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
-			//adaptationDetector.getSensors().add(livesLostSensor);
-			livesLostSensor.addObserver(new LifeAndPaddleObserver());
+			adaptationDetector.getSensors().add(livesLostSensor);
 			
 			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
-			//adaptationDetector.getSensors().add(bricksHitSensor);
+			adaptationDetector.getSensors().add(bricksHitSensor);
 			
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
-			paddleHitSensor.addObserver(new LifeAndPaddleObserver());
+			adaptationDetector.getSensors().add(paddleHitSensor);
 
+			adaptationDetector.start();
 		}
-		startTime = date.getTime();
 	}
  
 	@Override
@@ -184,6 +179,7 @@ public class GameplayState extends BasicGameState {
 		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 730);
 		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 760);
 		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 700);
+		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 450, 730);
 		//long currentTime = System.currentTimeMillis();
 		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);
 
