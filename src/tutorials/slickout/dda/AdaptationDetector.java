@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import tutorials.slickout.dda.observer.AbstractObserver;
+import tutorials.slickout.dda.observer.LifeAndPaddleObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.gameplay.level.ILevel;
 
@@ -14,7 +16,7 @@ public class AdaptationDetector {
 	int bricksHit=0;
 	int lastBricksTotal = 0;
 	int padHitTotal = 0;
-	List<AbstractSensor> sensors = new ArrayList<AbstractSensor>();
+	List<AbstractObserver> observers = new ArrayList<AbstractObserver>();
 	ILevel level;
 	Driver driver;
 	
@@ -23,8 +25,8 @@ public class AdaptationDetector {
 		driver = new Driver(level);
 	}
 	
-	public List<AbstractSensor> getSensors(){
-		return sensors;
+	public List<AbstractObserver> getObservers(){
+		return observers;
 	}
 	
 	public void start(){
@@ -38,25 +40,19 @@ public class AdaptationDetector {
 		@Override
 		public void run() {
 			//get values from sensors
-			for(AbstractSensor sensor: sensors){
-				if(sensor.getClass().getSimpleName().equals("BricksHitSensor")){
-					bricksHit = (Integer) sensor.getValue() - lastBricksTotal;
-					lastBricksTotal = (Integer) sensor.getValue();
-					System.out.println("bricks: " +bricksHit);
-				}else if(sensor.getClass().getSimpleName().equals("PaddleHitSensor")){
-					padHit = (Integer) sensor.getValue() - padHitTotal;
-					padHitTotal = (Integer) sensor.getValue();
-					System.out.println("pad: "+padHit);
+			for(AbstractObserver observer: observers){
+				if(observer.getClass().getSimpleName().equals("LifeAndPaddleObserver")){
+					if(observer.getAdaptations()==1){
+						driver.setConstPowerUp(true);
+					}
+				}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
+					//padHit = (Integer) sensor.getValue() - padHitTotal;
+					//padHitTotal = (Integer) sensor.getValue();
+					//System.out.println("pad: "+padHit);
 
 				}
 			}
 			
-			//analyse
-			if(true){
-				level.setPowerUpP(0.1);
-				if(level.getPowerUpP()>1)
-					driver.setConstPowerUp(true);
-			}
 		}
 		
 	}

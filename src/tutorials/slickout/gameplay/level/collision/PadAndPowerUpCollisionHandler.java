@@ -107,13 +107,13 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 					enlargenPaddleTimer.schedule(new timerTask(1), pu.getDuration());
 					
 					break;
-			case 2: System.out.println("speed up collected");
+			case 2:// System.out.println("speed up collected");
 					for(Ball ball: level.getBalls()){	//increase ball speed
 						ball.increaseSpeed(0.25f);
 						decreaseBallSpeedTimer.schedule(new timerTask(2), pu.getDuration());
 					}
 					break;
-			case 3: System.out.println("slow down collected");
+			case 3:// System.out.println("slow down collected");
 					//decrease ball speed ( as long as decrease wouldn't result in stationary ball)
 					boolean decreased = false;
 					for(Ball ball: level.getBalls()){	
@@ -162,13 +162,13 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 							break;
 					//decreases ball speed after a speed-up	
 					case 2: for(Ball ball: level.getBalls()){
-								System.out.println("speed decreased");
+								//System.out.println("speed decreased");
 								ball.setSpeed(0.5f);
 							}
 							break;
 					//increases ball speed after a slow down
 					case 3:for(Ball ball: level.getBalls()){
-								System.out.println("speed increased");
+								//System.out.println("speed increased");
 								ball.setSpeed(0.5f);
 							}
 							break;
