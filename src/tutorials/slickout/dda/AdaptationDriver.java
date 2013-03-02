@@ -10,23 +10,22 @@ import org.newdawn.slick.geom.Vector2f;
 import tutorials.slickout.dda.observer.AbstractObserver;
 import tutorials.slickout.dda.observer.LifeAndPaddleObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
+import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.level.ILevel;
+import tutorials.slickout.gameplay.level.PowerUp;
 
 public class AdaptationDriver {
 	
-	int padHit=0;
-	int bricksHit=0;
-	int lastBricksTotal = 0;
-	int padHitTotal = 0;
-	List<AbstractObserver> observers = new ArrayList<AbstractObserver>();
-	Driver driver;
+	
+	private List<AbstractObserver> observers = new ArrayList<AbstractObserver>();
 	private ILevel level;
 	//used to time pu rain events
-	int rainTimer = 0;
+	private int rainTimer = 0;
+	private CollisionManager collisionManager;
 	
-	public AdaptationDriver(ILevel level) {
+	public AdaptationDriver(ILevel level, CollisionManager collisionManager) {
 		this.level = level;
-		driver = new Driver(level);
+		this.collisionManager = collisionManager;
 	}
 
 
@@ -53,8 +52,9 @@ public class AdaptationDriver {
 			
 			//pu rain
 			}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
-				if(observer.getAdaptations()==1 && rainTimer >= 2000){
-					level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
+				if(observer.getAdaptations()==1 && rainTimer >= 2000){					
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
+					collisionManager.addCollidable(pu);
 					rainTimer = 0;
 				}
 

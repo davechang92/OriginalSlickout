@@ -115,7 +115,7 @@ public class GameplayState extends BasicGameState {
 		if(dda){
 			
 			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
-			adaptationDriver = new AdaptationDriver(level);
+			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			
 			SensorFactory factory = new SensorFactory();
 			
