@@ -119,22 +119,18 @@ public class GameplayState extends BasicGameState {
 			SensorFactory factory = new SensorFactory();
 			
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
-			//adaptationDetector.getSensors().add(powerUpCollectionSensor);
 			
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
-			//adaptationDetector.getSensors().add(powerUpProductionSensor);
 
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
-			//adaptationDetector.getSensors().add(livesLostSensor);
 			
 			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
 			bricksHitSensor.addObserver(pbo);
-			//adaptationDetector.getSensors().add(bricksHitSensor);
 			
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
 			paddleHitSensor.addObserver(pbo);
-			//adaptationDetector.getSensors().add(paddleHitSensor);
 
+			adaptationDetector.getObservers().add(pbo);
 			adaptationDetector.start();
 		}
 	}

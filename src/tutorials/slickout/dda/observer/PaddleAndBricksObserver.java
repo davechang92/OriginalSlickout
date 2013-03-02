@@ -21,7 +21,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 
 	@Override
 	public void update(Observable sensor, Object value) {
-		//if(sensor. instanceof PaddleHitSensor)
+		
 		if(sensor.getClass().getSimpleName().equals("BricksHitSensor")){
 			totalBricksHit = (Integer) value;
 			//System.out.println("hit brick "+bricksHit);
@@ -32,8 +32,9 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 			if((padHit%2)==0){
 				bricksDiff = totalBricksHit - lastTotalBricksHit;
 				lastTotalBricksHit = totalBricksHit;
-				System.out.println("hit bricks "+bricksDiff);
 				adaptations = 1;
+				System.out.println("hit bricks "+bricksDiff);
+				System.out.println("observer adaptations "+adaptations);
 			}
 		}
 		

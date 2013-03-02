@@ -17,11 +17,9 @@ public class AdaptationDetector {
 	int lastBricksTotal = 0;
 	int padHitTotal = 0;
 	List<AbstractObserver> observers = new ArrayList<AbstractObserver>();
-	ILevel level;
 	Driver driver;
 	
 	public AdaptationDetector(ILevel level){
-		this.level = level;
 		driver = new Driver(level);
 	}
 	
@@ -39,16 +37,21 @@ public class AdaptationDetector {
 
 		@Override
 		public void run() {
+
 			//get values from sensors
 			for(AbstractObserver observer: observers){
+				System.out.println(observer.getClass().getSimpleName());
+
+				
 				if(observer.getClass().getSimpleName().equals("LifeAndPaddleObserver")){
+					
+				}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
+					System.out.println("A");
 					if(observer.getAdaptations()==1){
 						driver.setConstPowerUp(true);
+						System.out.println("B");
+
 					}
-				}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
-					//padHit = (Integer) sensor.getValue() - padHitTotal;
-					//padHitTotal = (Integer) sensor.getValue();
-					//System.out.println("pad: "+padHit);
 
 				}
 			}
