@@ -16,6 +16,7 @@ import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
 import tutorials.slickout.dda.AdaptationDetector;
+import tutorials.slickout.dda.AdaptationDriver;
 import tutorials.slickout.dda.observer.PaddleAndBricksObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
@@ -53,7 +54,10 @@ public class GameplayState extends BasicGameState {
 	private AbstractSensor bricksHitSensor;
 	private AbstractSensor paddleHitSensor;
 	
-	private AdaptationDetector adaptationDetector;
+	private AdaptationDriver adaptationDriver;
+	
+	//boolean used to decide whether dda will be in this game or not
+	boolean dda = true;
  
 	@Override
 	public int getID() {
@@ -68,9 +72,6 @@ public class GameplayState extends BasicGameState {
 	@Override
 	public void enter(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
-		
-		//boolean used to decide whether dda will be in this game or not
-		boolean dda = true;
  
 		// load level
 		if(levelFile == null){
@@ -114,7 +115,7 @@ public class GameplayState extends BasicGameState {
 		if(dda){
 			
 			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
-			adaptationDetector = new AdaptationDetector(level);
+			adaptationDriver = new AdaptationDriver(level);
 			
 			SensorFactory factory = new SensorFactory();
 			
@@ -130,8 +131,7 @@ public class GameplayState extends BasicGameState {
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
 			paddleHitSensor.addObserver(pbo);
 
-			adaptationDetector.getObservers().add(pbo);
-			adaptationDetector.start();
+			adaptationDriver.getObservers().add(pbo);
 		}
 	}
  
@@ -277,6 +277,11 @@ public class GameplayState extends BasicGameState {
  
 			// perform collisions
 			collisionManager.processCollisions();
+			
+			//check to see if adaptations are needed
+			if(dda){
+				adaptationDriver.processAdaptations(delta);
+			}
  
 			// check for bricks left
 			if(level.getBricks().size() == 0){

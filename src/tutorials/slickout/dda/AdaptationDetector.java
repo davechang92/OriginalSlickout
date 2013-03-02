@@ -28,36 +28,30 @@ public class AdaptationDetector {
 	}
 	
 	public void start(){
-		Timer timer = new Timer();
-		timer.schedule(new AnalysisTask(), 0, 5000);
 		driver.start();
 	}
 	
-	private class AnalysisTask extends TimerTask{
 
-		@Override
-		public void run() {
 
-			//get values from sensors
-			for(AbstractObserver observer: observers){
-				System.out.println(observer.getClass().getSimpleName());
+	public void detectAdaptations() {
 
+		//get values from observers
+		for(AbstractObserver observer: observers){
+			System.out.println(observer.getClass().getSimpleName());
+
+			
+			if(observer.getClass().getSimpleName().equals("LifeAndPaddleObserver")){
 				
-				if(observer.getClass().getSimpleName().equals("LifeAndPaddleObserver")){
-					
-				}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
-					System.out.println("A");
-					if(observer.getAdaptations()==1){
-						driver.setConstPowerUp(true);
-						System.out.println("B");
-
-					}
+			}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
+				System.out.println("A");
+				if(observer.getAdaptations()==1){
+					driver.setConstPowerUp(true);
+					System.out.println("B");
 
 				}
+
 			}
-			
 		}
-		
 	}
 	
 }

@@ -21,19 +21,16 @@ public class Driver {
 	}
 	
 	public void start(){
-		Timer timer = new Timer();
-		timer.schedule(new rainPowerUpsTask(), 0, 2000);
+
 	}
 	
-	private class rainPowerUpsTask extends TimerTask{
 
-		@Override
-		public void run() {
-			if(isRaining){
-				level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
-			}
+	public void run() {
+		if(isRaining){
+			level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
 		}
-		
 	}
+		
+	
 	
 }
