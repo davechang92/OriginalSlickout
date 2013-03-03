@@ -236,8 +236,8 @@ public class GameplayState extends BasicGameState {
  
 			for(Ball ball : level.getBalls()){
 				ball.update(gc, sbg, delta);
- 
-				if(ball.getPosition().y > level.getHeight()){
+							 
+				if(ball.getPosition().y > level.getHeight() || ball.getPosition().y < 0 || ball.getPosition().x < 0 || ball.getPosition().x > level.getWidth()){
 					if(removals == null){
 						removals = new ArrayList<Ball>();
 					}

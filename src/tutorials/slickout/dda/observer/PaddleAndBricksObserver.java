@@ -19,6 +19,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 		return padHit;
 	}
 
+	//
 	@Override
 	public void update(Observable sensor, Object value) {
 		
@@ -27,14 +28,16 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 			//System.out.println("hit brick "+bricksHit);
 		}else if(sensor.getClass().getSimpleName().equals("PaddleHitSensor")){
 			padHit = (Integer) value;
+			System.out.println("observer adaptations "+adaptations);
+
 			//System.out.println("hit pad "+padHit);
 			//if, after 2 pad hits, no bricks were hit, then turn on pu rain
 			if((padHit%2)==0){
 				bricksDiff = totalBricksHit - lastTotalBricksHit;
 				lastTotalBricksHit = totalBricksHit;
-				adaptations = 1;
+				if(bricksDiff==0)
+					adaptations = 1;
 				System.out.println("hit bricks "+bricksDiff);
-				System.out.println("observer adaptations "+adaptations);
 			}
 		}
 		
