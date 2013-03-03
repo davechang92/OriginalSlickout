@@ -27,9 +27,9 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 	Timer shrinkPaddleTimer = new Timer();
 	Timer increaseBallSpeedTimer = new Timer();
 	Timer decreaseBallSpeedTimer = new Timer();
-	
+	//used for sensor to detect change
 	int totalPowerUpsCollected = 0;
-
+	int lastPUType = 0;
 	
 	public PadAndPowerUpCollisionHandler(ILevel level, CollisionManager manager) {
 		this.level = level;
@@ -60,8 +60,6 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 			return;
 		}
 		
-		totalPowerUpsCollected++;
-
 		PowerUp pu = null;
 		Paddle paddle = null;
 		
@@ -74,6 +72,10 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 			pu = (PowerUp) collidable2;
 			paddle = (Paddle) collidable1;
 		}
+		
+		lastPUType = pu.getPowerType();
+		totalPowerUpsCollected++;
+
 
 		// obtain a copy of the direction
 		Vector2f direction = pu.getDirection().copy();
@@ -126,7 +128,7 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 						increaseBallSpeedTimer.schedule(new timerTask(3), pu.getDuration());
 					break;
 			case 4://decrease paddlesize
-				paddle.setAnimation("data/padanimation50.png", 50, 20, 1000);//enlarge paddle
+				paddle.setAnimation("data/padanimation50.png", 50, 20, 1000);//shrink paddle
 				paddle.setCollisionShape(new Rectangle(0, 0, 50, 20));
 				try {
 					shrinkPaddleTimer.cancel();
@@ -181,4 +183,7 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		
 	}
 
+	public int getLastPUType(){
+		return lastPUType;
+	}
 }

@@ -18,6 +18,7 @@ import tutorials.slickout.GameInfo;
 import tutorials.slickout.dda.AdaptationDetector;
 import tutorials.slickout.dda.AdaptationDriver;
 import tutorials.slickout.dda.observer.PaddleAndBricksObserver;
+import tutorials.slickout.dda.observer.PowerUpsObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
@@ -115,11 +116,13 @@ public class GameplayState extends BasicGameState {
 		if(dda){
 			
 			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
+			PowerUpsObserver puo = new PowerUpsObserver();
 			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			
 			SensorFactory factory = new SensorFactory();
 			
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
+			powerUpCollectionSensor.addObserver(puo);
 			
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
 
@@ -132,6 +135,7 @@ public class GameplayState extends BasicGameState {
 			paddleHitSensor.addObserver(pbo);
 
 			adaptationDriver.getObservers().add(pbo);
+			adaptationDriver.getObservers().add(puo);
 		}
 	}
  

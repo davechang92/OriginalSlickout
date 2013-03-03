@@ -9,11 +9,16 @@ public class PowerUpProductionSensor extends AbstractSensor {
 	public PowerUpProductionSensor(String name,BrickBallCollisionHandler brickBallHandler){
 		super(name);
 		this.brickBallHandler = brickBallHandler;
+		value = 0;
 	}
 	
 	@Override
 	public void refreshValue() {
-		value = brickBallHandler.getPowerUpsProduced();	
+		if(brickBallHandler.getPowerUpsProduced() > (Integer) value){
+			value = brickBallHandler.getPowerUpsProduced();	
+			setChanged();
+			notifyObservers(value);
+		}
 	}
 
 }
