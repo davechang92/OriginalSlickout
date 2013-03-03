@@ -58,7 +58,10 @@ public class AdaptationDriver {
 					rainTimer = 0;
 				}
 
+			}else if(observer.getClass().getSimpleName().equals("PowerUpsObserver")){
+				
 			}
+
 		}
 	}
 	

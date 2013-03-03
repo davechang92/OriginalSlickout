@@ -34,6 +34,8 @@ public interface ILevel {
 	public int getHeight();
 	
 	public int getWidth();
+	
+	public int getLastPowerUpProducedType();
 			
 	/*
 	public void addBall(Ball newBall);

@@ -3,12 +3,19 @@ package tutorials.slickout.dda.sensor;
 import java.util.ArrayList;
 import java.util.List;
 
+import tutorials.slickout.gameplay.level.ILevel;
 import tutorials.slickout.gameplay.level.collision.BrickBallCollisionHandler;
 import tutorials.slickout.gameplay.level.collision.BumperAndPadBallCollisionHandler;
 import tutorials.slickout.gameplay.level.collision.PadAndPowerUpCollisionHandler;
 import tutorials.slickout.playerinfo.PlayerInfo;
 
 public class SensorFactory {
+	
+	private ILevel level;
+	
+	public SensorFactory(ILevel level){
+		this.level = level;
+	}
 	
 	List<AbstractSensor> SensorRegistry = new ArrayList<AbstractSensor>();
 	
@@ -31,7 +38,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor(name,(BrickBallCollisionHandler) objectToBeMonitored);
+			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor(name,(BrickBallCollisionHandler) objectToBeMonitored, level);
 			SensorRegistry.add(puProductionSensor);
 			return puProductionSensor;
 			

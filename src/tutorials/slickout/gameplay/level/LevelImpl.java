@@ -35,6 +35,8 @@ public class LevelImpl implements ILevel {
 	
 	protected int gameHeight = 600;
 	protected int gameWidth = 800;
+	
+	private int lastPowerUpProduced = 0;
  
  
 	public static ILevel loadLevel(InputStream is) throws SlickException{
@@ -323,12 +325,17 @@ public class LevelImpl implements ILevel {
 			
 			pu = new PowerUp( name, image, pos, speed, initialDirection, collisionShape,  collisionType, powerType, duration);
 			powerUps.add( pu );
+			lastPowerUpProduced = powerType;
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
 		
 		return pu;
 		
+	}
+	
+	public int getLastPowerUpProducedType(){
+		return lastPowerUpProduced;
 	}
 	
 	public double getPowerUpP(){

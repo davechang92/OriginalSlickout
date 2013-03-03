@@ -119,12 +119,13 @@ public class GameplayState extends BasicGameState {
 			PowerUpsObserver puo = new PowerUpsObserver();
 			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			
-			SensorFactory factory = new SensorFactory();
+			SensorFactory factory = new SensorFactory(level);
 			
 			powerUpCollectionSensor = factory.createSensor("PowerUpCollection", padPowerUpHandler);
 			powerUpCollectionSensor.addObserver(puo);
 			
 			powerUpProductionSensor = factory.createSensor("PowerUpProduction", brickBallHandler);
+			powerUpProductionSensor.addObserver(puo);
 
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
 			
