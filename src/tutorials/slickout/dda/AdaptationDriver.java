@@ -16,12 +16,11 @@ import tutorials.slickout.gameplay.level.PowerUp;
 
 public class AdaptationDriver {
 	
-	
+	private CollisionManager collisionManager;
 	private List<AbstractObserver> observers = new ArrayList<AbstractObserver>();
 	private ILevel level;
 	//used to time pu rain events
 	private int rainTimer = 0;
-	private CollisionManager collisionManager;
 	
 	public AdaptationDriver(ILevel level, CollisionManager collisionManager) {
 		this.level = level;
@@ -44,17 +43,30 @@ public class AdaptationDriver {
 
 		rainTimer += delta;
 		
-		//System.out.println(timeSec);
-		//get values from observers
 		for(AbstractObserver observer: observers){	
+			
+			//used to remove adaptations once they've been implemented
+			List<Adaptation> removals = new ArrayList<Adaptation>();
+			
 			for(Adaptation adaptation: observer.getAdaptations()){
 				if(adaptation.getCode().equals("PowerUpRain") && rainTimer >= 2000){
-					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0), (int) (Math.random()*4)+1);
 					//collisionManager.addCollidable(pu);
 					rainTimer = 0;
+				}if(adaptation.getCode().equals("IncreaseRedPowerUps")){
+					level.setExtraRedP(0.1);
+					removals.add(adaptation);
 				}
-			}	
+			}
+			
+			for(Adaptation adaptation: removals){
+				observer.getAdaptations().remove(adaptation);
+			}
+			
+			
 		}
+		
+		
 	}
 	
 }

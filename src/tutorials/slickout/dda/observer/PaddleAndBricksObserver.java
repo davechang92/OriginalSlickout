@@ -21,7 +21,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 		return padHit;
 	}
 
-	//if turns on adaptations when pad hit > twice with no bricks hit. the resulting adaptation is power-up rain.
+	//turns on adaptations when pad hit > twice with no bricks hit. the resulting adaptation is power-up rain.
 	@Override
 	public void update(Observable sensor, Object value) {
 		
@@ -35,7 +35,11 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 				bricksDiff = totalBricksHit - lastTotalBricksHit;
 				lastTotalBricksHit = totalBricksHit;
 				if(bricksDiff==0)
-					adaptations.add(new Adaptation("PowerUpRain"));
+					try {
+						adaptations.add(new Adaptation("PowerUpRain"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 			}
 		}
 		

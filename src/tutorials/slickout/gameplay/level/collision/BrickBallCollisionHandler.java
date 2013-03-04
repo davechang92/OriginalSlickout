@@ -122,7 +122,20 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 		
 		//according to probability of power up being created, a power-up may be created
 		if(Math.random() <= levelData.getPowerUpP()){
-			PowerUp pu = levelData.addPowerUp(brick.getPosition());
+			int type = (int) (Math.random()*4)+1;
+			PowerUp pu = levelData.addPowerUp(brick.getPosition(), type);
+			
+			manager.addCollidable(pu);
+			
+			totalPowerUps++;
+		}else if(Math.random() <= levelData.getExtraRedP()){
+			int type;
+			if(Math.random() <0.5){
+				type = 2;
+			}else{
+				type = 4;
+			}
+			PowerUp pu = levelData.addPowerUp(brick.getPosition(), type);
 			
 			manager.addCollidable(pu);
 			

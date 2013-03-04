@@ -23,13 +23,17 @@ public interface ILevel {
  
 	public Ball addNewBall();
 	
-	public PowerUp addPowerUp(Vector2f pos);
+	public PowerUp addPowerUp(Vector2f pos, int powerType);
 	
 	public List<PowerUp> getPowerUps();
 	
 	public double getPowerUpP();
 	
+	public double getExtraRedP();
+	
 	public void setPowerUpP(double change);
+
+	public void setExtraRedP(double change);
 
 	public int getHeight();
 	

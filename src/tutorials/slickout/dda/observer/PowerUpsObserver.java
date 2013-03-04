@@ -2,6 +2,7 @@ package tutorials.slickout.dda.observer;
 
 import java.util.Observable;
 
+import tutorials.slickout.dda.Adaptation;
 import tutorials.slickout.dda.sensor.PowerUpCollectionSensor;
 import tutorials.slickout.dda.sensor.PowerUpProductionSensor;
 
@@ -21,14 +22,29 @@ public class PowerUpsObserver extends AbstractObserver {
 			puType = ((PowerUpProductionSensor) sensor).getPUType();
 			if(puType % 2 == 0)	{
 				producedCounter++;
-				System.out.println("red produced: "+puType);
+				System.out.println("produced: "+producedCounter);
 			}
 		}else if(sensor.getClass().getSimpleName().equals("PowerUpCollectionSensor")){
 			puType = ((PowerUpCollectionSensor) sensor).getPUType();
 			if(puType % 2 == 0)	{
 				collectedCounter++;
-				System.out.println("red collected: "+puType);
+				System.out.println("collected: "+collectedCounter);
 			}
+		}
+		
+		if(producedCounter > 5){
+			if(collectedCounter >= 3){
+				try {
+					adaptations.add(new Adaptation("IncreaseRedPowerUps"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				System.out.println("Adaptation added");	
+			}else{
+				System.out.println("No adaptation added");
+			}
+			producedCounter = 0;
+			collectedCounter = 0;
 		}
 
 		

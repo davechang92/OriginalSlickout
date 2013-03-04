@@ -27,7 +27,8 @@ public class LevelImpl implements ILevel {
 	protected List<Brick> bricks;
 	protected List<Ball> balls;
 	protected static List<PowerUp> powerUps;
-	public double powerUpP = 0.5;
+	protected double powerUpP = 0.4;
+	protected double extraRedP = 0;
  
 	protected Paddle paddle;
  
@@ -298,7 +299,7 @@ public class LevelImpl implements ILevel {
 		this.paddle = paddle;
 	}
 
-	public PowerUp addPowerUp(Vector2f pos){
+	public PowerUp addPowerUp(Vector2f pos, int powerType){
 		 
 		PowerUp pu = null;
 		
@@ -311,7 +312,7 @@ public class LevelImpl implements ILevel {
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
 			Shape collisionShape = new Rectangle(0, 0, 18, 7);
 			int collisionType = 4;
-			int powerType = (int) (Math.random()*4)+1;
+			//powerType is passed in
 			if(powerType==1){
 				image = new Image("data/paddlePU.png");
 			}else if (powerType==2){
@@ -342,8 +343,17 @@ public class LevelImpl implements ILevel {
 		return powerUpP;
 	}
 	
+	public double getExtraRedP(){
+		return extraRedP;
+	}
+	
 	public void setPowerUpP(double change){
 		powerUpP += change;
+	}
+	
+	public void setExtraRedP(double change){
+		if(extraRedP<= (1-powerUpP)/2)
+			extraRedP += change;
 	}
 	
 	//gets height of level

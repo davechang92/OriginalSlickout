@@ -184,6 +184,7 @@ public class GameplayState extends BasicGameState {
 		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 760);
 		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 700);
 		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 450, 730);
+		gr.drawString("ExtraRed P: "+ level.getExtraRedP(), 450, 760);
 		//long currentTime = System.currentTimeMillis();
 		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);
 
@@ -282,7 +283,7 @@ public class GameplayState extends BasicGameState {
 			// perform collisions
 			collisionManager.processCollisions();
 			
-			//check to see if adaptations are needed
+			//implement any adaptations needed
 			if(dda){
 				adaptationDriver.processAdaptations(delta);
 			}
