@@ -2,6 +2,8 @@ package tutorials.slickout.dda.observer;
 
 import java.util.Observable;
 
+import tutorials.slickout.dda.Adaptation;
+
 public class PaddleAndBricksObserver extends AbstractObserver {
 	
 	//used to store total num of brick and pad hits
@@ -33,7 +35,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 				bricksDiff = totalBricksHit - lastTotalBricksHit;
 				lastTotalBricksHit = totalBricksHit;
 				if(bricksDiff==0)
-					adaptations = 1;
+					adaptations.add(new Adaptation("PowerUpRain"));
 			}
 		}
 		

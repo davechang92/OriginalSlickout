@@ -1,12 +1,19 @@
 package tutorials.slickout.dda.observer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observer;
+import tutorials.slickout.dda.Adaptation;
 
 public abstract class AbstractObserver implements Observer {
 
-	int adaptations = 0;
+	protected List<Adaptation> adaptations;
 	
-	public int getAdaptations(){
+	public AbstractObserver(){
+		adaptations = new ArrayList<Adaptation>();
+	}
+	
+	public List<Adaptation> getAdaptations(){
 		return adaptations;
 	}
 	

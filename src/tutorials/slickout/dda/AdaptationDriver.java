@@ -46,22 +46,14 @@ public class AdaptationDriver {
 		
 		//System.out.println(timeSec);
 		//get values from observers
-		for(AbstractObserver observer: observers){
-			//
-			if(observer.getClass().getSimpleName().equals("LifeAndPaddleObserver")){
-			
-			//pu rain
-			}else if(observer.getClass().getSimpleName().equals("PaddleAndBricksObserver")){
-				if(observer.getAdaptations()==1 && rainTimer >= 2000){					
+		for(AbstractObserver observer: observers){	
+			for(Adaptation adaptation: observer.getAdaptations()){
+				if(adaptation.getCode().equals("PowerUpRain") && rainTimer >= 2000){
 					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0));
 					//collisionManager.addCollidable(pu);
 					rainTimer = 0;
 				}
-
-			}else if(observer.getClass().getSimpleName().equals("PowerUpsObserver")){
-				
-			}
-
+			}	
 		}
 	}
 	

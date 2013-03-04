@@ -15,7 +15,6 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
-import tutorials.slickout.dda.AdaptationDetector;
 import tutorials.slickout.dda.AdaptationDriver;
 import tutorials.slickout.dda.observer.PaddleAndBricksObserver;
 import tutorials.slickout.dda.observer.PowerUpsObserver;
