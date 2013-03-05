@@ -39,9 +39,7 @@ public class PowerUpsObserver extends AbstractObserver {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				System.out.println("Adaptation added");	
-			}else{
-				System.out.println("No adaptation added");
+				System.out.println("IncreaseRedPowerUps Adaptation added");	
 			}
 			producedCounter = 0;
 			collectedCounter = 0;

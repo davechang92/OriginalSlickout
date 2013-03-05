@@ -26,10 +26,13 @@ public class LevelImpl implements ILevel {
  
 	protected List<Brick> bricks;
 	protected List<Ball> balls;
+	
 	protected static List<PowerUp> powerUps;
+	
 	protected double powerUpP = 0.4;
 	protected double extraRedP = 0;
- 
+	protected float powerUpSpeed = 0.28f;
+	
 	protected Paddle paddle;
  
 	protected String[] ballArgs;
@@ -308,7 +311,7 @@ public class LevelImpl implements ILevel {
 			String name = "pu"+powerUps.size();
 			Image image = null;
 			//position is passed in
-			float speed = 0.28f;
+			float speed = getPowerUpSpeed();
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
 			Shape collisionShape = new Rectangle(0, 0, 18, 7);
 			int collisionType = 4;
@@ -333,6 +336,16 @@ public class LevelImpl implements ILevel {
 		
 		return pu;
 		
+	}
+	
+	public float getPowerUpSpeed(){
+		return powerUpSpeed;
+	}
+	
+	public void setPowerUpSpeed(float change){
+		if((powerUpSpeed + change)>0){
+			powerUpSpeed += change;
+		}
 	}
 	
 	public int getLastPowerUpProducedType(){

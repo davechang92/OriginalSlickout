@@ -16,6 +16,7 @@ import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.GameInfo;
 import tutorials.slickout.dda.AdaptationDriver;
+import tutorials.slickout.dda.observer.LifeAndPaddleObserver;
 import tutorials.slickout.dda.observer.PaddleAndBricksObserver;
 import tutorials.slickout.dda.observer.PowerUpsObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
@@ -116,6 +117,7 @@ public class GameplayState extends BasicGameState {
 			
 			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
 			PowerUpsObserver puo = new PowerUpsObserver();
+			LifeAndPaddleObserver lpo = new LifeAndPaddleObserver();
 			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			
 			SensorFactory factory = new SensorFactory(level);
@@ -127,15 +129,19 @@ public class GameplayState extends BasicGameState {
 			powerUpProductionSensor.addObserver(puo);
 
 			livesLostSensor = factory.createSensor("LivesLost", playerInfo); 
+			livesLostSensor.addObserver(lpo);
 			
 			bricksHitSensor = factory.createSensor("BricksHit", brickBallHandler);
 			bricksHitSensor.addObserver(pbo);
 			
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
 			paddleHitSensor.addObserver(pbo);
+			paddleHitSensor.addObserver(lpo);
 
 			adaptationDriver.getObservers().add(pbo);
 			adaptationDriver.getObservers().add(puo);
+			adaptationDriver.getObservers().add(lpo);
+			
 		}
 	}
  

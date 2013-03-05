@@ -45,7 +45,7 @@ public class AdaptationDriver {
 		
 		for(AbstractObserver observer: observers){	
 			
-			//used to remove adaptations once they've been implemented
+			//used to remove adaptations once they've been implemented (power-up rain isn't removed)
 			List<Adaptation> removals = new ArrayList<Adaptation>();
 			
 			for(Adaptation adaptation: observer.getAdaptations()){
@@ -53,9 +53,11 @@ public class AdaptationDriver {
 					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*level.getWidth()),0), (int) (Math.random()*4)+1);
 					//collisionManager.addCollidable(pu);
 					rainTimer = 0;
-				}if(adaptation.getCode().equals("IncreaseRedPowerUps")){
+				}else if(adaptation.getCode().equals("IncreaseRedPowerUps")){
 					level.setExtraRedP(0.1);
 					removals.add(adaptation);
+				}else if(adaptation.getCode().equals("SlowDownPowerUps")){
+					level.setPowerUpSpeed(-0.1f);
 				}
 			}
 			

@@ -40,6 +40,10 @@ public interface ILevel {
 	public int getWidth();
 	
 	public int getLastPowerUpProducedType();
+	
+	public float getPowerUpSpeed();
+	
+	public void setPowerUpSpeed(float change);
 			
 	/*
 	public void addBall(Ball newBall);
