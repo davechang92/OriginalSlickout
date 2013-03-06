@@ -31,6 +31,7 @@ public class LevelImpl implements ILevel {
 	
 	protected double powerUpP = 0.4;
 	protected double extraRedP = 0;
+	protected double extraYellowP = 0;
 	protected float powerUpSpeed = 0.28f;
 	
 	protected Paddle paddle;
@@ -360,6 +361,10 @@ public class LevelImpl implements ILevel {
 		return extraRedP;
 	}
 	
+	public double getExtraYellowP(){
+		return extraYellowP;
+	}
+	
 	public void setPowerUpP(double change){
 		powerUpP += change;
 	}
@@ -367,6 +372,11 @@ public class LevelImpl implements ILevel {
 	public void setExtraRedP(double change){
 		if(extraRedP<= (1-powerUpP)/2)
 			extraRedP += change;
+	}
+	
+	public void setExtraYellowP(double change){
+		if(extraYellowP<= (1-powerUpP)/2)
+			extraYellowP += change;
 	}
 	
 	//gets height of level

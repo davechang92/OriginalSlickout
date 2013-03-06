@@ -185,12 +185,14 @@ public class GameplayState extends BasicGameState {
 		}
 		
 		//draws sensor values at bottom of screen
-		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 50, 700);
-		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 730);
-		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 760);
-		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 700);
-		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 450, 730);
-		gr.drawString("ExtraRed P: "+ level.getExtraRedP(), 450, 760);
+		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 50,670);
+		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 700);
+		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 730);
+		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 670);
+		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 450, 700);
+		gr.drawString("ExtraRed P: "+ level.getExtraRedP(), 450, 730);
+		gr.drawString("ExtraYellow P: "+ level.getExtraYellowP(), 450, 760);
+
 		//long currentTime = System.currentTimeMillis();
 		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);
 

@@ -140,6 +140,18 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			manager.addCollidable(pu);
 			
 			totalPowerUps++;
+		}else if(Math.random() <= levelData.getExtraYellowP()){
+			int type;
+			if(Math.random() <0.5){
+				type = 1;
+			}else{
+				type = 3;
+			}
+			PowerUp pu = levelData.addPowerUp(brick.getPosition(), type);
+			
+			manager.addCollidable(pu);
+			
+			totalPowerUps++;
 		}
  
 	}

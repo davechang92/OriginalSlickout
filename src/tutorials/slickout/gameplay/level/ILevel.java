@@ -30,10 +30,14 @@ public interface ILevel {
 	public double getPowerUpP();
 	
 	public double getExtraRedP();
-	
+
+	public double getExtraYellowP();
+
 	public void setPowerUpP(double change);
 
 	public void setExtraRedP(double change);
+
+	public void setExtraYellowP(double change);
 
 	public int getHeight();
 	
