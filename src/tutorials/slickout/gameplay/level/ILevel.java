@@ -43,7 +43,7 @@ public interface ILevel {
 	
 	public float getPowerUpSpeed();
 	
-	public void setPowerUpSpeed(float change);
+	public void changePowerUpSpeed(float change);
 			
 	/*
 	public void addBall(Ball newBall);

@@ -57,7 +57,8 @@ public class AdaptationDriver {
 					level.setExtraRedP(0.1);
 					removals.add(adaptation);
 				}else if(adaptation.getCode().equals("SlowDownPowerUps")){
-					level.setPowerUpSpeed(-0.1f);
+					level.changePowerUpSpeed(-0.04f);
+					removals.add(adaptation);
 				}
 			}
 			

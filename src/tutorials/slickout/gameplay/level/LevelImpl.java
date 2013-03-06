@@ -342,7 +342,7 @@ public class LevelImpl implements ILevel {
 		return powerUpSpeed;
 	}
 	
-	public void setPowerUpSpeed(float change){
+	public void changePowerUpSpeed(float change){
 		if((powerUpSpeed + change)>0){
 			powerUpSpeed += change;
 		}

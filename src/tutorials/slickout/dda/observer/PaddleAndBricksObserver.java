@@ -21,7 +21,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 		return padHit;
 	}
 
-	//turns on adaptations when pad hit > twice with no bricks hit. the resulting adaptation is power-up rain.
+	//turns on pu rain when pad hit > twice with no bricks hit. 
 	@Override
 	public void update(Observable sensor, Object value) {
 		
