@@ -14,7 +14,7 @@ public class LifeAndPaddleObserver extends AbstractObserver {
 	int livesLostCounter = 0;
 	int padHitCounter = 0;
 
-	//if 1 life lost after 10 bricks hit, pus are slowed down
+	//if 2 life lost after 10 bricks hit, pus are slowed down
 	@Override
 	public void update(Observable sensor, Object value) {
 		//if(sensor. instanceof PaddleHitSensor)
@@ -27,7 +27,7 @@ public class LifeAndPaddleObserver extends AbstractObserver {
 		}
 		
 		if(padHitCounter > 10){
-			if(livesLostCounter >= 1){
+			if(livesLostCounter >= 2){
 				try {
 					adaptations.add(new Adaptation("SlowDownPowerUps"));
 					System.out.println("SlowDownPowerUps Adaptation added");	

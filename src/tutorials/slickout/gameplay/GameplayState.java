@@ -285,14 +285,14 @@ public class GameplayState extends BasicGameState {
 					collisionManager.removeCollidable(pu);
 				}
 			}
- 
-			// perform collisions
-			collisionManager.processCollisions();
 			
 			//implement any adaptations needed
 			if(dda){
 				adaptationDriver.processAdaptations(delta);
 			}
+ 
+			// perform collisions
+			collisionManager.processCollisions();
  
 			// check for bricks left
 			if(level.getBricks().size() == 0){
