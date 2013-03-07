@@ -29,6 +29,8 @@ public class LevelImpl implements ILevel {
 	
 	protected static List<PowerUp> powerUps;
 	
+	protected static List<AnimationObject> explosions;
+	
 	protected double powerUpP = 0.4;
 	protected double extraRedP = 0;
 	protected double extraYellowP = 0;
@@ -51,6 +53,8 @@ public class LevelImpl implements ILevel {
 		
 		//powerUps
 		powerUps = new ArrayList<PowerUp>();
+		//explosions
+		explosions = new ArrayList<AnimationObject>();
  
 		// background
 		level.setBackground( createImage( readNextValidLine( br ) ) );
@@ -387,6 +391,14 @@ public class LevelImpl implements ILevel {
 	//gets width of level
 	public int getWidth(){
 		return gameWidth;
+	}
+	
+	public void addExplosion(AnimationObject exp){
+		explosions.add(exp);
+	}
+	
+	public List<AnimationObject> getExplosions(){
+		return explosions;
 	}
 	
 }

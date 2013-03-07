@@ -54,5 +54,13 @@ public class AnimationObject implements ILevelObject {
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) {
 		animation.update(delta);
 	}
+	
+	public void setLooping(boolean val){
+		animation.setLooping(val);
+	}
+	
+	public Animation getAnimation(){
+		return animation;
+	}
  
 }

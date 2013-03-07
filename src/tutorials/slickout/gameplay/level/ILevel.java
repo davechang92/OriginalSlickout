@@ -27,6 +27,8 @@ public interface ILevel {
 	
 	public List<PowerUp> getPowerUps();
 	
+	public List<AnimationObject> getExplosions();
+	
 	public double getPowerUpP();
 	
 	public double getExtraRedP();
@@ -48,6 +50,8 @@ public interface ILevel {
 	public float getPowerUpSpeed();
 	
 	public void changePowerUpSpeed(float change);
+	
+	public void addExplosion(AnimationObject exp);
 			
 	/*
 	public void addBall(Ball newBall);

@@ -22,6 +22,7 @@ import tutorials.slickout.dda.observer.PowerUpsObserver;
 import tutorials.slickout.dda.sensor.AbstractSensor;
 import tutorials.slickout.dda.sensor.SensorFactory;
 import tutorials.slickout.gameplay.collision.CollisionManager;
+import tutorials.slickout.gameplay.level.AnimationObject;
 import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.Brick;
 import tutorials.slickout.gameplay.level.ILevel;
@@ -176,6 +177,11 @@ public class GameplayState extends BasicGameState {
 		for ( PowerUp powerUp : level.getPowerUps()){
 			powerUp.render(gr);
 		}
+		
+		//pu collection explosions
+		for( AnimationObject explosion : level.getExplosions()){
+			explosion.render(gr);
+		}
  
 		gr.drawString("Lives: " + playerInfo.getLives(), 700, 10);
 		gr.drawString("Score: " + playerInfo.getScore(), 500, 10);
@@ -285,6 +291,24 @@ public class GameplayState extends BasicGameState {
 					level.getPowerUps().remove(pu);
  
 					collisionManager.removeCollidable(pu);
+				}
+			}
+			
+			//check to see if any explosions have finished their animations; if so, remove them from the level
+			List<AnimationObject> expRemovals = null;
+			
+			for(AnimationObject explosion: level.getExplosions()){
+				if(explosion.getAnimation().isStopped()){
+					if(expRemovals == null){
+						expRemovals = new ArrayList<AnimationObject>();
+					}
+					expRemovals.add(explosion);
+				}
+			}
+			
+			if(expRemovals!=null){
+				for(AnimationObject explosion: expRemovals){
+					level.getExplosions().remove(explosion);
 				}
 			}
 			

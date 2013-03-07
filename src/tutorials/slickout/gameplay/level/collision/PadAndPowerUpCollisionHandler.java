@@ -11,6 +11,7 @@ import org.newdawn.slick.geom.Vector2f;
 
 import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.collision.ICollisionHandler;
+import tutorials.slickout.gameplay.level.AnimationObject;
 import tutorials.slickout.gameplay.level.Ball;
 import tutorials.slickout.gameplay.level.ICollidableObject;
 import tutorials.slickout.gameplay.level.ILevel;
@@ -92,6 +93,12 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		//remove powerup from level and collision manager
 		level.getPowerUps().remove(pu);
 		manager.removeCollidable(pu);
+		
+		//add explosion to level
+		AnimationObject explosion = new AnimationObject("Explosion", new Animation(), new Vector2f(pu.getPosition().x-33,pu.getPosition().y - 40));
+		explosion.setAnimation("data/explosion.png", 100, 55, 30);
+		explosion.setLooping(false);
+		level.addExplosion(explosion);
  
 		//POWER UP TYPE SPECIFIC HANDLING HAPPENS HERE
 		
