@@ -27,9 +27,15 @@ public void mouseClicked(int button, int x, int y, int clickCount) {
 }
 @Override
 public void mouseMoved(int oldx, int oldy, int newx, int newy) {
-	if(newx > 10 && newx<690){
-		setPosition(new Vector2f( newx, getPosition().y) );
+	int change = newx - oldx;
+	if(getPosition().x + change >= 10 && getPosition().x + change <= 690){
+		setPosition(new Vector2f( getPosition().x + change, getPosition().y) );
+	}else if(getPosition().x + change < 10){
+		setPosition(new Vector2f( 10, getPosition().y) );
+	}else if(getPosition().x + change > 690){
+		setPosition(new Vector2f( 690, getPosition().y) );
 	}
+	//System.out.println("newx "+ newx + " padPosition "+getPosition().x);
 }
 @Override
 public void mousePressed(int button, int x, int y) {
