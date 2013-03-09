@@ -104,6 +104,18 @@ public class BumperAndPadBallCollisionHandler implements ICollisionHandler {
 			float anglePercentChange = (halfPaddleLength - (ballPos.x - paddlePos.x)) / halfPaddleLength;
 			double curAngle = Math.atan2(direction.y, direction.x);
 			double newAngle = curAngle + anglePercentChange * maxAngleChange;
+			
+			//ensure no annoying/impossible angles
+			double degrees = (newAngle * 57.2957795);
+			if(degrees >=0 && degrees <= 14){
+				degrees = 15;
+				System.out.println("changed to 15");
+			}else if(degrees <= 180 && degrees >= 166){
+				degrees = 165;
+				System.out.println("changed to 165");
+			}
+			newAngle = degrees/57.2957795;
+			
 			double magnitude = Math.sqrt(Math.pow(direction.x, 2) + Math.pow(direction.y, 2));// Magnitude of vector needs to remain constant
 			direction.set((float) (magnitude * Math.cos(newAngle)), (float) (magnitude * Math.sin(newAngle)));
 			//levelData.playBop();
