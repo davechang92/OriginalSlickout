@@ -9,6 +9,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.geom.Vector2f;
 
+import tutorials.slickout.GameInfo;
 import tutorials.slickout.gameplay.collision.CollisionManager;
 import tutorials.slickout.gameplay.collision.ICollisionHandler;
 import tutorials.slickout.gameplay.level.AnimationObject;
@@ -60,6 +61,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		if (!collidable1.isCollidingWith(collidable2)) {
 			return;
 		}
+		
+		GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(50);
 		
 		PowerUp pu = null;
 		Paddle paddle = null;

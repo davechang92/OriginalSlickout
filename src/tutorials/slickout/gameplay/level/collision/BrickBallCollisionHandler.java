@@ -117,7 +117,7 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			// remove it from the collision manager
 			manager.removeCollidable(brick);
  
-			GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(250);
+			//GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(250);
 		}
 		
 		//according to probability of power up being created, a power-up may be created

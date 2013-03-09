@@ -9,6 +9,7 @@ import java.util.Random;
  
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -209,6 +210,13 @@ public class GameplayState extends BasicGameState {
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int delta)
 			throws SlickException {
+		
+		//allows game quit with escape key
+		Input input = gc.getInput();
+		if(input.isKeyDown(Input.KEY_ESCAPE))
+        {
+           gc.exit();
+        }
  
 		switch(currentState){
 		case BALL_LAUNCH:{
