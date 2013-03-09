@@ -75,6 +75,8 @@ public class GameplayState extends BasicGameState {
 	public void enter(GameContainer gc, StateBasedGame sbg)
 			throws SlickException {
  
+		gc.setMouseGrabbed(true);
+		
 		// load level
 		if(levelFile == null){
 			throw new SlickException("No level to load"); 

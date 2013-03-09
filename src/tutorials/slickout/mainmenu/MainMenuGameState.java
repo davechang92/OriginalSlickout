@@ -27,6 +27,9 @@ public class MainMenuGameState extends BasicGameState implements MouseListener{
 	@Override
 	public void enter(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		
+		container.setMouseGrabbed(false);
+		
 		selection = -1;
 		optionSelected = selection;
  

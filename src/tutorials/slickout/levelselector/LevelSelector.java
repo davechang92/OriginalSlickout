@@ -43,6 +43,7 @@ public class LevelSelector extends BasicGameState implements MouseListener {
 	public void enter(GameContainer container, StateBasedGame game)
 			throws SlickException {
  
+		container.setMouseGrabbed(false);
 		optionSelected = -1;
 	}
  

@@ -318,7 +318,7 @@ public class LevelImpl implements ILevel {
 			//position is passed in
 			float speed = getPowerUpSpeed();
 			Vector2f initialDirection = new Vector2f(0,-1);	//set direction to be in negative y
-			Shape collisionShape = new Rectangle(0, 0, 18, 7);
+			Shape collisionShape = new Rectangle(0, 0, 27, 11);
 			int collisionType = 4;
 			//powerType is passed in
 			if(powerType==1){
