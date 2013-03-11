@@ -19,6 +19,7 @@ import org.newdawn.slick.state.StateBasedGame;
  
 import tutorials.slickout.gameplay.GameplayState;
 import tutorials.slickout.levelselector.LevelSelector;
+import tutorials.slickout.mainmenu.BriefingGameState;
 import tutorials.slickout.mainmenu.MainMenuGameState;
 import tutorials.slickout.playerinfo.PlayerInfo;
  
@@ -34,9 +35,13 @@ public class SlickOutGame extends StateBasedGame {
  
 		GameplayState state = new GameplayState();
  
-		addState(new LevelSelector());
+		//addState(new LevelSelector());
+		
+		addState(new BriefingGameState());
  
 		addState(state);
+		
+		
 	}
  
 	public static void main(String[] args) throws SlickException

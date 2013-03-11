@@ -9,6 +9,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import tutorials.slickout.GameInfo;
+import tutorials.slickout.gameplay.GameplayState;
 
 public class BriefingGameState extends BasicGameState implements MouseListener {
 
@@ -17,6 +18,8 @@ public class BriefingGameState extends BasicGameState implements MouseListener {
 	private int selection; 
 	private int optionSelected;
 	private int topScore;
+	//stores which of the instructions screens we're on
+	private int screen =1;
  
 	@Override
 	public int getID() {
@@ -37,48 +40,64 @@ public class BriefingGameState extends BasicGameState implements MouseListener {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-		background = new Image("data/mainmenu.jpg");
+		background = new Image("data/instructionsPage.png");
 		selector = new Image("data/selector.png");
 	}
  
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		
 		background.draw();
- 
 		if(selection == 1){
-			selector.draw(158, 310);
-			selector.draw(694, 310);
- 
-			GameInfo.createNewGameInfo();
-		}else if(selection == 2){
-			selector.draw(158, 474);
-			selector.draw(694, 474);
+			selector.draw(242,520);
+		}else if(selection == 2 || selection == 3){
+			selector.draw(575, 520);
 		}
  
-		g.drawString("TOPSCORE : " + topScore, 10, 10) ;
 	}
  
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		if(optionSelected == 1){
-			// TODO log
-			game.enterState(2);
-		}else if(optionSelected == 2){
-			System.exit(0);
+		
+		//go to main menu
+		if(optionSelected==1){
+			game.enterState(0);
+		}
+		//go to next instructions screen
+		if(optionSelected == 2 && screen == 1){
+			background = new Image("data/instructionsPage2.png");
+			screen = 2;
+			optionSelected = -1;
+		}else if(optionSelected == 3 && screen == 2){	//go to game
+			GameInfo.createNewGameInfo();
+
+			String levelfile = "data/level1.lvl";
+			// obtain the game state
+			GameplayState gameplay = (GameplayState) game.getState(1);
+
+			gameplay.setLevelFile(levelfile);
+
+			game.enterState(1);
 		}
 	}
  
 	public void mouseMoved(int oldx, int oldy, int newX, int newY){
- 
-		if(newX > 228 && newX < 702){
-			if ( newY > 308 && newY < 389){
+		selection = -1;
+		if(newX > 30 && newX < 242){
+			if ( newY > 540 && newY < 580){
 				selection = 1;
-			}else if ( newY > 475 && newY < 544){
-				selection = 2;
-			}else {
-				selection = -1;
+			}
+		}
+			
+		if(newX > 640 && newX < 750){
+			if ( newY > 540 && newY < 580){
+				if(screen==1){
+					selection = 2;
+				}else{
+					selection = 3;
+				}
 			}
 		}
 	}

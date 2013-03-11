@@ -186,11 +186,11 @@ public class GameplayState extends BasicGameState {
 			explosion.render(gr);
 		}
  
-		gr.drawString("Lives: " + playerInfo.getLives(), 700, 10);
-		gr.drawString("Score: " + playerInfo.getScore(), 500, 10);
+		//gr.drawString("Lives: " + playerInfo.getLives(), 700, 10);
+		//gr.drawString("Score: " + playerInfo.getScore(), 500, 10);
  
 		if(message != null){
-			gr.drawString(message, 300, 300);
+			//gr.drawString(message, 300, 300);
 		}
 		
 		/*draws sensor values at bottom of screen

@@ -77,6 +77,11 @@ public class MainMenuGameState extends BasicGameState implements MouseListener{
 			gameplay.setLevelFile(levelfile);
 
 			game.enterState(1);
+		}else if(optionSelected == 2){
+			//go to instructions
+			game.enterState(3);
+		}else if(optionSelected == 3){
+			
 		}else if(optionSelected == 4){
 			System.exit(0);
 		}
