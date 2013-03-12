@@ -36,6 +36,8 @@ public class LevelImpl implements ILevel {
 	protected double extraYellowP = 0;
 	protected float powerUpSpeed = 0.28f;
 	
+	protected int numOfPowerTypes = 4;
+	
 	protected Paddle paddle;
  
 	protected String[] ballArgs;
@@ -44,7 +46,7 @@ public class LevelImpl implements ILevel {
 	protected int gameWidth = 800;
 	
 	private int lastPowerUpProduced = 0;
- 
+	 
  
 	public static ILevel loadLevel(InputStream is) throws SlickException{
 		LevelImpl level = new LevelImpl();
@@ -399,6 +401,10 @@ public class LevelImpl implements ILevel {
 	
 	public List<AnimationObject> getExplosions(){
 		return explosions;
+	}
+	
+	public int getNumOfPowerTypes(){
+		return numOfPowerTypes;
 	}
 	
 }

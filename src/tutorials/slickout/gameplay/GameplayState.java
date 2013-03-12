@@ -121,7 +121,7 @@ public class GameplayState extends BasicGameState {
 		if(dda){
 			
 			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
-			PowerUpsObserver puo = new PowerUpsObserver();
+			PowerUpsObserver puo = new PowerUpsObserver(level.getNumOfPowerTypes());
 			LifeAndPaddleObserver lpo = new LifeAndPaddleObserver();
 			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			

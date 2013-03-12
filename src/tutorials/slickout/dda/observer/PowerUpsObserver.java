@@ -1,5 +1,6 @@
 package tutorials.slickout.dda.observer;
 
+import java.util.Map;
 import java.util.Observable;
 
 import tutorials.slickout.dda.Adaptation;
@@ -13,6 +14,17 @@ public class PowerUpsObserver extends AbstractObserver {
 	private int redCollectedCounter = 0;
 	private int yellowProducedCounter = 0;
 	private int yellowCollectedCounter = 0;
+	//maps of power ups produced and collected, by type
+	private Map<Integer, Integer> produced;
+	private Map<Integer, Integer> collected;
+	
+	public PowerUpsObserver(int numOfPuTypes){
+		super();
+		for(int i = 1; i <= numOfPuTypes; i++){
+			produced.put(i, 0);
+		}
+	}
+
 	
 	//if, out of the last 5 red pus produced
 	//		3 or more were collected, increase probability of red pus
@@ -29,6 +41,7 @@ public class PowerUpsObserver extends AbstractObserver {
 				yellowProducedCounter++;
 				System.out.println("produced: "+yellowProducedCounter);
 			}
+			produced.put(puType, produced.get(puType)+ 1);
 		}else if(sensor.getClass().getSimpleName().equals("PowerUpCollectionSensor")){
 			puType = ((PowerUpCollectionSensor) sensor).getPUType();
 			if(puType % 2 == 0)	{
@@ -36,8 +49,8 @@ public class PowerUpsObserver extends AbstractObserver {
 			}else{
 				yellowCollectedCounter++;
 				System.out.println("collected: "+yellowCollectedCounter);
-
 			}
+			collected.put(puType, collected.get(puType)+ 1);
 		}
 		
 		if(redProducedCounter > 5){
