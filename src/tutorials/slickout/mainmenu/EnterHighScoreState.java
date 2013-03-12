@@ -72,7 +72,7 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 			try
 			{
 				writer = new BufferedWriter( new FileWriter( "data/highScores.txt", true));
-				writer.write( name + "\n" + score);
+				writer.write( name + score + "\n");
 
 			}
 			catch ( IOException e)

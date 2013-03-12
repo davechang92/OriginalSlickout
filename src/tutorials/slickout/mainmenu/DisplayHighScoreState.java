@@ -1,5 +1,13 @@
 package tutorials.slickout.mainmenu;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -17,7 +25,8 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	private Image selector;
 	private int selection; 
 	private int optionSelected;
-	private int topScore;
+	private TreeMap<Integer,String> names;
+	private TreeMap<Integer,Integer> scores;
  
 	@Override
 	public int getID() {
@@ -28,8 +37,41 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	public void enter(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		
-		container.setMouseGrabbed(false);
+		names = new TreeMap<Integer, String>();
+		scores = new TreeMap<Integer, Integer>();
 		
+		container.setMouseGrabbed(false);
+	    
+		//read in highscores
+	    BufferedReader br = null;
+		try
+		{
+			br = new BufferedReader(new FileReader("data/highScores.txt"));
+	        String line = br.readLine();
+	        //key used to associate names with scores
+	        int key = 0;
+	        while (line != null) {
+	            names.put(key, line);
+	            line = br.readLine();
+	            scores.put(key, Integer.parseInt(line));
+	            line = br.readLine();
+	        }
+		}
+		catch ( IOException e)
+		{
+		}
+		finally
+		{
+			try
+			{
+				if ( br != null)
+					br.close( );
+			}
+			catch ( IOException e)
+			{
+			}
+	     }
+				
 		selection = -1;
 		optionSelected = selection;
 
@@ -47,6 +89,26 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 			throws SlickException {
 		
 		background.draw();
+		
+		//draw names
+		int i = 0;
+		for(Map.Entry<Integer,String> entry : names.entrySet()) {
+			  String name = entry.getValue();
+
+			  g.drawString(name , 200, 200 +( i * 50));
+			  i++;
+			}
+		
+		//draw scores
+		int j = 0;
+		for(Map.Entry<Integer,Integer> entry : scores.entrySet()) {
+			  Integer score = entry.getValue();
+
+			  g.drawString(score.toString() , 400, 200 +( j * 50));
+			  j++;
+			}
+		
+		
 		if(selection == 1){
 			selector.draw(242,520);
 		}else if(selection == 2){
