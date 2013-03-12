@@ -55,6 +55,7 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	            line = br.readLine();
 	            scores.put(key, Integer.parseInt(line));
 	            line = br.readLine();
+	            key++;
 	        }
 		}
 		catch ( IOException e)

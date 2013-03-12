@@ -12,3 +12,5 @@ dave
 0
 foo
 0
+bar
+0
