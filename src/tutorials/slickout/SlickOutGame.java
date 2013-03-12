@@ -20,6 +20,8 @@ import org.newdawn.slick.state.StateBasedGame;
 import tutorials.slickout.gameplay.GameplayState;
 import tutorials.slickout.levelselector.LevelSelector;
 import tutorials.slickout.mainmenu.BriefingGameState;
+import tutorials.slickout.mainmenu.DisplayHighScoreState;
+import tutorials.slickout.mainmenu.EnterHighScoreState;
 import tutorials.slickout.mainmenu.MainMenuGameState;
 import tutorials.slickout.playerinfo.PlayerInfo;
  
@@ -38,6 +40,10 @@ public class SlickOutGame extends StateBasedGame {
 		//addState(new LevelSelector());
 		
 		addState(new BriefingGameState());
+		
+		addState(new EnterHighScoreState());
+		
+		addState(new DisplayHighScoreState());
  
 		addState(state);
 		

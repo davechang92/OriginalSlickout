@@ -42,6 +42,7 @@ public class GameplayState extends BasicGameState {
 	private String levelFile;
 	private PlayerInfo playerInfo;
  
+	//used to display a  message for 3 seconds when level complete or game over
 	private int counter = 0;
 	private String message = null;
  
@@ -361,8 +362,8 @@ public class GameplayState extends BasicGameState {
 			counter -= delta;
  
 			if(counter < 0){
-				// jump to level selection screen
-				sbg.enterState(2);
+				// jump to enter high score screen
+				sbg.enterState(4);
 			}
 			break;
 		case GAME_OVER:
