@@ -82,7 +82,7 @@ public class MainMenuGameState extends BasicGameState implements MouseListener{
 			game.enterState(3);
 		}else if(optionSelected == 3){
 			//go to high score display
-			game.enterState(5);
+			game.enterState(4);
 		}else if(optionSelected == 4){
 			System.exit(0);
 		}

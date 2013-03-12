@@ -28,7 +28,7 @@ import tutorials.slickout.playerinfo.PlayerInfo;
  
 public class SlickOutGame extends StateBasedGame {
 	public SlickOutGame() {
-		super("Slick Tutorials : SlickOut");
+		super("Breakout: Dynamo!");
 	}
  
 	public void initStatesList(GameContainer gc) throws SlickException {
