@@ -61,7 +61,11 @@ public class PlayerInfo {
 	}
  
 	public final void decreaseScore(int score) {
-		this.score -= score;
+		if(this.score - score >= 0){
+			this.score -= score;
+		}else{
+			this.score = 0;
+		}
 	}
 	
 	public final void lifeLost(){

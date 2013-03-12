@@ -50,7 +50,7 @@ public class AdaptationDriver {
 			
 			for(Adaptation adaptation: observer.getAdaptations()){
 				if(adaptation.getCode().equals("PowerUpRain") && rainTimer >= 2000){
-					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-70)) + 35,40), (int) (Math.random()*4)+1);
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), (int) (Math.random()*4)+1);
 					collisionManager.addCollidable(pu);
 					rainTimer = 0;
 				}else if(adaptation.getCode().equals("IncreaseRedPowerUps")){
