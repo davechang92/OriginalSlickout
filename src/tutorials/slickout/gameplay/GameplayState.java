@@ -60,6 +60,10 @@ public class GameplayState extends BasicGameState {
 	
 	private AdaptationDriver adaptationDriver;
 	
+	private PaddleAndBricksObserver pbo;
+	private PowerUpsObserver puo;
+	private LifeAndPaddleObserver lpo;
+	
 	//boolean used to decide whether dda will be in this game or not
 	boolean dda = true;
  
@@ -120,9 +124,9 @@ public class GameplayState extends BasicGameState {
 		//dda stuff
 		if(dda){
 			
-			PaddleAndBricksObserver pbo = new PaddleAndBricksObserver();
-			PowerUpsObserver puo = new PowerUpsObserver(level.getNumOfPowerTypes());
-			LifeAndPaddleObserver lpo = new LifeAndPaddleObserver();
+			pbo = new PaddleAndBricksObserver();
+			puo = new PowerUpsObserver(level.getNumOfPowerTypes());
+			lpo = new LifeAndPaddleObserver();
 			adaptationDriver = new AdaptationDriver(level, collisionManager);
 			
 			SensorFactory factory = new SensorFactory(level);
@@ -195,13 +199,17 @@ public class GameplayState extends BasicGameState {
 		}
 		
 		//draws sensor values at bottom of screen
-		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 50,670);
-		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 50, 700);
-		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 50, 730);
-		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 450, 670);
-		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 450, 700);
-		gr.drawString("ExtraRed P: "+ level.getExtraRedP(), 450, 730);
-		gr.drawString("ExtraYellow P: "+ level.getExtraYellowP(), 450, 760);
+		gr.drawString("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue(), 25,670);
+		gr.drawString("Lives Lost: "+ livesLostSensor.getValue(), 25, 700);
+		gr.drawString("Bricks hit: "+ bricksHitSensor.getValue(), 25, 730);
+		gr.drawString("Paddle hit: "+ paddleHitSensor.getValue(), 300, 670);
+		gr.drawString("PowerUp P: "+ level.getPowerUpP(), 300, 700);
+		gr.drawString("ExtraRed P: "+ level.getExtraRedP(), 300, 730);
+		gr.drawString("ExtraYellow P: "+ level.getExtraYellowP(), 300, 760);
+		gr.drawString("Enlarge paddle collected: " + puo.getcollected().get(1)+ " / " +puo.getProduced().get(1), 500,670 );
+		gr.drawString("Speed up collected: " + puo.getcollected().get(2) + " / " + puo.getProduced().get(2), 500,700 );
+		gr.drawString("Slow down collected: " + puo.getcollected().get(3)+ " / " +puo.getProduced().get(3), 500,730 );
+		gr.drawString("Shrink paddle collected: " + puo.getcollected().get(4)+ " / " +puo.getProduced().get(4), 500,760 );
 
 		//long currentTime = System.currentTimeMillis();
 		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);

@@ -43,7 +43,6 @@ public class PowerUpsObserver extends AbstractObserver {
 				redProducedCounter++;
 			}else{
 				yellowProducedCounter++;
-				System.out.println("produced: "+yellowProducedCounter);
 			}
 			produced.put(puType, produced.get(puType)+ 1);
 		}else if(sensor.getClass().getSimpleName().equals("PowerUpCollectionSensor")){
@@ -52,7 +51,6 @@ public class PowerUpsObserver extends AbstractObserver {
 				redCollectedCounter++;
 			}else{
 				yellowCollectedCounter++;
-				System.out.println("collected: "+yellowCollectedCounter);
 			}
 			collected.put(puType, collected.get(puType)+ 1);
 		}
@@ -64,7 +62,6 @@ public class PowerUpsObserver extends AbstractObserver {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				System.out.println("IncreaseRedPowerUps Adaptation added");	
 			}
 			redProducedCounter = 0;
 			redCollectedCounter = 0;
@@ -77,7 +74,6 @@ public class PowerUpsObserver extends AbstractObserver {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				System.out.println("IncreaseYellowPowerUps Adaptation added");	
 			}
 			yellowProducedCounter = 0;
 			yellowCollectedCounter = 0;
