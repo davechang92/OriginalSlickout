@@ -54,6 +54,8 @@ public interface ILevel {
 	public void addExplosion(AnimationObject exp);
 	
 	public int getNumOfPowerTypes();
+
+	public int getPowerUpsProduced();
 			
 	/*
 	public void addBall(Ball newBall);

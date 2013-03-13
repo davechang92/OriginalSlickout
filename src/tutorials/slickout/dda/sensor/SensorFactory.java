@@ -38,7 +38,7 @@ public class SensorFactory {
 					return s;
 				}
 			}
-			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor(name,(BrickBallCollisionHandler) objectToBeMonitored, level);
+			PowerUpProductionSensor puProductionSensor = new PowerUpProductionSensor(name, (ILevel) objectToBeMonitored);
 			SensorRegistry.add(puProductionSensor);
 			return puProductionSensor;
 			

@@ -5,13 +5,11 @@ import tutorials.slickout.gameplay.level.collision.BrickBallCollisionHandler;
 
 public class PowerUpProductionSensor extends AbstractSensor {
 
-	BrickBallCollisionHandler brickBallHandler;
 	private int puType = 0;
 	private ILevel level;
 	
-	public PowerUpProductionSensor(String name,BrickBallCollisionHandler brickBallHandler, ILevel level){
+	public PowerUpProductionSensor(String name, ILevel level){
 		super(name);
-		this.brickBallHandler = brickBallHandler;
 		value = 0;
 		this.level = level;
 	}
@@ -22,8 +20,8 @@ public class PowerUpProductionSensor extends AbstractSensor {
 	
 	@Override
 	public void refreshValue() {
-		if(brickBallHandler.getPowerUpsProduced() > (Integer) value){
-			value = brickBallHandler.getPowerUpsProduced();	
+		if(level.getPowerUpsProduced() > (Integer) value){
+			value = level.getPowerUpsProduced();	
 			puType = level.getLastPowerUpProducedType();
 			setChanged();
 			notifyObservers(value);

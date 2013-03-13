@@ -44,7 +44,8 @@ public class LevelImpl implements ILevel {
 	
 	protected int gameHeight = 600;
 	protected int gameWidth = 800;
-	
+	//num of pus produced
+	private int totalPowerUps = 0;
 	private int lastPowerUpProduced = 0;
 	 
  
@@ -311,6 +312,8 @@ public class LevelImpl implements ILevel {
 
 	public PowerUp addPowerUp(Vector2f pos, int powerType){
 		 
+		totalPowerUps++;
+		
 		PowerUp pu = null;
 		
 		try {
@@ -405,6 +408,10 @@ public class LevelImpl implements ILevel {
 	
 	public int getNumOfPowerTypes(){
 		return numOfPowerTypes;
+	}
+	
+	public int getPowerUpsProduced(){
+		return totalPowerUps;
 	}
 	
 }

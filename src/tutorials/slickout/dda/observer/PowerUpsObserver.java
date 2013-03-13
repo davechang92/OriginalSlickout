@@ -1,5 +1,6 @@
 package tutorials.slickout.dda.observer;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 
@@ -20,8 +21,11 @@ public class PowerUpsObserver extends AbstractObserver {
 	
 	public PowerUpsObserver(int numOfPuTypes){
 		super();
+		produced = new HashMap<Integer, Integer>();
+		collected = new HashMap<Integer, Integer>();
 		for(int i = 1; i <= numOfPuTypes; i++){
 			produced.put(i, 0);
+			collected.put(i, 0);
 		}
 	}
 
@@ -80,6 +84,14 @@ public class PowerUpsObserver extends AbstractObserver {
 		}
 
 		
+	}
+	
+	public Map<Integer,Integer> getProduced(){
+		return produced;
+	}
+	
+	public Map<Integer,Integer> getcollected(){
+		return collected;
 	}
 
 }
