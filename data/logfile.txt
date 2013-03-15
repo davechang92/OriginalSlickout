@@ -1,0 +1,122 @@
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 7
+Power Ups Collected: 2 / 2
+Lives Lost: 1
+Bricks hit: 4
+Paddle hit: 3
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 1 / 1
+Speed up collected: 1 / 1
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 0
+
+User id: 1
+DDA?: true
+SlowDownPowerUps added at: 1
+IncreaseYellowPowerUps added at: 1
+IncreaseRedPowerUps added at: 3
+IncreaseYellowPowerUps added at: 5
+IncreaseRedPowerUps added at: 6
+SlowDownPowerUps added at: 6
+PowerUpRain added at: 7
+IncreaseYellowPowerUps added at: 8
+IncreaseRedPowerUps added at: 8
+PowerUpRain added at: 10
+IncreaseRedPowerUps added at: 10
+PowerUpRain added at: 10
+IncreaseYellowPowerUps added at: 11
+Game complete: yes
+Time played (s): 180
+Power Ups Collected: 42 / 77
+Lives Lost: 7
+Bricks hit: 106
+Paddle hit: 189
+PowerUp P: 0.4
+ExtraRed P: 0.30000000000000004
+ExtraYellow P: 0.30000000000000004
+Enlarge paddle collected: 10 / 19
+Speed up collected: 11 / 21
+Slow down collected: 10 / 19
+Shrink paddle collected: 7 / 10
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 6
+Power Ups Collected: 0 / 0
+Lives Lost: 0
+Bricks hit: 0
+Paddle hit: 0
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 0
+Speed up collected: 0 / 0
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 0
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 21
+Power Ups Collected: 0 / 0
+Lives Lost: 1
+Bricks hit: 4
+Paddle hit: 195
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 0
+Speed up collected: 0 / 0
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 0
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 31
+Power Ups Collected: 0 / 0
+Lives Lost: 0
+Bricks hit: 0
+Paddle hit: 0
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 0
+Speed up collected: 0 / 0
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 0
+
+User id: 1
+DDA?: true
+IncreaseYellowPowerUps added at: 12
+IncreaseRedPowerUps added at: 15
+IncreaseYellowPowerUps added at: 18
+IncreaseRedPowerUps added at: 28
+IncreaseRedPowerUps added at: 31
+PowerUpRain added at: 35
+PowerUpRain added at: 39
+IncreaseYellowPowerUps added at: 39
+PowerUpRain added at: 53
+PowerUpRain added at: 54
+PowerUpRain added at: 57
+PowerUpRain added at: 58
+PowerUpRain added at: 61
+Game complete: yes
+Time played (s): 234
+Power Ups Collected: 36 / 103
+Lives Lost: 7
+Bricks hit: 104
+Paddle hit: 413
+PowerUp P: 0.4
+ExtraRed P: 0.30000000000000004
+ExtraYellow P: 0.30000000000000004
+Enlarge paddle collected: 6 / 16
+Speed up collected: 10 / 24
+Slow down collected: 8 / 26
+Shrink paddle collected: 10 / 20

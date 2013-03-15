@@ -30,14 +30,11 @@ public class LifeAndPaddleObserver extends AbstractObserver {
 			if(livesLostCounter >= 2){
 				try {
 					adaptations.add(new Adaptation("SlowDownPowerUps"));
-					System.out.println("SlowDownPowerUps Adaptation added");	
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else{
-				System.out.println("No SlowDownPowerUps Adaptation added");	
 			}
+			
 			padHitCounter = 0;
 			livesLostCounter =0;
 		}

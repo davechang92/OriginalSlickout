@@ -1,5 +1,8 @@
 package tutorials.slickout.dda;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -21,6 +24,11 @@ public class AdaptationDriver {
 	private ILevel level;
 	//used to time pu rain events
 	private int rainTimer = 0;
+	//used to determine if puRain has been turned on
+	boolean isRaining = false;
+	//used to record total time played + timestamp adaptations
+	private int timePlayed = 0;
+	
 	
 	public AdaptationDriver(ILevel level, CollisionManager collisionManager) {
 		this.level = level;
@@ -40,6 +48,8 @@ public class AdaptationDriver {
 
 
 	public void processAdaptations(int delta) {
+		
+		timePlayed++;
 
 		rainTimer += delta;
 		
@@ -50,9 +60,8 @@ public class AdaptationDriver {
 			
 			for(Adaptation adaptation: observer.getAdaptations()){
 				if(adaptation.getCode().equals("PowerUpRain") && rainTimer >= 2000){
-					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), (int) (Math.random()*4)+1);
-					collisionManager.addCollidable(pu);
-					rainTimer = 0;
+					isRaining = true;
+					removals.add(adaptation);
 				}else if(adaptation.getCode().equals("IncreaseRedPowerUps")){
 					level.setExtraRedP(0.1);
 					removals.add(adaptation);
@@ -66,7 +75,37 @@ public class AdaptationDriver {
 				}
 			}
 			
+			if(isRaining && rainTimer >= 2000){
+				PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), (int) (Math.random()*4)+1);
+				collisionManager.addCollidable(pu);
+				rainTimer = 0;
+			}
+			
+			//make sure adapatations aren't re-implemented; also used to log which adaptations were added, and when
 			for(Adaptation adaptation: removals){
+				//logging
+				BufferedWriter writer = null;
+				try
+				{
+					writer = new BufferedWriter( new FileWriter( "data/logfile.txt", true));
+					writer.write(adaptation.getCode() + " added at: "+ timePlayed/1000 + "\n");
+
+				}
+				catch ( IOException e)
+				{
+				}
+				finally
+				{
+					try
+					{
+						if ( writer != null)
+							writer.close( );
+					}
+					catch ( IOException e)
+					{
+					}
+			     }
+				//remove adaptation
 				observer.getAdaptations().remove(adaptation);
 			}
 			
