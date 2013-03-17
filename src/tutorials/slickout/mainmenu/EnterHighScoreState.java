@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
+import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -25,6 +26,7 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 	private Image background;
 	private int score;
 	private String name;
+	private StateBasedGame sbg;
  
 	@Override
 	public int getID() {
@@ -34,6 +36,8 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 	@Override
 	public void enter(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		
+		sbg = game;
 		
 		container.setMouseGrabbed(false);
 		
@@ -52,19 +56,22 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		background.draw();
- 		
 		g.drawString(name.toUpperCase(),300 ,300);
 	}
  
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+			
 		
-		Input input = container.getInput();
-		
-		
-		if(input.isKeyDown(Input.KEY_ENTER))
-        {
+	}
+	
+	@Override
+    public void keyPressed(int key, char c) {
+		if(key == Input.KEY_BACK){
+			name = name.substring(0, name.length()-1);
+		}else if(key == Input.KEY_ENTER){
+						
 			if ( GameInfo.getCurrentGameInfo() != null){
 				score = GameInfo.getCurrentGameInfo().getPlayerInfo().getScore(); 
 			}
@@ -72,7 +79,7 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 			try
 			{
 				writer = new BufferedWriter( new FileWriter( "output/highScores.txt", true));
-				writer.write( name + score + "\n");
+				writer.write( name + "\n" + score + "\n");
 
 			}
 			catch ( IOException e)
@@ -90,17 +97,11 @@ public class EnterHighScoreState extends BasicGameState implements KeyListener {
 				}
 		     }
 			
-            game.enterState(5);
-        }
-		
-	}
-	
-	@Override
-    public void keyPressed(int key, char c) {
-		if(key == Input.KEY_BACK){
-			name = name.substring(0, name.length()-1);
+            sbg.enterState(5);
+       
 		}else{
-			name = name + c;
+			if(name.length() < 5)
+				name = name + c;
 		}
     }
 	
