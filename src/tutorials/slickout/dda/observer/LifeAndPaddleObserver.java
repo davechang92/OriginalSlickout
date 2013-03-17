@@ -16,7 +16,7 @@ public class LifeAndPaddleObserver extends AbstractObserver {
 
 	//if 2 life lost after 10 bricks hit, pus are slowed down
 	@Override
-	public void update(Observable sensor, Object value) {
+	public synchronized void update(Observable sensor, Object value) {
 		//if(sensor. instanceof PaddleHitSensor)
 		if(sensor.getClass().getSimpleName().equals("PaddleHitSensor")){
 			padHit = (Integer) value;

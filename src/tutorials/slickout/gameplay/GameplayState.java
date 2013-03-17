@@ -69,6 +69,8 @@ public class GameplayState extends BasicGameState {
 	
 	private int timePlayed = 0;
 	
+	private String logfilepath = "output/logfile.txt";
+	
 	//boolean used to decide whether dda will be in this game or not
 	boolean dda = true;
  
@@ -129,7 +131,7 @@ public class GameplayState extends BasicGameState {
 		BufferedWriter writer = null;
 		try
 		{
-			writer = new BufferedWriter( new FileWriter( "data/logfile.txt", true));
+			writer = new BufferedWriter( new FileWriter( logfilepath, true));
 			writer.write("\nUser id: " + playerInfo.getName() + "\n");
 			writer.write("DDA?: " + dda + "\n");
 			
@@ -156,7 +158,7 @@ public class GameplayState extends BasicGameState {
 			pbo = new PaddleAndBricksObserver();
 			puo = new PowerUpsObserver(level.getNumOfPowerTypes());
 			lpo = new LifeAndPaddleObserver();
-			adaptationDriver = new AdaptationDriver(level, collisionManager);
+			adaptationDriver = new AdaptationDriver(level, collisionManager, logfilepath);
 			
 			SensorFactory factory = new SensorFactory(level);
 			
@@ -187,8 +189,6 @@ public class GameplayState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics gr)
 			throws SlickException {
  
-		// Background
-		//level.getBackground().render(gr);
  
 		// Bumpers
 		level.getLeftBumper().render(gr);
@@ -259,7 +259,7 @@ public class GameplayState extends BasicGameState {
 			BufferedWriter writer = null;
 			try
 			{
-				writer = new BufferedWriter( new FileWriter( "data/logfile.txt", true));
+				writer = new BufferedWriter( new FileWriter( logfilepath, true));
 				writer.write("Game complete: no" + "\n");
 				writer.write("Time played (s): " + timePlayed/1000 + "\n");
 				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue() + "\n");
@@ -442,7 +442,7 @@ public class GameplayState extends BasicGameState {
 				BufferedWriter writer = null;
 				try
 				{
-					writer = new BufferedWriter( new FileWriter( "data/logfile.txt", true));
+					writer = new BufferedWriter( new FileWriter( logfilepath, true));
 					writer.write("Game complete: yes" + "\n");
 					writer.write("Time played (s): " + timePlayed/1000 + "\n");
 					writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue() + "\n");

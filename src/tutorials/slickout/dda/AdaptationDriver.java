@@ -28,11 +28,12 @@ public class AdaptationDriver {
 	boolean isRaining = false;
 	//used to record total time played + timestamp adaptations
 	private int timePlayed = 0;
+	private String logfilepath;
 	
-	
-	public AdaptationDriver(ILevel level, CollisionManager collisionManager) {
+	public AdaptationDriver(ILevel level, CollisionManager collisionManager, String logfilepath) {
 		this.level = level;
 		this.collisionManager = collisionManager;
+		this.logfilepath = logfilepath;
 	}
 
 
@@ -87,7 +88,7 @@ public class AdaptationDriver {
 				BufferedWriter writer = null;
 				try
 				{
-					writer = new BufferedWriter( new FileWriter( "data/logfile.txt", true));
+					writer = new BufferedWriter( new FileWriter( logfilepath, true));
 					writer.write(adaptation.getCode() + " added at: "+ timePlayed/1000 + "\n");
 
 				}

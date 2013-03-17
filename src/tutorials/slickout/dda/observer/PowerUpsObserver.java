@@ -35,7 +35,7 @@ public class PowerUpsObserver extends AbstractObserver {
 	//		1 or less were collected, decrease probability
 	//same applies for yellows
 	@Override
-	public void update(Observable sensor, Object value) {
+	public synchronized void update(Observable sensor, Object value) {
 		
 		if(sensor.getClass().getSimpleName().equals("PowerUpProductionSensor")){
 			puType = ((PowerUpProductionSensor) sensor).getPUType();

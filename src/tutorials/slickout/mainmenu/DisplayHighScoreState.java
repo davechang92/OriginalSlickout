@@ -5,8 +5,14 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -27,6 +33,7 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	private int optionSelected;
 	private TreeMap<Integer,String> names;
 	private TreeMap<Integer,Integer> scores;
+	private List<Integer> sortedScoreKeys;
  
 	@Override
 	public int getID() {
@@ -39,6 +46,7 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 		
 		names = new TreeMap<Integer, String>();
 		scores = new TreeMap<Integer, Integer>();
+		sortedScoreKeys = new ArrayList<Integer>();
 		
 		container.setMouseGrabbed(false);
 	    
@@ -46,7 +54,7 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	    BufferedReader br = null;
 		try
 		{
-			br = new BufferedReader(new FileReader("data/highScores.txt"));
+			br = new BufferedReader(new FileReader("output/highScores.txt"));
 	        String line = br.readLine();
 	        //key used to associate names with scores
 	        int key = 0;
@@ -72,6 +80,8 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 			{
 			}
 	     }
+		
+		sortedScoreKeys = getSortedScoreKeys(scores);
 				
 		selection = -1;
 		optionSelected = selection;
@@ -91,22 +101,15 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 		
 		background.draw();
 		
-		//draw names
+		//draw names and scores in descending score order
 		int i = 0;
-		for(Map.Entry<Integer,String> entry : names.entrySet()) {
-			  String name = entry.getValue();
+		for(Integer key: sortedScoreKeys) {
+			  String name = names.get(key);
+			  Integer score = scores.get(key);
 
 			  g.drawString(name , 200, 200 +( i * 50));
+			  g.drawString(score.toString() , 400, 200 +( i * 50));
 			  i++;
-			}
-		
-		//draw scores
-		int j = 0;
-		for(Map.Entry<Integer,Integer> entry : scores.entrySet()) {
-			  Integer score = entry.getValue();
-
-			  g.drawString(score.toString() , 400, 200 +( j * 50));
-			  j++;
 			}
 		
 		
@@ -158,4 +161,35 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 	public void mouseClicked(int button, int x, int y, int clickCount){
 		optionSelected = selection;
 	}
+	
+	
+	private List<Integer> getSortedScoreKeys(TreeMap<Integer,Integer> scoreMap){
+		List<Integer> sortedScores = new ArrayList<Integer>();
+		List<Integer> keys = new ArrayList<Integer>();
+		
+		for(Map.Entry<Integer,Integer> entry : scoreMap.entrySet()) {
+			sortedScores.add(entry.getValue());
+			}
+		
+		//sort scores in descending order
+		Collections.sort(sortedScores, new Comparator<Integer>(){
+			@Override
+			public int compare(Integer arg0, Integer arg1) {
+				return arg1.compareTo(arg0);
+			}	
+		});
+		
+		//find the keys for the sorted score list
+		for(Integer score: sortedScores){
+			for(Map.Entry<Integer,Integer> entry : scoreMap.entrySet()) {
+				if(score.equals(entry.getValue())){
+					if(!keys.contains(entry.getKey()))
+						keys.add(entry.getKey());
+				}
+			}
+		}
+	
+		return keys;
+	}
+	
 }

@@ -1,0 +1,80 @@
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 5
+Power Ups Collected: 0 / 1
+Lives Lost: 1
+Bricks hit: 2
+Paddle hit: 1
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 0
+Speed up collected: 0 / 0
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 1
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 48
+Power Ups Collected: 13 / 1
+Lives Lost: 1
+Bricks hit: 38
+Paddle hit: 21
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 3 / 0
+Speed up collected: 3 / 0
+Slow down collected: 5 / 0
+Shrink paddle collected: 1 / 0
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 32
+Power Ups Collected: 12 / 21
+Lives Lost: 1
+Bricks hit: 27
+Paddle hit: 28
+PowerUp P: 0.4
+ExtraRed P: 0.1
+ExtraYellow P: 0.1
+Enlarge paddle collected: 3 / 5
+Speed up collected: 4 / 8
+Slow down collected: 4 / 6
+Shrink paddle collected: 1 / 1
+
+User id: 1
+DDA?: true
+Game complete: yes
+Time played (s): 187
+Power Ups Collected: 60 / 114
+Lives Lost: 6
+Bricks hit: 109
+Paddle hit: 150
+PowerUp P: 0.4
+ExtraRed P: 0.30000000000000004
+ExtraYellow P: 0.30000000000000004
+Enlarge paddle collected: 11 / 17
+Speed up collected: 8 / 17
+Slow down collected: 14 / 27
+Shrink paddle collected: 19 / 35
+
+User id: 1
+DDA?: true
+Game complete: yes
+Time played (s): 390
+Power Ups Collected: 4 / 92
+Lives Lost: 5
+Bricks hit: 104
+Paddle hit: 206
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 1 / 15
+Speed up collected: 1 / 22
+Slow down collected: 0 / 27
+Shrink paddle collected: 1 / 20

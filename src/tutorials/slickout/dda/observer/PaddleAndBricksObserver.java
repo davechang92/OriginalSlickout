@@ -23,7 +23,7 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 
 	//turns on pu rain when pad hit > twice with no bricks hit. 
 	@Override
-	public void update(Observable sensor, Object value) {
+	public synchronized void update(Observable sensor, Object value) {
 		
 		if(sensor.getClass().getSimpleName().equals("BricksHitSensor")){
 			totalBricksHit = (Integer) value;
