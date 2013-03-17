@@ -107,9 +107,11 @@ public class DisplayHighScoreState extends BasicGameState implements MouseListen
 			  String name = names.get(key);
 			  Integer score = scores.get(key);
 
-			  g.drawString(name , 200, 200 +( i * 50));
-			  g.drawString(score.toString() , 400, 200 +( i * 50));
+			  g.drawString(name , 270, 100 +( i * 50));
+			  g.drawString(score.toString() , 470, 100 +( i * 50));
 			  i++;
+			  if(i>=8)
+				  break;
 			}
 		
 		
