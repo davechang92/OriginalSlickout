@@ -37,7 +37,6 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 				if(bricksDiff==0)
 					try {
 						adaptations.add(new Adaptation("PowerUpRain"));
-						System.out.println("PowerUpRain Adaptation added");	
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

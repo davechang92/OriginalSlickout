@@ -81,10 +81,42 @@ public class AdaptationDriver {
 				}
 			}
 			
+			//rain pus if necessary
 			if(isRaining && rainTimer >= 2000){
-				PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), (int) (Math.random()*4)+1);
-				collisionManager.addCollidable(pu);
+				
+				if(Math.random() < level.getExtraRedP()){
+					int type;
+					if(Math.random() <0.5){
+						type = 2;
+					}else{
+						type = 4;
+					}
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), type);
+					
+					collisionManager.addCollidable(pu);
+					
+					
+				}else if(Math.random() < level.getExtraYellowP()){
+					int type;
+					if(Math.random() <0.5){
+						type = 1;
+					}else{
+						type = 3;
+					}
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), type);
+					
+					collisionManager.addCollidable(pu);
+
+					
+				}else{
+				
+					PowerUp pu = level.addPowerUp(new Vector2f((float) (Math.random()*(level.getWidth()-100)) + 50,40), (int) (Math.random()*4)+1);
+					collisionManager.addCollidable(pu);
+
+				}
+				
 				rainTimer = 0;
+
 			}
 			
 			//make sure adapatations aren't re-implemented; also used to log which adaptations were added, and when

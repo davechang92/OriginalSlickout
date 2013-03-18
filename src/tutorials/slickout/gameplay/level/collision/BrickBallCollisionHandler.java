@@ -125,7 +125,7 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			
 			manager.addCollidable(pu);
 			
-		}else if(Math.random() <= levelData.getExtraRedP()){
+		}else if(Math.random() < levelData.getExtraRedP()){
 			int type;
 			if(Math.random() <0.5){
 				type = 2;
@@ -136,7 +136,7 @@ public class BrickBallCollisionHandler implements ICollisionHandler {
 			
 			manager.addCollidable(pu);
 			
-		}else if(Math.random() <= levelData.getExtraYellowP()){
+		}else if(Math.random() < levelData.getExtraYellowP()){
 			int type;
 			if(Math.random() <0.5){
 				type = 1;
