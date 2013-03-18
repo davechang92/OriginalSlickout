@@ -78,3 +78,19 @@ Enlarge paddle collected: 1 / 15
 Speed up collected: 1 / 22
 Slow down collected: 0 / 27
 Shrink paddle collected: 1 / 20
+
+User id: 1
+DDA?: true
+Game complete: no
+Time played (s): 2
+Power Ups Collected: 0 / 0
+Lives Lost: 0
+Bricks hit: 0
+Paddle hit: 0
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 0
+Speed up collected: 0 / 0
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 0

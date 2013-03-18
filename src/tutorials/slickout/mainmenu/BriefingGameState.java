@@ -31,7 +31,8 @@ public class BriefingGameState extends BasicGameState implements MouseListener {
 			throws SlickException {
 		
 		container.setMouseGrabbed(false);
-		
+		screen=1;
+		background = new Image("data/instructionsPage.png");
 		selection = -1;
 		optionSelected = selection;
 
