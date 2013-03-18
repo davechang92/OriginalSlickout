@@ -189,3 +189,54 @@ Enlarge paddle collected: 1 / 4
 Speed up collected: 1 / 4
 Slow down collected: 1 / 4
 Shrink paddle collected: 3 / 9
+
+User id: dave
+DDA?: true
+Game complete: no
+Time played (s): 30
+Power Ups Collected: 3 / 6
+Lives Lost: 2
+Bricks hit: 9
+Paddle hit: 16
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 1 / 3
+Speed up collected: 0 / 0
+Slow down collected: 1 / 1
+Shrink paddle collected: 0 / 2
+
+User id: dave
+DDA?: true
+Game complete: no
+Time played (s): 22
+Power Ups Collected: 1 / 6
+Lives Lost: 0
+Bricks hit: 14
+Paddle hit: 9
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 2
+Speed up collected: 0 / 1
+Slow down collected: 1 / 1
+Shrink paddle collected: 0 / 0
+
+User id: dave
+DDA?: true
+PowerUpRain added at: 1
+PowerUpRain added at: 1
+DecreaseRedPowerUps added at: 1
+Game complete: no
+Time played (s): 36
+Power Ups Collected: 0 / 8
+Lives Lost: 1
+Bricks hit: 7
+Paddle hit: 17
+PowerUp P: 0.4
+ExtraRed P: 0.0
+ExtraYellow P: 0.0
+Enlarge paddle collected: 0 / 1
+Speed up collected: 0 / 6
+Slow down collected: 0 / 0
+Shrink paddle collected: 0 / 1

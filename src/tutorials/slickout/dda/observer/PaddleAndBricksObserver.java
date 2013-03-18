@@ -28,10 +28,10 @@ public class PaddleAndBricksObserver extends AbstractObserver {
 		if(sensor.getClass().getSimpleName().equals("BricksHitSensor")){
 			totalBricksHit = (Integer) value;
 		}else if(sensor.getClass().getSimpleName().equals("PaddleHitSensor")){
-			padHit = (Integer) value;
+			padHit++;
 
 			//if, after 2 pad hits, no bricks were hit, then turn on pu rain
-			if((padHit%2)==0){
+			if((padHit%2)==0 && padHit!=0){
 				bricksDiff = totalBricksHit - lastTotalBricksHit;
 				lastTotalBricksHit = totalBricksHit;
 				if(bricksDiff==0)
