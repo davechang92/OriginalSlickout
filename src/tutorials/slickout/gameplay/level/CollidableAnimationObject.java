@@ -9,7 +9,7 @@ import org.newdawn.slick.geom.Vector2f;
 public class CollidableAnimationObject extends AnimationObject implements
 		ICollidableObject {
  
-	private Shape collisionShape;
+	protected Shape collisionShape;
 	private int collisionType;
  
 	//private Vector2f deviation;

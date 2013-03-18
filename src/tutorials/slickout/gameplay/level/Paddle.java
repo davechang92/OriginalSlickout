@@ -28,12 +28,12 @@ public void mouseClicked(int button, int x, int y, int clickCount) {
 @Override
 public void mouseMoved(int oldx, int oldy, int newx, int newy) {
 	int change = newx - oldx;
-	if(getPosition().x + change >= 10 && getPosition().x + change <= 690){
+	if(getPosition().x + change >= 10 && getPosition().x + change <= 790 - super.collisionShape.getWidth()){
 		setPosition(new Vector2f( getPosition().x + change, getPosition().y) );
 	}else if(getPosition().x + change < 10){
 		setPosition(new Vector2f( 10, getPosition().y) );
-	}else if(getPosition().x + change > 690){
-		setPosition(new Vector2f( 690, getPosition().y) );
+	}else if(getPosition().x + change > 790 - super.collisionShape.getWidth()){
+		setPosition(new Vector2f( 790 - super.collisionShape.getWidth(), getPosition().y) );
 	}
 	//System.out.println("newx "+ newx + " padPosition "+getPosition().x);
 }
