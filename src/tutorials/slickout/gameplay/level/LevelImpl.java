@@ -379,13 +379,20 @@ public class LevelImpl implements ILevel {
 	}
 	
 	public void setExtraRedP(double change){
-		if(extraRedP+ change <= (1-powerUpP)/2 && extraRedP + change >= 0)
+		if(change<0 && extraRedP + change >= 0){
 			extraRedP += change;
+		}else if (change>0 && extraRedP  <0.3){
+			extraRedP += change;
+		}
 	}
 	
 	public void setExtraYellowP(double change){
-		if(extraYellowP + change <= (1-powerUpP)/2 && extraYellowP + change >= 0) 
+		if(change<0 && extraYellowP + change >= 0){
 			extraYellowP += change;
+		}else if (change>0 && extraYellowP  <0.3){
+			extraYellowP += change;
+		}
+		
 	}
 	
 	//gets height of level

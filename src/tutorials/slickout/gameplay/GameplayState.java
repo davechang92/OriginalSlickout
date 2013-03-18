@@ -95,6 +95,8 @@ public class GameplayState extends BasicGameState {
  
 		gc.setMouseGrabbed(true);
 		
+		timePlayed=0;
+		
 		// load level
 		if(levelFile == null){
 			throw new SlickException("No level to load"); 
