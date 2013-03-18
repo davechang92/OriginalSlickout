@@ -69,7 +69,12 @@ public class AdaptationDriver {
 				}else if(adaptation.getCode().equals("IncreaseYellowPowerUps")){
 					level.setExtraYellowP(0.1);
 					removals.add(adaptation);
-					
+				}else if(adaptation.getCode().equals("DecreaseRedPowerUps")){
+					level.setExtraRedP(-0.1);
+					removals.add(adaptation);
+				}else if(adaptation.getCode().equals("DecreaseYellowPowerUps")){
+					level.setExtraYellowP(-0.1);
+					removals.add(adaptation);
 				}else if(adaptation.getCode().equals("SlowDownPowerUps")){
 					level.changePowerUpSpeed(-0.04f);
 					removals.add(adaptation);

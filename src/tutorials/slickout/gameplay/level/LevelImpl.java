@@ -379,12 +379,12 @@ public class LevelImpl implements ILevel {
 	}
 	
 	public void setExtraRedP(double change){
-		if(extraRedP<= (1-powerUpP)/2)
+		if(extraRedP+ change <= (1-powerUpP)/2 && extraRedP + change >= 0)
 			extraRedP += change;
 	}
 	
 	public void setExtraYellowP(double change){
-		if(extraYellowP<= (1-powerUpP)/2)
+		if(extraYellowP + change <= (1-powerUpP)/2 && extraYellowP + change >= 0) 
 			extraYellowP += change;
 	}
 	

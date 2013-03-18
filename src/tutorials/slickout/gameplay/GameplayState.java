@@ -241,7 +241,7 @@ public class GameplayState extends BasicGameState {
 		gr.drawString("Shrink paddle collected: " + puo.getcollected().get(4)+ " / " +puo.getProduced().get(4), 500,760 );
 
 		//long currentTime = System.currentTimeMillis();
-		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 730);
+		//gr.drawString("Time since start: " + (Math.round((currentTime - startTime)/100)), 450, 780);
 
 	}
  

@@ -55,7 +55,7 @@ public class SlickOutGame extends StateBasedGame {
  
          // Application properties
          //app.setDisplayMode(1440, 900, true); //fullscreen
-         app.setDisplayMode(800, 600, false);
+         app.setDisplayMode(800, 800, false);
          //app.setMouseGrabbed(true);
          //app.setSmoothDeltas(true);
  

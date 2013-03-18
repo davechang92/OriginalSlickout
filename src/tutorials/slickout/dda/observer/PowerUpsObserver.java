@@ -62,6 +62,12 @@ public class PowerUpsObserver extends AbstractObserver {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}else if(redCollectedCounter<=1){
+				try {
+					adaptations.add(new Adaptation("DecreaseRedPowerUps"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			redProducedCounter = 0;
 			redCollectedCounter = 0;
@@ -71,6 +77,12 @@ public class PowerUpsObserver extends AbstractObserver {
 			if(yellowCollectedCounter >= 3){
 				try {
 					adaptations.add(new Adaptation("IncreaseYellowPowerUps"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(yellowCollectedCounter <=1){
+				try {
+					adaptations.add(new Adaptation("DecreaseYellowPowerUps"));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
