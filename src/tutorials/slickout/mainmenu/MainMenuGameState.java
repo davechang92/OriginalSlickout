@@ -70,7 +70,7 @@ public class MainMenuGameState extends BasicGameState implements MouseListener{
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		if(optionSelected == 1){
-			String levelfile = "data/level1.lvl";
+			String levelfile = "data/level2.lvl";
 			// obtain the game state
 			GameplayState gameplay = (GameplayState) game.getState(1);
 

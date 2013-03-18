@@ -4,7 +4,6 @@ package tutorials.slickout;
  * TODO
  * -HAVE VARIABLE POWERUP DURATIONS
  * -HAVE POWERUPS FALLING ALL THE TIME, NO JUST IN NORMAL GAMEPLAYSTATE
- * -HAVE EDGE OF ENLARGED PADDLE COLLIDE NOT GO OVER SCREEN
  * -NEED TO MAKE POWER-UPS SPECIFIC TO SPECIFIC BALLS - MAY NEED TO CHANGE POWER-UP CLASS FOR THIS (SEE BOOKMARK); IN THE 
  * MEANTIME I'M GOING TO JUST HAVE TIMER REVERT ALL BALLS TO STANDARD SPEED.
  * -RARE GLITCH THAT LETS BALL FLY OUT OF SCREEN? FUDGED HANDLING BY ADDING IN CHECKS FOR THIS IN GAMEPLAYSTATE, BUT NOT FIXED
@@ -26,15 +25,24 @@ import tutorials.slickout.playerinfo.PlayerInfo;
  
  
 public class SlickOutGame extends StateBasedGame {
+	
+	boolean dda;
+	
 	public SlickOutGame() {
 		super("Breakout: Dynamo!");
 	}
  
 	public void initStatesList(GameContainer gc) throws SlickException {
  
+		if(Math.random()<0.5)
+			dda = true;
+		else
+			dda = false;
+		
 		addState(new MainMenuGameState());
  
-		GameplayState state = new GameplayState();
+		GameplayState state = new GameplayState(dda);
+			
  
 		//addState(new LevelSelector());
 		

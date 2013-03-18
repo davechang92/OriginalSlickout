@@ -72,7 +72,12 @@ public class GameplayState extends BasicGameState {
 	private String logfilepath = "output/logfile.txt";
 	
 	//boolean used to decide whether dda will be in this game or not
-	boolean dda = true;
+	boolean dda;
+	
+	public GameplayState(boolean dda){
+		super();
+		this.dda = dda;
+	}
  
 	@Override
 	public int getID() {
@@ -153,12 +158,10 @@ public class GameplayState extends BasicGameState {
 		
 		
 		//dda stuff
-		if(dda){
 			
 			pbo = new PaddleAndBricksObserver();
 			puo = new PowerUpsObserver(level.getNumOfPowerTypes());
 			lpo = new LifeAndPaddleObserver();
-			adaptationDriver = new AdaptationDriver(level, collisionManager, logfilepath);
 			
 			SensorFactory factory = new SensorFactory(level);
 			
@@ -177,12 +180,15 @@ public class GameplayState extends BasicGameState {
 			paddleHitSensor = factory.createSensor("PaddleHit", bumperPadBallHandler);
 			paddleHitSensor.addObserver(pbo);
 			paddleHitSensor.addObserver(lpo);
-
-			adaptationDriver.getObservers().add(pbo);
-			adaptationDriver.getObservers().add(puo);
-			adaptationDriver.getObservers().add(lpo);
 			
-		}
+			if(dda){
+				adaptationDriver = new AdaptationDriver(level, collisionManager, logfilepath);
+
+				adaptationDriver.getObservers().add(pbo);
+				adaptationDriver.getObservers().add(puo);
+				adaptationDriver.getObservers().add(lpo);
+			}
+			
 	}
  
 	@Override

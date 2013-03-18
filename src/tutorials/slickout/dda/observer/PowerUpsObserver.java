@@ -44,6 +44,7 @@ public class PowerUpsObserver extends AbstractObserver {
 			}else{
 				yellowProducedCounter++;
 			}
+			System.out.println("produced: "+produced);
 			produced.put(puType, produced.get(puType)+ 1);
 		}else if(sensor.getClass().getSimpleName().equals("PowerUpCollectionSensor")){
 			puType = ((PowerUpCollectionSensor) sensor).getPUType();
@@ -52,6 +53,7 @@ public class PowerUpsObserver extends AbstractObserver {
 			}else{
 				yellowCollectedCounter++;
 			}
+			System.out.println("collected: "+collected);
 			collected.put(puType, collected.get(puType)+ 1);
 		}
 		

@@ -109,10 +109,8 @@ public class BumperAndPadBallCollisionHandler implements ICollisionHandler {
 			double degrees = (newAngle * 57.2957795);
 			if(degrees >=0 && degrees <= 14){
 				degrees = 15;
-				System.out.println("changed to 15");
 			}else if(degrees <= 180 && degrees >= 166){
 				degrees = 165;
-				System.out.println("changed to 165");
 			}
 			newAngle = degrees/57.2957795;
 			
