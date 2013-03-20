@@ -71,6 +71,8 @@ public class GameplayState extends BasicGameState {
 	
 	private String logfilepath = "output/logfile.txt";
 	
+	Logger logger = new Logger();
+	
 	//boolean used to decide whether dda will be in this game or not
 	boolean dda;
 	
@@ -134,29 +136,8 @@ public class GameplayState extends BasicGameState {
  
 		playerInfo = GameInfo.getCurrentGameInfo().getPlayerInfo();
 		
-		//first write of game data to log file
-		BufferedWriter writer = null;
-		try
-		{
-			writer = new BufferedWriter( new FileWriter( logfilepath, true));
-			writer.write("\nUser id: " + playerInfo.getName() + "\n");
-			writer.write("DDA?: " + dda + "\n");
-			
-		}
-		catch ( IOException e)
-		{
-		}
-		finally
-		{
-			try
-			{
-				if ( writer != null)
-					writer.close( );
-			}
-			catch ( IOException e)
-			{
-			}
-	     }
+		//initial log
+		logger.openingLog();
 		
 		
 		//dda stuff
@@ -263,42 +244,8 @@ public class GameplayState extends BasicGameState {
 		Input input = gc.getInput();
 		if(input.isKeyDown(Input.KEY_ESCAPE))
         {
-			//write game data to log file
-			BufferedWriter writer = null;
-			try
-			{
-				writer = new BufferedWriter( new FileWriter( logfilepath, true));
-				writer.write("Game complete: no" + "\n");
-				writer.write("Time played (s): " + timePlayed/1000 + "\n");
-				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
-				writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
-				writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
-				writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
-				writer.write("PowerUp P: "+ level.getPowerUpP()+ "\n");
-				writer.write("ExtraRed P: "+ level.getExtraRedP()+ "\n");
-				writer.write("ExtraYellow P: "+ level.getExtraYellowP()+ "\n");
-				writer.write("Enlarge paddle collected: " + puo.getcollected().get(1)+ " / " +puo.getProduced().get(1)+ "\n" );
-				writer.write("Speed up collected: " + puo.getcollected().get(2) + " / " + puo.getProduced().get(2)+ "\n" );
-				writer.write("Slow down collected: " + puo.getcollected().get(3)+ " / " +puo.getProduced().get(3)+ "\n");
-				writer.write("Shrink paddle collected: " + puo.getcollected().get(4)+ " / " +puo.getProduced().get(4)+ "\n" );
-
-			}
-			catch ( IOException e)
-			{
-			}
-			finally
-			{
-				try
-				{
-					if ( writer != null)
-						writer.close( );
-				}
-				catch ( IOException e)
-				{
-				}
-		     }
-			
-           sbg.enterState(0);
+			logger.closingLog(false);
+			sbg.enterState(0);
         }
  
 		switch(currentState){
@@ -446,39 +393,7 @@ public class GameplayState extends BasicGameState {
  
 			if(counter < 0){
 				
-				//write game data to log file
-				BufferedWriter writer = null;
-				try
-				{
-					writer = new BufferedWriter( new FileWriter( logfilepath, true));
-					writer.write("Game complete: yes" + "\n");
-					writer.write("Time played (s): " + timePlayed/1000 + "\n");
-					writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
-					writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
-					writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
-					writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
-					writer.write("PowerUp P: "+ level.getPowerUpP()+ "\n");
-					writer.write("ExtraRed P: "+ level.getExtraRedP()+ "\n");
-					writer.write("ExtraYellow P: "+ level.getExtraYellowP()+ "\n");
-					writer.write("Enlarge paddle collected: " + puo.getcollected().get(1)+ " / " +puo.getProduced().get(1)+ "\n" );
-					writer.write("Speed up collected: " + puo.getcollected().get(2) + " / " + puo.getProduced().get(2)+ "\n" );
-					writer.write("Slow down collected: " + puo.getcollected().get(3)+ " / " +puo.getProduced().get(3)+ "\n");
-					writer.write("Shrink paddle collected: " + puo.getcollected().get(4)+ " / " +puo.getProduced().get(4)+ "\n" );
-				}
-				catch ( IOException e)
-				{
-				}
-				finally
-				{
-					try
-					{
-						if ( writer != null)
-							writer.close( );
-					}
-					catch ( IOException e)
-					{
-					}
-			     }
+				logger.closingLog(true);
 				
 				// jump to enter high score screen
 				sbg.enterState(4);
@@ -503,4 +418,77 @@ public class GameplayState extends BasicGameState {
 		levelFile = file;
 	}
  
+	public class Logger{
+		
+		//log of player data that happens when game opens
+		public void openingLog(){
+			BufferedWriter writer = null;
+			try
+			{
+				writer = new BufferedWriter( new FileWriter( logfilepath, true));
+				writer.write("\nUser id: " + playerInfo.getName() + "\n");
+				writer.write("DDA?: " + dda + "\n");
+				
+			}
+			catch ( IOException e)
+			{
+			}
+			finally
+			{
+				try
+				{
+					if ( writer != null)
+						writer.close( );
+				}
+				catch ( IOException e)
+				{
+				}
+		     }
+		}
+		
+		//log of player data that happens when game opens
+		public void closingLog(boolean complete){
+			
+			BufferedWriter writer = null;
+			try
+			{
+				writer = new BufferedWriter( new FileWriter( logfilepath, true));
+				writer.write("Game complete: " + complete + "\n");
+				writer.write("Time played (s): " + timePlayed/1000 + "\n");
+				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + "\n");
+				writer.write("Power Ups Produced: "+  (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
+				writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
+				writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
+				writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
+				writer.write("PowerUp P: "+ level.getPowerUpP()+ "\n");
+				writer.write("ExtraRed P: "+ level.getExtraRedP()+ "\n");
+				writer.write("ExtraYellow P: "+ level.getExtraYellowP()+ "\n");
+				writer.write("Enlarge paddle collected: " + puo.getcollected().get(1)+ "\n" );
+				writer.write("Enlarge paddle produced: " + puo.getProduced().get(1)+ "\n" );
+				writer.write("Speed up collected: " + puo.getcollected().get(2) +  "\n" );
+				writer.write("Speed up produced: " + puo.getProduced().get(2)+ "\n" );
+				writer.write("Slow down collected: " + puo.getcollected().get(3)+  "\n");
+				writer.write("Slow down produced: " +puo.getProduced().get(3)+ "\n");
+				writer.write("Shrink paddle collected: " + puo.getcollected().get(4)+  "\n" );
+				writer.write("Shrink paddle produced: " +puo.getProduced().get(4)+ "\n" );
+
+			}
+			catch ( IOException e)
+			{
+			}
+			finally
+			{
+				try
+				{
+					if ( writer != null)
+						writer.close( );
+				}
+				catch ( IOException e)
+				{
+				}
+		     }
+		}
+		
+	}
+	
 }
