@@ -270,7 +270,7 @@ public class GameplayState extends BasicGameState {
 				writer = new BufferedWriter( new FileWriter( logfilepath, true));
 				writer.write("Game complete: no" + "\n");
 				writer.write("Time played (s): " + timePlayed/1000 + "\n");
-				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue() + "\n");
+				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
 				writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
 				writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
 				writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
@@ -453,7 +453,7 @@ public class GameplayState extends BasicGameState {
 					writer = new BufferedWriter( new FileWriter( logfilepath, true));
 					writer.write("Game complete: yes" + "\n");
 					writer.write("Time played (s): " + timePlayed/1000 + "\n");
-					writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + powerUpProductionSensor.getValue() + "\n");
+					writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + " / " + (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
 					writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
 					writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
 					writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
