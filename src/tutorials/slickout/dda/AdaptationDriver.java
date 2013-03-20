@@ -106,7 +106,7 @@ public class AdaptationDriver {
 				try
 				{
 					writer = new BufferedWriter( new FileWriter( logfilepath, true));
-					writer.write(adaptation.getCode() + " added at: "+ timePlayed/1000 + "\n");
+					writer.write(adaptation.getCode() + ","+ timePlayed/1000 + "\n");
 
 				}
 				catch ( IOException e)

@@ -69,7 +69,8 @@ public class GameplayState extends BasicGameState {
 	
 	private int timePlayed = 0;
 	
-	private String logfilepath = "output/logfile.txt";
+	private String logfilepath = "output/logfile.csv";
+	private String adaptationLogfilepath = "output/adtaptationLog.txt";
 	
 	Logger logger = new Logger();
 	
@@ -78,7 +79,7 @@ public class GameplayState extends BasicGameState {
 	
 	public GameplayState(boolean dda){
 		super();
-		this.dda = true;
+		this.dda = dda;
 	}
  
 	@Override
@@ -165,7 +166,7 @@ public class GameplayState extends BasicGameState {
 			paddleHitSensor.addObserver(lpo);
 			
 			if(dda){
-				adaptationDriver = new AdaptationDriver(level, collisionManager, logfilepath);
+				adaptationDriver = new AdaptationDriver(level, collisionManager, adaptationLogfilepath);
 
 				adaptationDriver.getObservers().add(pbo);
 				adaptationDriver.getObservers().add(puo);
@@ -426,8 +427,8 @@ public class GameplayState extends BasicGameState {
 			try
 			{
 				writer = new BufferedWriter( new FileWriter( logfilepath, true));
-				writer.write("\nUser id: " + playerInfo.getName() + "\n");
-				writer.write("DDA?: " + dda + "\n");
+				writer.write("\n" + playerInfo.getName() + ",");
+				writer.write(dda + ",");
 				
 			}
 			catch ( IOException e)
@@ -444,6 +445,28 @@ public class GameplayState extends BasicGameState {
 				{
 				}
 		     }
+			
+			BufferedWriter writer2 = null;
+			try
+			{
+				writer2 = new BufferedWriter( new FileWriter( adaptationLogfilepath, true));
+				writer2.write("\n" + playerInfo.getName() + "\n");
+				
+			}
+			catch ( IOException e)
+			{
+			}
+			finally
+			{
+				try
+				{
+					if ( writer2 != null)
+						writer2.close( );
+				}
+				catch ( IOException e)
+				{
+				}
+		     }
 		}
 		
 		//log of player data that happens when game opens
@@ -453,24 +476,24 @@ public class GameplayState extends BasicGameState {
 			try
 			{
 				writer = new BufferedWriter( new FileWriter( logfilepath, true));
-				writer.write("Game complete: " + complete + "\n");
-				writer.write("Time played (s): " + timePlayed/1000 + "\n");
-				writer.write("Power Ups Collected: "+ powerUpCollectionSensor.getValue() + "\n");
-				writer.write("Power Ups Produced: "+  (puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + "\n");
-				writer.write("Lives Lost: "+ livesLostSensor.getValue()+ "\n");
-				writer.write("Bricks hit: "+ bricksHitSensor.getValue()+ "\n");
-				writer.write("Paddle hit: "+ paddleHitSensor.getValue()+ "\n");
-				writer.write("PowerUp P: "+ level.getPowerUpP()+ "\n");
-				writer.write("ExtraRed P: "+ level.getExtraRedP()+ "\n");
-				writer.write("ExtraYellow P: "+ level.getExtraYellowP()+ "\n");
-				writer.write("Enlarge paddle collected: " + puo.getcollected().get(1)+ "\n" );
-				writer.write("Enlarge paddle produced: " + puo.getProduced().get(1)+ "\n" );
-				writer.write("Speed up collected: " + puo.getcollected().get(2) +  "\n" );
-				writer.write("Speed up produced: " + puo.getProduced().get(2)+ "\n" );
-				writer.write("Slow down collected: " + puo.getcollected().get(3)+  "\n");
-				writer.write("Slow down produced: " +puo.getProduced().get(3)+ "\n");
-				writer.write("Shrink paddle collected: " + puo.getcollected().get(4)+  "\n" );
-				writer.write("Shrink paddle produced: " +puo.getProduced().get(4)+ "\n" );
+				writer.write(complete + ",");
+				writer.write(timePlayed/1000 + ",");
+				writer.write(powerUpCollectionSensor.getValue() + ",");
+				writer.write((puo.getProduced().get(1) +puo.getProduced().get(2) +puo.getProduced().get(3) +puo.getProduced().get(4)) + ",");
+				writer.write(livesLostSensor.getValue()+ ",");
+				writer.write(bricksHitSensor.getValue()+ ",");
+				writer.write(paddleHitSensor.getValue()+ ",");
+				writer.write(level.getPowerUpP()+ ",");
+				writer.write( level.getExtraRedP()+ ",");
+				writer.write(level.getExtraYellowP()+ ",");
+				writer.write(puo.getcollected().get(1)+ "," );
+				writer.write(puo.getProduced().get(1)+ "," );
+				writer.write(puo.getcollected().get(2) +  "," );
+				writer.write(puo.getProduced().get(2)+ "," );
+				writer.write( puo.getcollected().get(3)+  ",");
+				writer.write(puo.getProduced().get(3)+ ",");
+				writer.write( puo.getcollected().get(4)+  "," );
+				writer.write(puo.getProduced().get(4) + "" );
 
 			}
 			catch ( IOException e)
