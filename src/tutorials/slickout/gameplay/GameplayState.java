@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
  
@@ -428,6 +429,7 @@ public class GameplayState extends BasicGameState {
 			{
 				writer = new BufferedWriter( new FileWriter( logfilepath, true));
 				writer.write("\n" + playerInfo.getName() + ",");
+				writer.write(new Date().toString() + ",");
 				writer.write(dda + ",");
 				
 			}
@@ -451,6 +453,7 @@ public class GameplayState extends BasicGameState {
 			{
 				writer2 = new BufferedWriter( new FileWriter( adaptationLogfilepath, true));
 				writer2.write("\n" + playerInfo.getName() + "\n");
+				writer2.write(new Date().toString() + "\n");
 				
 			}
 			catch ( IOException e)
