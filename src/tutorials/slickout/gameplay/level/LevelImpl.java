@@ -380,17 +380,29 @@ public class LevelImpl implements ILevel {
 	
 	public void setExtraRedP(double change){
 		if(change<0 && extraRedP + change >= 0){
-			extraRedP += change;
-		}else if (change>0 && extraRedP  <0.3){
-			extraRedP += change;
+			extraRedP = extraRedP + change;
+			extraRedP *= 10;
+			extraRedP = Math.floor(extraRedP);
+			extraRedP /=10;
+		}else if (change>0 && extraRedP <0.3){
+			extraRedP = extraRedP + change;
+			extraRedP *= 10;
+			extraRedP = Math.floor(extraRedP);
+			extraRedP /=10;
 		}
 	}
 	
 	public void setExtraYellowP(double change){
 		if(change<0 && extraYellowP + change >= 0){
-			extraYellowP += change;
-		}else if (change>0 && extraYellowP  <0.3){
-			extraYellowP += change;
+			extraYellowP = extraYellowP + change;
+			extraYellowP *= 10;
+			extraYellowP = Math.floor(extraYellowP);
+			extraYellowP /=10;
+		}else if (change>0 && extraYellowP < 0.3){
+			extraYellowP = extraYellowP + change;
+			extraYellowP *= 10;
+			extraYellowP = Math.floor(extraYellowP);
+			extraYellowP /=10;
 		}
 		
 	}
