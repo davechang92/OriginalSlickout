@@ -382,12 +382,12 @@ public class LevelImpl implements ILevel {
 		if(change<0 && extraRedP + change >= 0){
 			extraRedP = extraRedP + change;
 			extraRedP *= 10;
-			extraRedP = Math.floor(extraRedP);
+			extraRedP = Math.round(extraRedP);
 			extraRedP /=10;
 		}else if (change>0 && extraRedP <0.3){
 			extraRedP = extraRedP + change;
 			extraRedP *= 10;
-			extraRedP = Math.floor(extraRedP);
+			extraRedP = Math.round(extraRedP);
 			extraRedP /=10;
 		}
 	}
@@ -396,12 +396,12 @@ public class LevelImpl implements ILevel {
 		if(change<0 && extraYellowP + change >= 0){
 			extraYellowP = extraYellowP + change;
 			extraYellowP *= 10;
-			extraYellowP = Math.floor(extraYellowP);
+			extraYellowP = Math.round(extraYellowP);
 			extraYellowP /=10;
 		}else if (change>0 && extraYellowP < 0.3){
 			extraYellowP = extraYellowP + change;
 			extraYellowP *= 10;
-			extraYellowP = Math.floor(extraYellowP);
+			extraYellowP = Math.round(extraYellowP);
 			extraYellowP /=10;
 		}
 		

@@ -74,7 +74,7 @@ public class BriefingGameState extends BasicGameState implements MouseListener {
 		}else if(optionSelected == 3 && screen == 2){	//go to game
 			GameInfo.createNewGameInfo();
 
-			String levelfile = "data/level1.lvl";
+			String levelfile = "data/level2.lvl";
 			// obtain the game state
 			GameplayState gameplay = (GameplayState) game.getState(1);
 

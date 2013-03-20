@@ -61,9 +61,7 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 		if (!collidable1.isCollidingWith(collidable2)) {
 			return;
 		}
-		
-		GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(50);
-		
+				
 		PowerUp pu = null;
 		Paddle paddle = null;
 		
@@ -120,6 +118,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 					
 					break;
 			case 2:// System.out.println("speed up collected");
+				GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(50);
+
 					for(Ball ball: level.getBalls()){	//increase ball speed
 						ball.increaseSpeed(0.25f);
 						decreaseBallSpeedTimer.schedule(new timerTask(2), pu.getDuration());
@@ -138,6 +138,8 @@ public class PadAndPowerUpCollisionHandler implements ICollisionHandler {
 						increaseBallSpeedTimer.schedule(new timerTask(3), pu.getDuration());
 					break;
 			case 4://decrease paddlesize
+				GameInfo.getCurrentGameInfo().getPlayerInfo().addScore(50);
+
 				paddle.setAnimation("data/padanimation50.png", 50, 20, 1000);//shrink paddle
 				paddle.setCollisionShape(new Rectangle(0, 0, 50, 20));
 				try {
