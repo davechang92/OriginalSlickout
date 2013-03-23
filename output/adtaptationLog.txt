@@ -1,7 +1,606 @@
 
-1
+2
+Thu Mar 21 12:40:17 GMT 2013
 
-1
+2
+Thu Mar 21 12:42:36 GMT 2013
 
-1
-Wed Mar 20 22:10:49 GMT 2013
+2
+Thu Mar 21 12:45:51 GMT 2013
+
+2
+Thu Mar 21 12:49:48 GMT 2013
+
+3
+Thu Mar 21 13:47:38 GMT 2013
+SlowDownPowerUps,5
+IncreaseRedPowerUps,7
+IncreaseRedPowerUps,26
+SlowDownPowerUps,28
+IncreaseRedPowerUps,33
+IncreaseYellowPowerUps,36
+IncreaseRedPowerUps,44
+IncreaseYellowPowerUps,48
+PowerUpRain,49
+PowerUpRain,51
+DecreaseYellowPowerUps,53
+PowerUpRain,54
+PowerUpRain,56
+DecreaseYellowPowerUps,57
+PowerUpRain,60
+
+3
+Thu Mar 21 13:51:03 GMT 2013
+IncreaseRedPowerUps,13
+IncreaseYellowPowerUps,16
+IncreaseRedPowerUps,22
+IncreaseYellowPowerUps,24
+IncreaseRedPowerUps,26
+IncreaseYellowPowerUps,33
+IncreaseRedPowerUps,37
+PowerUpRain,48
+PowerUpRain,50
+IncreaseYellowPowerUps,50
+
+3
+Thu Mar 21 13:53:37 GMT 2013
+
+3
+Thu Mar 21 13:53:44 GMT 2013
+
+3
+Thu Mar 21 13:55:01 GMT 2013
+IncreaseYellowPowerUps,11
+DecreaseRedPowerUps,15
+IncreaseYellowPowerUps,24
+IncreaseRedPowerUps,26
+IncreaseYellowPowerUps,32
+IncreaseYellowPowerUps,46
+IncreaseRedPowerUps,51
+SlowDownPowerUps,52
+PowerUpRain,54
+PowerUpRain,54
+PowerUpRain,57
+DecreaseYellowPowerUps,57
+
+3
+Thu Mar 21 13:57:49 GMT 2013
+
+3
+Thu Mar 21 13:57:57 GMT 2013
+IncreaseRedPowerUps,4
+IncreaseRedPowerUps,21
+IncreaseRedPowerUps,28
+IncreaseYellowPowerUps,38
+PowerUpRain,41
+IncreaseRedPowerUps,43
+IncreaseYellowPowerUps,44
+
+4
+Thu Mar 21 14:09:26 GMT 2013
+
+4
+Thu Mar 21 14:14:00 GMT 2013
+
+4
+Thu Mar 21 14:16:59 GMT 2013
+
+4
+Thu Mar 21 14:18:08 GMT 2013
+
+4
+Thu Mar 21 14:18:25 GMT 2013
+
+4
+Thu Mar 21 14:18:39 GMT 2013
+
+4
+Thu Mar 21 14:18:57 GMT 2013
+
+4
+Thu Mar 21 14:19:06 GMT 2013
+
+4
+Thu Mar 21 14:20:04 GMT 2013
+
+4
+Thu Mar 21 14:20:36 GMT 2013
+
+4
+Thu Mar 21 14:21:04 GMT 2013
+
+5
+Thu Mar 21 14:31:25 GMT 2013
+IncreaseYellowPowerUps,13
+IncreaseRedPowerUps,22
+IncreaseYellowPowerUps,31
+IncreaseYellowPowerUps,39
+IncreaseYellowPowerUps,65
+
+6
+Thu Mar 21 14:40:35 GMT 2013
+
+7
+Thu Mar 21 14:50:16 GMT 2013
+IncreaseYellowPowerUps,7
+IncreaseYellowPowerUps,22
+IncreaseYellowPowerUps,34
+IncreaseYellowPowerUps,63
+PowerUpRain,69
+IncreaseYellowPowerUps,73
+IncreaseYellowPowerUps,77
+PowerUpRain,82
+IncreaseYellowPowerUps,82
+IncreaseYellowPowerUps,86
+PowerUpRain,87
+PowerUpRain,90
+IncreaseYellowPowerUps,91
+PowerUpRain,95
+PowerUpRain,97
+
+7
+Thu Mar 21 14:55:24 GMT 2013
+IncreaseRedPowerUps,12
+
+7
+Thu Mar 21 14:56:13 GMT 2013
+
+7
+Thu Mar 21 14:56:40 GMT 2013
+IncreaseYellowPowerUps,15
+IncreaseYellowPowerUps,24
+IncreaseRedPowerUps,25
+IncreaseRedPowerUps,41
+IncreaseYellowPowerUps,44
+IncreaseRedPowerUps,46
+PowerUpRain,50
+IncreaseYellowPowerUps,52
+IncreaseYellowPowerUps,57
+PowerUpRain,63
+PowerUpRain,65
+IncreaseYellowPowerUps,65
+PowerUpRain,67
+PowerUpRain,69
+DecreaseYellowPowerUps,69
+PowerUpRain,70
+PowerUpRain,73
+IncreaseYellowPowerUps,74
+
+8
+Thu Mar 21 15:10:23 GMT 2013
+
+9
+Thu Mar 21 15:36:01 GMT 2013
+
+9
+Thu Mar 21 15:39:03 GMT 2013
+
+9
+Thu Mar 21 15:42:30 GMT 2013
+
+10
+Thu Mar 21 15:58:18 GMT 2013
+IncreaseYellowPowerUps,12
+IncreaseRedPowerUps,13
+SlowDownPowerUps,16
+IncreaseRedPowerUps,24
+PowerUpRain,28
+IncreaseYellowPowerUps,30
+DecreaseYellowPowerUps,34
+SlowDownPowerUps,34
+IncreaseRedPowerUps,37
+IncreaseYellowPowerUps,40
+PowerUpRain,43
+IncreaseYellowPowerUps,44
+DecreaseYellowPowerUps,48
+
+10
+Thu Mar 21 16:01:06 GMT 2013
+DecreaseRedPowerUps,15
+DecreaseRedPowerUps,26
+IncreaseYellowPowerUps,32
+IncreaseRedPowerUps,40
+SlowDownPowerUps,52
+PowerUpRain,56
+IncreaseYellowPowerUps,56
+PowerUpRain,57
+IncreaseRedPowerUps,60
+PowerUpRain,65
+IncreaseYellowPowerUps,66
+PowerUpRain,67
+PowerUpRain,68
+
+10
+Thu Mar 21 16:04:39 GMT 2013
+
+11
+Thu Mar 21 16:11:18 GMT 2013
+
+12
+Thu Mar 21 16:22:55 GMT 2013
+IncreaseYellowPowerUps,9
+IncreaseRedPowerUps,12
+IncreaseYellowPowerUps,23
+IncreaseRedPowerUps,24
+SlowDownPowerUps,34
+PowerUpRain,34
+IncreaseYellowPowerUps,34
+IncreaseRedPowerUps,35
+IncreaseYellowPowerUps,37
+IncreaseYellowPowerUps,41
+IncreaseYellowPowerUps,45
+IncreaseYellowPowerUps,49
+IncreaseRedPowerUps,51
+IncreaseYellowPowerUps,57
+PowerUpRain,58
+IncreaseYellowPowerUps,62
+
+13
+Thu Mar 21 16:31:06 GMT 2013
+
+14
+Thu Mar 21 16:38:56 GMT 2013
+
+14
+Thu Mar 21 16:39:41 GMT 2013
+IncreaseRedPowerUps,2
+DecreaseRedPowerUps,21
+PowerUpRain,23
+DecreaseYellowPowerUps,23
+IncreaseYellowPowerUps,27
+IncreaseYellowPowerUps,32
+
+14
+Thu Mar 21 16:41:22 GMT 2013
+IncreaseYellowPowerUps,9
+DecreaseRedPowerUps,16
+SlowDownPowerUps,17
+IncreaseYellowPowerUps,30
+IncreaseYellowPowerUps,49
+
+15
+Thu Mar 21 16:51:00 GMT 2013
+SlowDownPowerUps,18
+IncreaseYellowPowerUps,20
+IncreaseRedPowerUps,23
+IncreaseRedPowerUps,31
+IncreaseYellowPowerUps,34
+DecreaseRedPowerUps,40
+PowerUpRain,46
+DecreaseYellowPowerUps,49
+DecreaseYellowPowerUps,53
+
+15
+Thu Mar 21 16:54:00 GMT 2013
+IncreaseYellowPowerUps,8
+DecreaseRedPowerUps,16
+DecreaseRedPowerUps,29
+PowerUpRain,39
+IncreaseYellowPowerUps,39
+IncreaseYellowPowerUps,42
+DecreaseYellowPowerUps,46
+PowerUpRain,48
+DecreaseYellowPowerUps,50
+DecreaseRedPowerUps,53
+IncreaseYellowPowerUps,54
+DecreaseYellowPowerUps,58
+PowerUpRain,59
+DecreaseRedPowerUps,64
+IncreaseYellowPowerUps,64
+
+15
+Thu Mar 21 16:57:20 GMT 2013
+
+15
+Thu Mar 21 16:58:16 GMT 2013
+IncreaseYellowPowerUps,7
+IncreaseYellowPowerUps,22
+DecreaseRedPowerUps,26
+PowerUpRain,33
+IncreaseYellowPowerUps,46
+IncreaseYellowPowerUps,50
+IncreaseYellowPowerUps,53
+IncreaseYellowPowerUps,57
+IncreaseYellowPowerUps,65
+IncreaseYellowPowerUps,69
+IncreaseYellowPowerUps,72
+
+16
+Thu Mar 21 17:11:32 GMT 2013
+SlowDownPowerUps,7
+
+16
+Thu Mar 21 17:13:47 GMT 2013
+DecreaseYellowPowerUps,18
+IncreaseRedPowerUps,18
+IncreaseYellowPowerUps,27
+DecreaseRedPowerUps,36
+SlowDownPowerUps,37
+DecreaseRedPowerUps,50
+
+17
+Thu Mar 21 17:23:00 GMT 2013
+SlowDownPowerUps,8
+IncreaseRedPowerUps,11
+IncreaseYellowPowerUps,13
+DecreaseYellowPowerUps,21
+IncreaseRedPowerUps,28
+SlowDownPowerUps,32
+IncreaseRedPowerUps,48
+SlowDownPowerUps,51
+PowerUpRain,53
+IncreaseYellowPowerUps,54
+DecreaseYellowPowerUps,60
+SlowDownPowerUps,62
+DecreaseYellowPowerUps,63
+PowerUpRain,68
+DecreaseYellowPowerUps,68
+DecreaseYellowPowerUps,72
+PowerUpRain,73
+PowerUpRain,75
+DecreaseYellowPowerUps,77
+
+18
+Thu Mar 21 17:32:40 GMT 2013
+IncreaseYellowPowerUps,7
+IncreaseRedPowerUps,12
+SlowDownPowerUps,16
+IncreaseYellowPowerUps,20
+DecreaseRedPowerUps,38
+SlowDownPowerUps,38
+PowerUpRain,41
+IncreaseYellowPowerUps,42
+IncreaseYellowPowerUps,45
+IncreaseYellowPowerUps,49
+IncreaseYellowPowerUps,54
+IncreaseYellowPowerUps,58
+IncreaseYellowPowerUps,62
+PowerUpRain,65
+IncreaseYellowPowerUps,66
+IncreaseYellowPowerUps,70
+PowerUpRain,74
+IncreaseYellowPowerUps,74
+PowerUpRain,79
+IncreaseYellowPowerUps,79
+PowerUpRain,83
+IncreaseYellowPowerUps,84
+PowerUpRain,85
+PowerUpRain,87
+IncreaseYellowPowerUps,88
+PowerUpRain,90
+
+19
+Thu Mar 21 17:43:15 GMT 2013
+IncreaseYellowPowerUps,9
+IncreaseRedPowerUps,14
+DecreaseYellowPowerUps,14
+IncreaseRedPowerUps,26
+IncreaseYellowPowerUps,28
+PowerUpRain,40
+IncreaseYellowPowerUps,43
+IncreaseYellowPowerUps,46
+IncreaseYellowPowerUps,54
+DecreaseRedPowerUps,57
+IncreaseYellowPowerUps,59
+PowerUpRain,62
+PowerUpRain,65
+
+19
+Thu Mar 21 17:46:39 GMT 2013
+DecreaseRedPowerUps,13
+DecreaseYellowPowerUps,15
+SlowDownPowerUps,16
+PowerUpRain,30
+DecreaseYellowPowerUps,31
+IncreaseYellowPowerUps,34
+DecreaseYellowPowerUps,41
+IncreaseYellowPowerUps,46
+IncreaseYellowPowerUps,50
+IncreaseYellowPowerUps,54
+IncreaseYellowPowerUps,58
+DecreaseRedPowerUps,60
+IncreaseYellowPowerUps,63
+DecreaseYellowPowerUps,67
+PowerUpRain,69
+
+19
+Thu Mar 21 17:50:09 GMT 2013
+
+20
+Thu Mar 21 18:00:58 GMT 2013
+SlowDownPowerUps,5
+IncreaseRedPowerUps,8
+SlowDownPowerUps,10
+IncreaseRedPowerUps,15
+IncreaseYellowPowerUps,17
+PowerUpRain,28
+IncreaseYellowPowerUps,30
+IncreaseYellowPowerUps,34
+IncreaseRedPowerUps,34
+IncreaseYellowPowerUps,38
+IncreaseYellowPowerUps,41
+IncreaseYellowPowerUps,46
+IncreaseYellowPowerUps,49
+PowerUpRain,51
+IncreaseYellowPowerUps,55
+IncreaseRedPowerUps,57
+IncreaseYellowPowerUps,64
+PowerUpRain,69
+IncreaseYellowPowerUps,69
+PowerUpRain,70
+IncreaseYellowPowerUps,73
+PowerUpRain,76
+IncreaseYellowPowerUps,78
+IncreaseYellowPowerUps,82
+PowerUpRain,82
+
+20
+Thu Mar 21 18:05:27 GMT 2013
+PowerUpRain,9
+DecreaseYellowPowerUps,10
+IncreaseRedPowerUps,11
+IncreaseYellowPowerUps,14
+IncreaseYellowPowerUps,17
+IncreaseYellowPowerUps,21
+IncreaseYellowPowerUps,27
+IncreaseYellowPowerUps,31
+SlowDownPowerUps,32
+IncreaseRedPowerUps,33
+IncreaseYellowPowerUps,34
+IncreaseYellowPowerUps,42
+IncreaseYellowPowerUps,46
+IncreaseYellowPowerUps,50
+DecreaseRedPowerUps,51
+PowerUpRain,53
+IncreaseYellowPowerUps,59
+IncreaseYellowPowerUps,63
+IncreaseYellowPowerUps,68
+PowerUpRain,68
+DecreaseYellowPowerUps,72
+PowerUpRain,76
+IncreaseYellowPowerUps,76
+
+20
+Thu Mar 21 18:09:29 GMT 2013
+IncreaseRedPowerUps,7
+SlowDownPowerUps,11
+IncreaseYellowPowerUps,14
+IncreaseRedPowerUps,15
+DecreaseRedPowerUps,23
+IncreaseYellowPowerUps,28
+PowerUpRain,42
+DecreaseYellowPowerUps,43
+DecreaseYellowPowerUps,46
+DecreaseRedPowerUps,47
+DecreaseYellowPowerUps,50
+DecreaseYellowPowerUps,54
+IncreaseYellowPowerUps,63
+DecreaseYellowPowerUps,67
+PowerUpRain,68
+
+20
+Thu Mar 21 18:12:56 GMT 2013
+DecreaseRedPowerUps,11
+IncreaseYellowPowerUps,23
+IncreaseRedPowerUps,43
+IncreaseYellowPowerUps,47
+PowerUpRain,70
+PowerUpRain,70
+DecreaseYellowPowerUps,73
+PowerUpRain,74
+
+21
+Thu Mar 21 18:53:19 GMT 2013
+DecreaseYellowPowerUps,8
+IncreaseRedPowerUps,19
+PowerUpRain,21
+DecreaseYellowPowerUps,22
+DecreaseYellowPowerUps,26
+DecreaseYellowPowerUps,29
+DecreaseYellowPowerUps,32
+DecreaseYellowPowerUps,36
+IncreaseRedPowerUps,38
+DecreaseYellowPowerUps,40
+IncreaseYellowPowerUps,44
+IncreaseRedPowerUps,46
+DecreaseYellowPowerUps,49
+SlowDownPowerUps,49
+DecreaseYellowPowerUps,53
+DecreaseYellowPowerUps,58
+DecreaseYellowPowerUps,62
+PowerUpRain,67
+PowerUpRain,69
+PowerUpRain,70
+DecreaseYellowPowerUps,71
+
+22
+Fri Mar 22 16:44:08 GMT 2013
+
+22
+Fri Mar 22 16:47:41 GMT 2013
+
+22
+Fri Mar 22 16:50:38 GMT 2013
+
+22
+Fri Mar 22 16:53:06 GMT 2013
+
+23
+Fri Mar 22 17:00:52 GMT 2013
+
+23
+Fri Mar 22 17:04:31 GMT 2013
+
+24
+Fri Mar 22 17:19:34 GMT 2013
+
+25
+Fri Mar 22 17:29:24 GMT 2013
+
+FREEPLAY
+Fri Mar 22 17:40:01 GMT 2013
+DecreaseYellowPowerUps,5
+DecreaseYellowPowerUps,14
+IncreaseRedPowerUps,14
+IncreaseRedPowerUps,22
+DecreaseYellowPowerUps,32
+IncreaseRedPowerUps,35
+
+FREEPLAY
+Fri Mar 22 17:42:37 GMT 2013
+IncreaseRedPowerUps,6
+DecreaseYellowPowerUps,8
+SlowDownPowerUps,11
+DecreaseYellowPowerUps,20
+IncreaseRedPowerUps,26
+IncreaseRedPowerUps,37
+DecreaseYellowPowerUps,42
+PowerUpRain,49
+
+FREEPLAY
+Fri Mar 22 17:45:41 GMT 2013
+IncreaseYellowPowerUps,7
+IncreaseRedPowerUps,10
+IncreaseYellowPowerUps,16
+IncreaseRedPowerUps,23
+IncreaseYellowPowerUps,24
+IncreaseYellowPowerUps,29
+IncreaseRedPowerUps,38
+PowerUpRain,45
+IncreaseYellowPowerUps,45
+DecreaseYellowPowerUps,48
+DecreaseYellowPowerUps,53
+IncreaseRedPowerUps,57
+PowerUpRain,57
+PowerUpRain,60
+DecreaseYellowPowerUps,62
+PowerUpRain,62
+PowerUpRain,64
+IncreaseYellowPowerUps,66
+DecreaseYellowPowerUps,70
+PowerUpRain,71
+PowerUpRain,73
+DecreaseYellowPowerUps,74
+PowerUpRain,79
+PowerUpRain,80
+
+FREEPLAY
+Fri Mar 22 17:49:43 GMT 2013
+IncreaseYellowPowerUps,5
+DecreaseRedPowerUps,10
+IncreaseYellowPowerUps,17
+IncreaseYellowPowerUps,23
+DecreaseRedPowerUps,35
+IncreaseYellowPowerUps,38
+IncreaseYellowPowerUps,47
+DecreaseRedPowerUps,54
+PowerUpRain,56
+DecreaseYellowPowerUps,58
+PowerUpRain,61
+DecreaseYellowPowerUps,62
+PowerUpRain,66
+SlowDownPowerUps,70
+DecreaseYellowPowerUps,70
+PowerUpRain,72
+PowerUpRain,73
+DecreaseYellowPowerUps,75

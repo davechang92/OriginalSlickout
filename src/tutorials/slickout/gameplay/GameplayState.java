@@ -80,7 +80,7 @@ public class GameplayState extends BasicGameState {
 	
 	public GameplayState(boolean dda){
 		super();
-		this.dda = dda;
+		this.dda = true;
 	}
  
 	@Override
